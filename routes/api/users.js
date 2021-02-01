@@ -50,4 +50,43 @@ router.post("/", (req, res) => {
   });
 });
 
+router.post("/login", (req, res) => {
+  const { errors, isValid } = validateLoginInput(req.body);
+
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
+  const email = req.body.email;
+  const password = req.body.password;
+
+  User.findOne({ email }).then((user) => {
+    if (!user) {
+      res.status(400).json({ email: "Email not found" });
+    }
+  });
+
+  bcrypt.compare(password, user.password).then((isMatch) => {
+    if (isMatch) {
+      const payload = { id: user.id, handle: user.handle, email: user.email };
+      jwt.sign(payload, keys.secretOrKey, { expires: 3600 }, (err, token) => {
+        res.json({ success: true, token: "Bearer " + token });
+      });
+    } else {
+      return res.status(400).json({ password: "Password incorrect" });
+    }
+  });
+});
+
+router.get(
+  "/current",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    res.json({
+      id: req.user.id,
+      handle: req.user.handle,
+      email: req.user.email,
+    });
+  }
+);
 module.exports = router;
