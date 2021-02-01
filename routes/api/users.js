@@ -6,8 +6,14 @@ const keys = require("../../config/keys");
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
 const validateRegisterInput = require("../../validation/register");
+const validateLoginInput = require("../../validation/login");
 
-router.post("/", (req, res) => {
+router.get("/test", (req, res) => {
+  return res.json({ test: "test val" });
+});
+
+router.post("/register", (req, res) => {
+  debugger;
   const { errors, isValid } = validateRegisterInput(req.body);
 
   if (!isValid) {
@@ -25,28 +31,27 @@ router.post("/", (req, res) => {
         email: req.body.email,
         password: req.body.password,
       });
-    }
-
-    bcrypt.genSalt(10, (err, salt) => {
-      bcrypt.hash(newUser.password, salt, (error, hash) => {
-        if (error) throw error;
-        newUser.password = hash;
-        newUser
-          .save()
-          .then((user) => {
-            const payload = { id: user.id, handle: user.handle };
-            jwt.sign(
-              payload,
-              keys.secretOrKey,
-              { expiresIn: 3600 },
-              (err, token) => {
-                res.json({ success: true, token: "Bearer " + token });
-              }
-            );
-          })
-          .catch((err) => console.log(err));
+      bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(newUser.password, salt, (error, hash) => {
+          if (error) throw error;
+          newUser.password = hash;
+          newUser
+            .save()
+            .then((user) => {
+              const payload = { id: user.id, handle: user.handle };
+              jwt.sign(
+                payload,
+                keys.secretOrKey,
+                { expiresIn: 3600 },
+                (err, token) => {
+                  res.json({ success: true, token: "Bearer " + token });
+                }
+              );
+            })
+            .catch((err) => console.log(err));
+        });
       });
-    });
+    }
   });
 });
 
