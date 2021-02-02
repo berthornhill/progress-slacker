@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Meme = require("../../models/meme");
+const Meme = require("../../models/Meme");
 const validateMemeInput = require("../../validation/meme_template");
 
 // Create Meme
@@ -9,15 +9,18 @@ const validateMemeInput = require("../../validation/meme_template");
 // Delete meme
 
 router.post("/create", (req, res) => {
-  const { errors, isValid } = validateMemeInput(req.body);
+  // const { errors, isValid } = validateMemeInput(req.body);
 
-  if (!isValid) {
-    return res.status(400).json(errors);
-  }
+  // if (!isValid) {
+  //   return res.status(400).json(errors);
+  // }
 
   const newMeme = new Meme({
-    title: req.body.title,
-    tag: req.body.tag,
+    url: req.body,
+    // title: req.body.title,
+    // tag: req.body.tag,
     // w.e else goes to memes
   });
 });
+
+module.exports = router;

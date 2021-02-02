@@ -9,7 +9,7 @@
     "server": "nodemon app.js",
     "frontend-install": "npm install --prefix frontend",
     "frontend": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run frontend\""
+    "dev": "concurrently \"npm run server:debug\" \"npm run frontend\""
   },
   "author": "",
   "license": "ISC",
@@ -17,9 +17,12 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "concurrently": "^5.3.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.14",
+    "multer": "^1.4.2",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "validator": "^13.5.2"
