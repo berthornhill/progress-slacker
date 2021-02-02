@@ -7,6 +7,7 @@ import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 
 import Dashboard from "./dashboard/dashboard";
+import CreateMemeContainer from "./meme/meme_template_container";
 
 const App = () => (
   // <div>dashboard</div>
@@ -16,6 +17,8 @@ const App = () => (
       <Route exact path="/" component={Dashboard} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
+
+      <ProtectedRoute exact path="/create" component={CreateMemeContainer} />
     </Switch>
   </div>
 );
