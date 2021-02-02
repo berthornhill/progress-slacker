@@ -124,14 +124,16 @@ class MemeCanvas extends React.Component {
     return (
       <div>
         {/* <canvas ref={this.setCanvasRef} width={500} height={500} /> */}
-        <canvas ref={this.setCanvasRef} width={500} height={500} />
-        <img
-          src="https://media.wired.com/photos/5cdefb92b86e041493d389df/1:1/w_988,h_988,c_limit/Culture-Grumpy-Cat-487386121.jpg"
-          alt="grumpy cat"
-          style={imgStyle}
-          ref={this.setImageRef}
-          // crossOrigin="user-credentials"
-        />
+        <div className="canvas-element">
+          <canvas ref={this.setCanvasRef} width={500} height={500} />
+          <img
+            src="https://media.wired.com/photos/5cdefb92b86e041493d389df/1:1/w_988,h_988,c_limit/Culture-Grumpy-Cat-487386121.jpg"
+            alt="grumpy cat"
+            style={imgStyle}
+            ref={this.setImageRef}
+            // crossOrigin="user-credentials"
+          />
+        </div>
 
         <div className="meme-form">
           <label value="topText">Top Text</label>
