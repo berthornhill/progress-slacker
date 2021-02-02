@@ -23,6 +23,12 @@ app.use(bodyParser.json());
 
 app.use("/api/users", users);
 
+// Static Files
+app.use(express.static('public'))
+app.use('/css',express.static(__dirname + 'public/css'))
+app.use('/img',express.static(__dirname + 'public/img'))
+
+
 app.use(passport.initialize());
 require("./config/passport")(passport);
 
