@@ -57,6 +57,7 @@ router.post("/register", (req, res) => {
 
 router.post("/login", (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
+  debugger;
 
   if (!isValid) {
     return res.status(400).json(errors);
@@ -69,17 +70,18 @@ router.post("/login", (req, res) => {
     if (!user) {
       res.status(400).json({ email: "Email not found" });
     }
-  });
 
-  bcrypt.compare(password, user.password).then((isMatch) => {
-    if (isMatch) {
-      const payload = { id: user.id, handle: user.handle, email: user.email };
-      jwt.sign(payload, keys.secretOrKey, { expires: 3600 }, (err, token) => {
-        res.json({ success: true, token: "Bearer " + token });
-      });
-    } else {
-      return res.status(400).json({ password: "Password incorrect" });
-    }
+    bcrypt.compare(password, user.password).then((isMatch) => {
+      if (isMatch) {
+        debugger;
+        const payload = { id: user.id, handle: user.handle, email: user.email };
+        jwt.sign(payload, keys.secretOrKey, { expires: 3600 }, (err, token) => {
+          res.json({ success: true, token: "Bearer " + token });
+        });
+      } else {
+        return res.status(400).json({ password: "Password incorrect" });
+      }
+    });
   });
 });
 
