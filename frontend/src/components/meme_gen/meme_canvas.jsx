@@ -8,6 +8,8 @@ class MemeCanvas extends React.Component {
     this.state = {
       topText: "",
       bottomText: "",
+      textSize: 70,
+      bottomTextSize: 70,
     };
 
     this.canvasRef = null;
@@ -28,6 +30,8 @@ class MemeCanvas extends React.Component {
     // };
 
     this.updateValue = this.updateValue.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderImage = this.renderImage.bind(this);
   }
 
   updateValue(value) {
@@ -37,6 +41,17 @@ class MemeCanvas extends React.Component {
       this.setState({ [value]: e.target.value });
       debugger;
     };
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.renderImage();
+  }
+
+  renderImage() {
+    debugger;
+    let meme = this.canvasRef.toDataURL("image/jpeg", 1);
+    console.log(meme);
   }
 
   componentDidMount() {
@@ -58,14 +73,6 @@ class MemeCanvas extends React.Component {
         canvas.width,
         canvas.height
       );
-
-      // let x = canvas.width / 2;
-      // let y = canvas.height / 5;
-      // ctx.font = "bolder 70px Helvetica";
-      // ctx.textAlign = "center";
-      // ctx.fillStyle = "white";
-      // ctx.fillText(this.state.text, x, y);
-      // ctx.strokeText(this.state.text, x, y);
     };
   }
 
@@ -92,7 +99,8 @@ class MemeCanvas extends React.Component {
 
       let x = canvas.width / 2;
       let y = canvas.height / 5;
-      ctx.font = "bolder 70px Helvetica";
+      ctx.font = `bolder ${this.state.topTextSize}px Helvetica`;
+      debugger;
       ctx.textAlign = "center";
       ctx.fillStyle = "white";
       ctx.fillText(this.state.topText, x, y);
@@ -100,7 +108,7 @@ class MemeCanvas extends React.Component {
 
       let z = canvas.width / 2;
       let v = 450;
-      ctx.font = "bolder 70px Helvetica";
+      ctx.font = `bolder ${this.state.bottomTextSize}px Helvetica`;
       ctx.textAlign = "center";
       ctx.fillStyle = "white";
       debugger;
@@ -122,9 +130,10 @@ class MemeCanvas extends React.Component {
           alt="grumpy cat"
           style={imgStyle}
           ref={this.setImageRef}
+          // crossOrigin="user-credentials"
         />
 
-        <form>
+        <div className="meme-form">
           <label value="topText">Top Text</label>
           <input
             type="text"
@@ -137,6 +146,26 @@ class MemeCanvas extends React.Component {
             onChange={this.updateValue("bottomText")}
             value={this.state.bottomText}
           />
+          <label value="top text size">Top Text Size</label>
+          <input
+            type="range"
+            min="12"
+            max="100"
+            defaultValue={this.state.topTextSize}
+            onChange={this.updateValue("topTextSize")}
+          />
+
+          <label value="bottom text size">Bottom Text Size</label>
+          <input
+            type="range"
+            min="12"
+            max="100"
+            defaultValue={this.state.bottomTextSize}
+            onChange={this.updateValue("bottomTextSize")}
+          />
+        </div>
+        <form onSubmit={this.handleSubmit}>
+          <button value="generateMeme">Generate Meme</button>
         </form>
       </div>
     );
