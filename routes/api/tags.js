@@ -7,6 +7,7 @@ router.post("/", (req, res) => {
 
   const newTag = new Tag({
     title: req.body.title,
+    memes: req.body.memes.split(" "),
   });
 
   newTag.save().then((tag) => res.json(tag));
