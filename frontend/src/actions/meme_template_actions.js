@@ -56,7 +56,8 @@ export const fetchMemes = () => {
 export const fetchMeme = (memeId) => {
   return (dispatch) => {
     return getMeme(memeId).then((meme) => {
-      return dispatch(receiveMeme).catch((err) => console.log(err));
+      return dispatch(receiveMeme(meme));
+      // .catch((err) => console.log(err));
     });
   };
 };

@@ -10,6 +10,8 @@ class MemeCanvas extends React.Component {
       bottomText: "",
       textSize: 70,
       bottomTextSize: 70,
+      image:
+        "https://media.wired.com/photos/5cdefb92b86e041493d389df/1:1/w_988,h_988,c_limit/Culture-Grumpy-Cat-487386121.jpg",
     };
 
     this.canvasRef = null;
@@ -32,6 +34,7 @@ class MemeCanvas extends React.Component {
     this.updateValue = this.updateValue.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderImage = this.renderImage.bind(this);
+    this.getImage = this.getImage.bind(this);
   }
 
   updateValue(value) {
@@ -41,6 +44,39 @@ class MemeCanvas extends React.Component {
       this.setState({ [value]: e.target.value });
       debugger;
     };
+  }
+
+  getImage() {
+    this.props.fetchMeme("601a0c3652f5ae75941588e5").then((image) => {
+      debugger;
+      let buffer = image.meme.data.img.data.data;
+
+      let img = this._arrayBufferToBase64(buffer);
+      // let img = function _arrayBufferToBase64(buffer) {
+      //   var binary = "";
+      //   var bytes = new Uint8Array(buffer);
+      //   var len = bytes.byteLength;
+      //   for (var i = 0; i < len; i++) {
+      //     binary += String.fromCharCode(bytes[i]);
+      //   }
+      //   return window.btoa(binary);
+      // };
+      debugger;
+
+      // <img src={"data:image/png;base64," + Data.Photo} />;
+      this.setState({ image: "data:image/png;base64," + img });
+    });
+    debugger;
+  }
+
+  _arrayBufferToBase64(buffer) {
+    var binary = "";
+    var bytes = new Uint8Array(buffer);
+    var len = bytes.byteLength;
+    for (var i = 0; i < len; i++) {
+      binary += String.fromCharCode(bytes[i]);
+    }
+    return window.btoa(binary);
   }
 
   handleSubmit(e) {
@@ -120,14 +156,14 @@ class MemeCanvas extends React.Component {
     const imgStyle = {
       display: "none",
     };
-
+    debugger;
     return (
       <div>
         {/* <canvas ref={this.setCanvasRef} width={500} height={500} /> */}
         <div className="canvas-element">
           <canvas ref={this.setCanvasRef} width={500} height={500} />
           <img
-            src="https://media.wired.com/photos/5cdefb92b86e041493d389df/1:1/w_988,h_988,c_limit/Culture-Grumpy-Cat-487386121.jpg"
+            src={this.state.image}
             alt="grumpy cat"
             style={imgStyle}
             ref={this.setImageRef}
@@ -168,6 +204,10 @@ class MemeCanvas extends React.Component {
         </div>
         <form onSubmit={this.handleSubmit}>
           <button value="generateMeme">Generate Meme</button>
+        </form>
+
+        <form onSubmit={() => this.getImage}>
+          <input type="button" value="submit" onClick={() => this.getImage()} />
         </form>
       </div>
     );

@@ -13,7 +13,8 @@ const MemesReducer = (state = {}, action) => {
     case FETCH_MEMES:
       return action.memes;
     case FETCH_MEME:
-      return Object.assign({}, state, { [meme.id]: meme });
+      debugger;
+      return Object.assign({}, state, { [meme.data._id]: meme.data.img.data });
     case DELETE_MEME:
       const newState = Object.assign({}, state);
       delete newState[memeId];
