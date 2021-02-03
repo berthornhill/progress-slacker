@@ -1,6 +1,6 @@
 import { authorize } from "passport";
 import React from "react";
-import NavBar from "../navbar/navbar_conatiner";
+
 
 class MemeCanvas extends React.Component {
   constructor(props) {
@@ -195,7 +195,7 @@ class MemeCanvas extends React.Component {
     debugger;
     return (
       <div className="main-canvas">
-        <NavBar />
+    
 
         <div className="select-img">
           <h1 className="table-header">Select Your Meme Template</h1>
