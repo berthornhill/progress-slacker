@@ -15,6 +15,7 @@ const App = () => (
     <Switch>
       {/* <Route path="/" component={MemeCanvas} /> */}
       <Route exact path="/" component={Dashboard} />
+      <AuthRoute exact path="/creatememes" component={MemeCanvas} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
 

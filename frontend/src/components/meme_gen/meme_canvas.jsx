@@ -1,5 +1,6 @@
 import { authorize } from "passport";
 import React from "react";
+import NavBar from "../navbar/navbar_conatiner";
 
 class MemeCanvas extends React.Component {
   constructor(props) {
@@ -10,6 +11,8 @@ class MemeCanvas extends React.Component {
       bottomText: "",
       textSize: 70,
       bottomTextSize: 70,
+      allMemes: [],
+      category: ''
     };
 
     this.canvasRef = null;
@@ -32,7 +35,14 @@ class MemeCanvas extends React.Component {
     this.updateValue = this.updateValue.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderImage = this.renderImage.bind(this);
+    // this.handlePic = this.handlePic.bind(this);
   }
+
+  // handlePic(e){
+  //   e.preventDefault()
+
+  // }
+
 
   updateValue(value) {
     // debugger;
@@ -74,6 +84,17 @@ class MemeCanvas extends React.Component {
         canvas.height
       );
     };
+
+    fetch('https://api.imgflip.com/get_memes')
+      .then(response => response.json())
+      .then(response => {
+      const {memes} = response.data
+               
+      this.setState({
+        allMemes: memes
+      })
+    });
+
   }
 
   render() {
@@ -121,54 +142,114 @@ class MemeCanvas extends React.Component {
       display: "none",
     };
 
+
+    // meme template code
+
+
+    const {allMemes} = this.state
+
+
+    let boxCount = []
+        
+
+    const boxMemes = allMemes.map(meme  => {
+      if(meme.box_count <= 2){
+          boxCount.push(meme)
+          }
+    });
+
+    const featureMemes = boxCount.map(meme => {
+            return (
+              <img src={meme.url} className={"meme-template-inner"} />
+            );
+    });
+
     return (
-      <div>
-        {/* <canvas ref={this.setCanvasRef} width={500} height={500} /> */}
-        <div className="canvas-element">
-          <canvas ref={this.setCanvasRef} width={500} height={500} />
+      <div className="main-canvas">
+          <NavBar/>
+
+        <div className="select-img">
+          <h1 className="table-header">Select Your Meme Template</h1>
+          <div className="img-table">
+              {featureMemes}
+          </div>
+        </div>
+
+        <div className="canvas-creator">
+            {/* <canvas ref={this.setCanvasRef} width={500} height={500} /> */}
+          <canvas ref={this.setCanvasRef} width={500} height={500}  className="meme-pic"/>
           <img
-            src="https://media.wired.com/photos/5cdefb92b86e041493d389df/1:1/w_988,h_988,c_limit/Culture-Grumpy-Cat-487386121.jpg"
-            alt="grumpy cat"
-            style={imgStyle}
-            ref={this.setImageRef}
-            // crossOrigin="user-credentials"
+                src="https://media.wired.com/photos/5cdefb92b86e041493d389df/1:1/w_988,h_988,c_limit/Culture-Grumpy-Cat-487386121.jpg"
+                alt="grumpy cat"
+                style={imgStyle}
+                ref={this.setImageRef}
+                // crossOrigin="user-credentials"
+                className="meme-pic"
           />
         </div>
 
-        <div className="meme-form">
-          <label value="topText">Top Text</label>
-          <input
-            type="text"
-            onChange={this.updateValue("topText")}
-            value={this.state.topText}
-          />
-          <label value="bottomText">Bottom Text</label>
-          <input
-            type="text"
-            onChange={this.updateValue("bottomText")}
-            value={this.state.bottomText}
-          />
-          <label value="top text size">Top Text Size</label>
-          <input
-            type="range"
-            min="12"
-            max="100"
-            defaultValue={this.state.topTextSize}
-            onChange={this.updateValue("topTextSize")}
-          />
+        <div className="img-config">
+          <div className="meme-form">
+              <label value="topText" className='top-header'>Top Text</label>
+              <br/>
+              <input
+                type="text"
+                onChange={this.updateValue("topText")}
+                value={this.state.topText}
+              />
+              <br/>
+              <label value="bottomText">Bottom Text</label>
+              <br/>
+              <input
+                type="text"
+                onChange={this.updateValue("bottomText")}
+                value={this.state.bottomText}
+              />
+              <br/>
+              <label value="top text size">Top Text Size</label>
+              <br/>
+              <input
+                type="range"
+                min="12"
+                max="100"
+                defaultValue={this.state.topTextSize}
+                onChange={this.updateValue("topTextSize")}
+              />
+              <br/>
+              <label value="bottom text size">Bottom Text Size</label>
+              <br/>
+              <input
+                type="range"
+                min="12"
+                max="100"
+                defaultValue={this.state.bottomTextSize}
+                onChange={this.updateValue("bottomTextSize")}
+              />
+              <br/>
+              <label>Select categrory
+                <br/>
+                <select 
+                  className='category-select'
+                  onChange={this.updateValue("category")}
+                  >
+                  <option value="App Academy">App Academy</option>
+                  <option value="Animals">Animals</option>
+                  <option value="Anime">Anime</option>
+                  <option value="Gaming">Gaming</option>
+                  <option value="Tv Shows">Tv Shows</option>
+                  <option value="Movies">Movies</option>
+                  <option value="Politics">Politics</option>
+                  <option value="Sports">Sports</option>
+                  <option value="Internet">Internet</option>
+                </select>
+              </label>
+            </div>
 
-          <label value="bottom text size">Bottom Text Size</label>
-          <input
-            type="range"
-            min="12"
-            max="100"
-            defaultValue={this.state.bottomTextSize}
-            onChange={this.updateValue("bottomTextSize")}
-          />
+            <form onSubmit={this.handleSubmit}>
+              <button value="generateMeme" className="generate-meme-button">Generate Meme</button>
+            </form>
         </div>
-        <form onSubmit={this.handleSubmit}>
-          <button value="generateMeme">Generate Meme</button>
-        </form>
+
       </div>
     );
   }
