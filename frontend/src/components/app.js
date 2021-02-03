@@ -12,15 +12,13 @@ import CreateMemeContainer from "./meme/meme_template_container";
 const App = () => (
   // <div>dashboard</div>
   <div>
-    {/* <Switch>
+    <Switch>
       <Route exact path="/" component={Dashboard} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
 
       <ProtectedRoute exact path="/create" component={CreateMemeContainer} />
-    </Switch> */}
-
-    <MemeCanvas />
+    </Switch>
   </div>
 );
 
