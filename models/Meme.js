@@ -11,10 +11,10 @@ const MemeSchema = new Schema({
     type: Array,
     required: true,
   },
-  //   img: {
-  //     data: Buffer,
-  //     contentType: String,
-  //   },
+  img: {
+    data: Buffer,
+    contentType: String,
+  },
   created: {
     type: Date,
     default: Date.now,

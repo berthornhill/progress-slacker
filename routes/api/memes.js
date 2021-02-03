@@ -5,18 +5,29 @@ const Meme = require("../../models/Meme");
 const validateMeme = require("../../validation/meme");
 // const Template = require("../../models/Template");
 
-// const fs = require("fs");
-// const path = require("path");
-// require("dotenv/config");
-// const multer = require("multer");
-// const bodyParser = require("body-parser");
+const fs = require("fs");
+const path = require("path");
+require("dotenv/config");
+const multer = require("multer");
+const bodyParser = require("body-parser");
 
-// router.use(bodyParser.json());
-// router.use(
-//   bodyParser.urlencoded({
-//     extended: false,
-//   })
-// );
+router.use(bodyParser.json());
+router.use(
+  bodyParser.urlencoded({
+    extended: false,
+  })
+);
+
+var storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "./routes/api/uploads");
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.fieldname + "-" + Date.now());
+  },
+});
+
+var upload = multer({ storage: storage });
 
 // GETs all memes
 router.get("/", (req, res) => {
@@ -40,17 +51,25 @@ router.get("/tags/tag", (req, res) => {
 // query: {tags: "Anime"}
 
 // POSTS template to meme
-router.post("/", (req, res) => {
+router.post("/", upload.single("image"), (req, res, next) => {
+  var obj = {
+    img: {
+      data: fs.readFileSync(
+        path.join(__dirname + "/uploads/" + req.file.filename)
+      ),
+      // contentType: "image/png",
+      contentType: req.file.mimetype,
+    },
+    title: req.body.title,
+    tags: req.body.tags.split(" "),
+  };
   const { errors, isValid } = validateMeme(req.body);
 
   if (!isValid) {
     return res.status(400).json(errors);
   }
 
-  const newMeme = new Meme({
-    title: req.body.title,
-    tags: req.body.tags.split(" "),
-  });
+  const newMeme = new Meme(obj);
 
   newMeme.save().then((meme) => res.json(meme));
 });
