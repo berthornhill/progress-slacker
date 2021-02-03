@@ -17,6 +17,19 @@ const TagSchema = new Schema({
   title: {
     type: String,
     required: true,
+    unique: true,
+  },
+  created: {
+    type: Date,
+    default: Date.now,
+  },
+  memes: {
+    type: Array,
+    required: true,
+  },
+  templates: {
+    type: Array,
+    required: true,
   },
 });
 

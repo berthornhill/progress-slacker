@@ -10,6 +10,7 @@ const Template = require("./models/Template");
 const users = require("./routes/api/users");
 const templates = require("./routes/api/templates");
 const memes = require("./routes/api/memes");
+const tags = require("./routes/api/tags");
 
 mongoose
   .connect(db, { useUnifiedTopology: true, useNewUrlParser: true })
@@ -28,6 +29,7 @@ app.set("view engine", "ejs");
 app.use("/api/users", users);
 app.use("/api/templates", templates);
 app.use("/api/memes", memes);
+app.use("/api/tags", tags);
 
 // Static Files
 app.use(express.static("public"));

@@ -1,0 +1,15 @@
+const express = require("express");
+const router = express.Router();
+const Tag = require("../../models/Tag");
+
+router.post("/", (req, res) => {
+  // if valid
+
+  const newTag = new Tag({
+    title: req.body.title,
+  });
+
+  newTag.save().then((tag) => res.json(tag));
+});
+
+module.exports = router;
