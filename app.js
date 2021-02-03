@@ -5,14 +5,15 @@ const passport = require("passport");
 const db = require("./config/keys").mongoURI;
 const bodyParser = require("body-parser");
 
+const MemeTemplate = require("./models/MemeTemplate");
+
 const users = require("./routes/api/users");
+const memeTemplates = require("./routes/api/meme_templates");
 
 mongoose
   .connect(db, { useUnifiedTopology: true, useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch((err) => console.log(err));
-
-app.get("/", (req, res) => res.send("Hello World, I am Progress Slacker"));
 
 app.use(
   bodyParser.urlencoded({
@@ -21,9 +22,13 @@ app.use(
 );
 app.use(bodyParser.json());
 
+app.set("view engine", "ejs");
+
 app.use("/api/users", users);
+app.use("/api/meme-templates", memeTemplates);
 
 app.use(passport.initialize());
+
 require("./config/passport")(passport);
 
 const port = process.env.PORT || 5000;
