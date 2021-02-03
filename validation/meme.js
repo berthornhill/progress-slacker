@@ -1,7 +1,7 @@
 const Validator = require("validator");
 const validText = require("./valid-text");
 
-module.exports = function validateMemeInput(data) {
+module.exports = function validateMeme(data) {
   let errors = {};
 
   data.title = validText(data.title) ? data.title : "";
@@ -10,7 +10,12 @@ module.exports = function validateMemeInput(data) {
     errors.title = "Title cannot be blank";
   }
 
-  if (Validator.isEmpty(data.tag)) {
-    errors.tag = "Tag cannot be blank";
-  }
+  // if (Validator.isEmpty(data.tag)) {
+  //   errors.tag = "Tag cannot be blank";
+  // }
+
+  return {
+    errors,
+    isValid: Object.keys(errors).length === 0,
+  };
 };

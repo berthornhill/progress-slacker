@@ -5,10 +5,11 @@ const passport = require("passport");
 const db = require("./config/keys").mongoURI;
 const bodyParser = require("body-parser");
 
-const MemeTemplate = require("./models/MemeTemplate");
+const Template = require("./models/Template");
 
 const users = require("./routes/api/users");
-const memeTemplates = require("./routes/api/meme_templates");
+const templates = require("./routes/api/templates");
+const memes = require("./routes/api/memes");
 
 mongoose
   .connect(db, { useUnifiedTopology: true, useNewUrlParser: true })
@@ -25,13 +26,13 @@ app.use(bodyParser.json());
 app.set("view engine", "ejs");
 
 app.use("/api/users", users);
-app.use("/api/meme_templates", memeTemplates);
+app.use("/api/templates", templates);
+app.use("/api/memes", memes);
 
 // Static Files
-app.use(express.static('public'))
-app.use('/css',express.static(__dirname + 'public/css'))
-app.use('/img',express.static(__dirname + 'public/img'))
-
+app.use(express.static("public"));
+app.use("/css", express.static(__dirname + "public/css"));
+app.use("/img", express.static(__dirname + "public/img"));
 
 app.use(passport.initialize());
 

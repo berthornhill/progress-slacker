@@ -8,10 +8,6 @@ const passport = require("passport");
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 
-router.get("/test", (req, res) => {
-  return res.json({ test: "test val" });
-});
-
 router.post("/register", (req, res) => {
   debugger;
   const { errors, isValid } = validateRegisterInput(req.body);

@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const Meme = require("../../models/Meme");
-const validateMemeInput = require("../../validation/meme_template");
-const MemeTemplate = require("../../models/MemeTemplate");
+// const Meme = require("../../models/Meme");
+const validateTemplate = require("../../validation/template");
+const Template = require("../../models/Template");
 
 const fs = require("fs");
 const path = require("path");
@@ -12,6 +12,11 @@ const bodyParser = require("body-parser");
 // Create Meme
 
 router.use(bodyParser.json());
+router.use(
+  bodyParser.urlencoded({
+    extended: false,
+  })
+);
 
 var storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -28,51 +33,40 @@ var upload = multer({ storage: storage });
 
 // GET "/api/meme_templates/"
 router.get("/", (req, res) => {
-  debugger;
-  MemeTemplate.find({}, (err, items) => {
-    debugger;
-    if (err) {
-      console.log(err);
-      res.status(500).send("An error occurred", err);
-    } else {
-      res.json({ items });
-    }
-  });
+  Template.find()
+    .sort({ created: -1 })
+    .then((templates) => res.json(templates))
+    .catch((err) => res.status(400).json(err));
 });
 
-router.use(
-  bodyParser.urlencoded({
-    extended: false,
-  })
-);
 router.get("/:id", (req, res) => {
-  debugger;
-  MemeTemplate.findById(req.params.id).then((MemeTemplate) =>
-    res.json(MemeTemplate)
-  );
+  Template.findById(req.params.id).then((Template) => res.json(Template));
 });
 
-// POST "/api/meme_templates/"
+// POST "/api/templates/"
 router.post("/", upload.single("image"), (req, res, next) => {
-  debugger;
   var obj = {
     img: {
       data: fs.readFileSync(
         path.join(__dirname + "/uploads/" + req.file.filename)
       ),
-      contentType: "image/png",
+      // contentType: "image/png",
+      contentType: req.file.mimetype,
     },
+    title: req.body.title,
   };
-  MemeTemplate.create(obj, (err, item) => {
-    if (err) {
-      console.log(err);
-    } else {
-      item
-        .save()
-        // res.redirect("/");
-        .then((item) => res.json(item));
-    }
-  });
+
+  const { errors, isValid } = validateTemplate(req.body);
+
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+  const newTemplate = new Template(obj);
+  newTemplate.save().then((template) => res.json(template));
+
+  // Template.create(obj, (err, item) => {
+  //   item.save().then((item) => res.json(item));
+  // });
 });
 
 module.exports = router;
