@@ -26,24 +26,44 @@ var upload = multer({ storage: storage });
 // Read Meme - get meme from url id (goes to reg meme section)
 // Delete meme
 
-router.get("/", (req, res) => {
-  debugger;
-  MemeTemplate.find({}, (err, items) => {
-    debugger;
-    if (err) {
-      console.log(err);
-      res.status(500).send("An error occurred", err);
-    } else {
-      res.json({ items });
-    }
-  });
-});
+// router.get("/:id", (req, res) => {
+//   Tweet.findById(req.params.id)
+//     .then((tweet) => res.json(tweet))
+//     .catch((err) => res(status(400).json(err)));
+// });
+
+// router.get("/", (req, res) => {
+//   debugger;
+//   MemeTemplate.find({}, (err, items) => {
+//     debugger;
+//     if (err) {
+//       console.log(err);
+//       res.status(500).send("An error occurred", err);
+//     } else {
+//       res.json({ items });
+//     }
+//   });
+// });
+
+// from mern tweets
+// router.get("/", (req, res) => {
+//   Tweet.find()
+//     .sort({ date: -1 })
+//     .then((tweets) => res.json(tweets))
+//     .catch((err) => res.status(400).json(err));
+// });
 
 router.use(
   bodyParser.urlencoded({
     extended: false,
   })
 );
+router.get("/:id", (req, res) => {
+  debugger;
+  MemeTemplate.findById(req.params.id).then((MemeTemplate) =>
+    res.json(MemeTemplate)
+  );
+});
 
 router.post("/", upload.single("image"), (req, res, next) => {
   debugger;
@@ -59,8 +79,10 @@ router.post("/", upload.single("image"), (req, res, next) => {
     if (err) {
       console.log(err);
     } else {
-      item.save();
-      res.redirect("/");
+      item
+        .save()
+        // res.redirect("/");
+        .then((item) => res.json(item));
     }
   });
 });
