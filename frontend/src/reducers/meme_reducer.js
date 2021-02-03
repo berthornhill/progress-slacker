@@ -8,7 +8,7 @@ import {
 const MemesReducer = (state = {}, action) => {
   Object.freeze(state);
   const { meme, memes, memeId } = action;
-
+  debugger
   switch (action.type) {
     case FETCH_MEMES:
       return Object.assign({}, state, action.memes.data);

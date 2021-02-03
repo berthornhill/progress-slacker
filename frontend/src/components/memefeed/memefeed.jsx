@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 class MemeFeed extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     // this.state = {
-    //   // display: props.display,
+      // display: props.display,
     //   allMemes: this.props.allMemes,
     // };
   }

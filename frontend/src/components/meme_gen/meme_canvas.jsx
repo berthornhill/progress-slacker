@@ -1,4 +1,3 @@
-import { authorize } from "passport";
 import React from "react";
 
 class MemeCanvas extends React.Component {
@@ -54,9 +53,10 @@ class MemeCanvas extends React.Component {
   }
 
   getImage() {
-    this.props.fetchMeme("601a0c3652f5ae75941588e5").then((image) => {
+    debugger
+    this.props.fetchMeme("601af605f230b3d78dade52a").then((image) => {
       let buffer = image.meme.data.img.data.data;
-
+      
       let img = this._arrayBufferToBase64(buffer);
       // let img = function _arrayBufferToBase64(buffer) {
       //   var binary = "";
@@ -85,6 +85,7 @@ class MemeCanvas extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.renderImage();
+    debugger
   }
 
   renderImage() {
@@ -203,7 +204,7 @@ class MemeCanvas extends React.Component {
             alt="grumpy cat"
             style={imgStyle}
             ref={this.setImageRef}
-            // crossOrigin="user-credentials"
+            // crossorigin="anonymous"
           />
         </div>
 

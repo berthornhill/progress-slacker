@@ -24,6 +24,7 @@ export const postMeme = (memeTemplate) => {
 };
 
 export const receiveMeme = (meme) => {
+  debugger
   return {
     type: FETCH_MEME,
     meme,
@@ -55,8 +56,11 @@ export const fetchMemes = () => {
 };
 
 export const fetchMeme = (memeId) => {
+  debugger
   return (dispatch) => {
+    debugger
     return getMeme(memeId).then((meme) => {
+      debugger
       return dispatch(receiveMeme(meme));
       // .catch((err) => console.log(err));
     });
