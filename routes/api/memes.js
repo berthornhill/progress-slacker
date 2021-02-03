@@ -18,6 +18,7 @@ const validateMeme = require("../../validation/meme");
 //   })
 // );
 
+// GETs all memes
 router.get("/", (req, res) => {
   Meme.find()
     .sort({ created: -1 })
@@ -25,10 +26,20 @@ router.get("/", (req, res) => {
     .catch((err) => res.status(400).json(err));
 });
 
+// GETs single meme by ID
 router.get("/:id", (req, res) => {
   Meme.findById(req.params.id).then((meme) => res.json(meme));
 });
 
+// GETs meme(s) by tag
+router.get("/tags/tag", (req, res) => {
+  debugger;
+  Meme.find({ tags: req.query.tags }).then((memes) => res.json(memes));
+});
+
+// query: {tags: "Anime"}
+
+// POSTS template to meme
 router.post("/", (req, res) => {
   const { errors, isValid } = validateMeme(req.body);
 
@@ -38,6 +49,7 @@ router.post("/", (req, res) => {
 
   const newMeme = new Meme({
     title: req.body.title,
+    tags: req.body.tags.split(" "),
   });
 
   newMeme.save().then((meme) => res.json(meme));

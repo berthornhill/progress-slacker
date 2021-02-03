@@ -7,10 +7,10 @@ const MemeSchema = new Schema({
     type: String,
     required: true,
   },
-  // tags: {
-  //   type: String,
-  //   required: true,
-  // },
+  tags: {
+    type: Array,
+    required: true,
+  },
   //   img: {
   //     data: Buffer,
   //     contentType: String,
