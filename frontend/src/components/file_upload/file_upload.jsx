@@ -21,13 +21,11 @@ class FileUpload extends React.Component {
 
   handleFileUpload(e) {
     e.preventDefault();
-    debugger;
     const image = this.state.picFile;
-    debugger;
     const formData = new FormData();
     formData.append("image", image);
-
-    return axios.post("/", formData);
+    debugger;
+    return axios.post("/api/meme-templates", formData);
   }
 
   render() {
