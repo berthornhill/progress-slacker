@@ -26,6 +26,7 @@ var upload = multer({ storage: storage });
 // Read Meme - get meme from url id (goes to reg meme section)
 // Delete meme
 
+// GET "/api/meme_templates/"
 router.get("/", (req, res) => {
   debugger;
   MemeTemplate.find({}, (err, items) => {
@@ -45,6 +46,7 @@ router.use(
   })
 );
 
+// POST "/api/meme_templates/"
 router.post("/", upload.single("image"), (req, res, next) => {
   debugger;
   var obj = {
