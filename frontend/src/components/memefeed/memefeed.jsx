@@ -1,40 +1,40 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
 
-
 class MemeFeed extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { 
-            display: props.display
-        //    allMemes: []
-         }
-    }
+  constructor(props) {
+    super(props);
+    // this.state = {
+    //   // display: props.display,
+    //   allMemes: this.props.allMemes,
+    // };
+  }
 
-    //   componentDidMount() {
-    // fetch("https://api.imgflip.com/get_memes")
-    //   .then((response) => response.json())
-    //   .then((response) => {
-    //     const { memes } = response.data;
-    //     debugger;
-    //     this.setState({
-    //       allMemes: memes,
-    //     });
-    //   });
-    // }
-//     randomArr(arr) {
-//     for (var i = arr.length - 1; i > 0; i--) {
-//       let randomNum = Math.floor(Math.random() * (i + 1));
-//       [arr[i], arr[randomNum]] = [arr[randomNum], arr[i]];
-//     }
+  componentDidMount() {
+    this.props.fetchMemes();
+  }
 
-//     return arr;
-//   }
+  //   componentDidMount() {
+  // fetch("https://api.imgflip.com/get_memes")
+  //   .then((response) => response.json())
+  //   .then((response) => {
+  //     const { memes } = response.data;
+  //      ;
+  //     this.setState({
+  //       allMemes: memes,
+  //     });
+  //   });
+  // }
+  //     randomArr(arr) {
+  //     for (var i = arr.length - 1; i > 0; i--) {
+  //       let randomNum = Math.floor(Math.random() * (i + 1));
+  //       [arr[i], arr[randomNum]] = [arr[randomNum], arr[i]];
+  //     }
 
+  //     return arr;
+  //   }
 
-
-    render() { 
-
+  render() {
     // const { allMemes } = this.state;
 
     // let boxCount = [];
@@ -54,23 +54,32 @@ class MemeFeed extends React.Component {
     //     </Link>
     //   );
     // });
+    const keys = Object.keys(this.props.allMemes);
+    if (keys.length === 0) {
+      return null;
+    }
 
-    const featureMemes = display.map((memeId, i) => {
-      let meme = this.props.allMemes[memeId]
+    const featureMemes = Object.values(this.props.allMemes).map((meme, i) => {
+      // let meme = this.props.allMemes[memeId];
+      // meme.img.data.data;
+      let src =
+        "data:image/png;base64," +
+        this.props._arrayBufferToBase64(meme.img.data.data);
+
       return (
-        <Link key={i} to={`/memes/${meme.id}`} className={"meme-box"}>
-          <img src={meme.url} className={"meme-meme"} />
+        <Link key={i} to={`/memes/${meme._id}`} className={"meme-box"}>
+          <img src={src} className={"meme-meme"} />
         </Link>
       );
     });
-        return ( 
-            <div className="meme-content">
-              <h1 className="catalog-header">Featured Memes</h1>
-              <br />
-              {featureMemes}
-            </div>
-         );
-    }
+    return (
+      <div className="meme-content">
+        <h1 className="catalog-header">Featured Memes</h1>
+        <br />
+        {featureMemes}
+      </div>
+    );
+  }
 }
- 
+
 export default MemeFeed;

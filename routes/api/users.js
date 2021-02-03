@@ -9,7 +9,6 @@ const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 
 router.post("/register", (req, res) => {
-  debugger;
   const { errors, isValid } = validateRegisterInput(req.body);
 
   if (!isValid) {
@@ -53,8 +52,6 @@ router.post("/register", (req, res) => {
 
 router.post("/login", (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
-  debugger;
-
   if (!isValid) {
     return res.status(400).json(errors);
   }
@@ -69,7 +66,6 @@ router.post("/login", (req, res) => {
 
     bcrypt.compare(password, user.password).then((isMatch) => {
       if (isMatch) {
-        debugger;
         const payload = { id: user.id, handle: user.handle, email: user.email };
         jwt.sign(
           payload,

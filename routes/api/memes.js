@@ -44,7 +44,6 @@ router.get("/:id", (req, res) => {
 
 // GETs meme(s) by tag
 router.get("/tags/tag", (req, res) => {
-  debugger;
   Meme.find({ tags: req.query.tags }).then((memes) => res.json(memes));
 });
 

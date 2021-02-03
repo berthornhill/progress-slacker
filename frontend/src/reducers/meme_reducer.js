@@ -11,9 +11,9 @@ const MemesReducer = (state = {}, action) => {
 
   switch (action.type) {
     case FETCH_MEMES:
-      return action.memes;
+      return Object.assign({}, state, action.memes.data);
     case FETCH_MEME:
-      debugger;
+      //  ;
       return Object.assign({}, state, { [meme.data._id]: meme.data.img.data });
     case DELETE_MEME:
       const newState = Object.assign({}, state);

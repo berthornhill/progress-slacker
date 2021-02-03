@@ -1,7 +1,6 @@
 import { authorize } from "passport";
 import React from "react";
 
-
 class MemeCanvas extends React.Component {
   constructor(props) {
     super(props);
@@ -47,17 +46,15 @@ class MemeCanvas extends React.Component {
   // }
 
   updateValue(value) {
-    // debugger;
+    //  ;
     return (e) => {
       e.preventDefault();
       this.setState({ [value]: e.target.value });
-      debugger;
     };
   }
 
   getImage() {
     this.props.fetchMeme("601a0c3652f5ae75941588e5").then((image) => {
-      debugger;
       let buffer = image.meme.data.img.data.data;
 
       let img = this._arrayBufferToBase64(buffer);
@@ -70,12 +67,9 @@ class MemeCanvas extends React.Component {
       //   }
       //   return window.btoa(binary);
       // };
-      debugger;
-
       // <img src={"data:image/png;base64," + Data.Photo} />;
       this.setState({ image: "data:image/png;base64," + img });
     });
-    debugger;
   }
 
   _arrayBufferToBase64(buffer) {
@@ -94,15 +88,14 @@ class MemeCanvas extends React.Component {
   }
 
   renderImage() {
-    debugger;
     let meme = this.canvasRef.toDataURL("image/jpeg", 1);
-    console.log(meme);
+    // console.log(meme);
   }
 
   componentDidMount() {
-    // debugger;
+    //  ;
     const canvas = this.canvasRef;
-    // debugger;
+    //  ;
     const ctx = canvas.getContext("2d");
     const image = this.imageRef;
 
@@ -134,9 +127,9 @@ class MemeCanvas extends React.Component {
   render() {
     //only after initial render of canvas and image:
     if (this.canvasRef) {
-      // debugger;
+      //  ;
       const canvas = this.canvasRef;
-      // // debugger;
+      // //  ;
       const image = this.imageRef;
       let ctx = this.canvasRef.getContext("2d");
       ctx.drawImage(
@@ -150,12 +143,11 @@ class MemeCanvas extends React.Component {
         canvas.width,
         canvas.height
       );
-      // debugger;
+      //  ;
 
       let x = canvas.width / 2;
       let y = canvas.height / 5;
       ctx.font = `bolder ${this.state.topTextSize}px Helvetica`;
-      debugger;
       ctx.textAlign = "center";
       ctx.fillStyle = "white";
       ctx.fillText(this.state.topText, x, y);
@@ -166,7 +158,6 @@ class MemeCanvas extends React.Component {
       ctx.font = `bolder ${this.state.bottomTextSize}px Helvetica`;
       ctx.textAlign = "center";
       ctx.fillStyle = "white";
-      debugger;
       ctx.fillText(this.state.bottomText, z, v);
       ctx.strokeText(this.state.bottomText, z, v);
     }
@@ -192,11 +183,8 @@ class MemeCanvas extends React.Component {
       return <img src={meme.url} className={"meme-template-inner"} />;
     });
 
-    debugger;
     return (
       <div className="main-canvas">
-    
-
         <div className="select-img">
           <h1 className="table-header">Select Your Meme Template</h1>
           <div className="img-table">{featureMemes}</div>

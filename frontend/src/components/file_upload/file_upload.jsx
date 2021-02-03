@@ -12,7 +12,6 @@ class FileUpload extends React.Component {
   }
 
   handleFileSelect = (e) => {
-    debugger;
     this.setState({
       picFile: e.target.files[0],
     });
@@ -24,7 +23,6 @@ class FileUpload extends React.Component {
     const image = this.state.picFile;
     const formData = new FormData();
     formData.append("image", image);
-    debugger;
     return axios.post("/api/meme-templates", formData);
   }
 

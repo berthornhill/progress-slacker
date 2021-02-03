@@ -48,7 +48,8 @@ export const removeMeme = (memeId) => {
 export const fetchMemes = () => {
   return (dispatch) => {
     return getMemes().then((memes) => {
-      return dispatch(receiveMemes(memes)).catch((err) => console.log(err));
+      return dispatch(receiveMemes(memes));
+      // .catch((err) => console.log(err));
     });
   };
 };
