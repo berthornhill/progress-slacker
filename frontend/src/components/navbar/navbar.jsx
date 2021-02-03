@@ -14,30 +14,66 @@ class NavBar extends React.Component {
   }
 
   render() {
-    return (
-      <div className="navbar-main">
-        <div className="navbar-functions">
-          <img src="img/logo2.png" alt="" className="logo-nav" />
-          <div className="name-logo">Progress Slacker</div>
-          <Link to="/signup" className="create-meme-button">
-            Create Meme
-          </Link>
-          <Link to="/login" className="log-in-button">
-            <i className="fas fa-user-astronaut"></i>
-            Log In
-          </Link>
-          <Link to="/signup" className="log-in-button">
-            <i className="fas fa-smile"></i>
-            Sign Up
-          </Link>
+    if (this.props.loggedIn) {
+      return (
+        <div className="navbar-main">
+          <div className="navbar-functions">
+            <img src="img/logo2.png" alt="" className="logo-nav" />
+            <div className="name-logo">Progress Slacker</div>
+            <Link to={"/"}>Dashboard</Link>
+            <Link to={"/profile"}>Profile</Link>
+            <Link to={"/create"}>Make a Meme</Link>
+            <button onClick={this.logoutUser}>Logout</button>
+          </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div className="navbar-main">
+          <div className="navbar-functions">
+            <img src="img/logo2.png" alt="" className="logo-nav" />
+            <div className="name-logo">Progress Slacker</div>
+
+            <Link to="/signup" className="create-meme-button">
+              Create Meme
+            </Link>
+            <Link to="/login" className="log-in-button">
+              <i className="fas fa-user-astronaut"></i>
+              Log In
+            </Link>
+            <Link to="/signup" className="log-in-button">
+              <i className="fas fa-smile"></i>
+              Sign Up
+            </Link>
+          </div>
+        </div>
+      );
+    }
   }
 }
 
 export default NavBar;
 
+// return (
+//   <div className="navbar-main">
+//     <div className="navbar-functions">
+//       <img src="img/logo2.png" alt="" className="logo-nav" />
+//       <div className="name-logo">Progress Slacker</div>
+
+//       <Link to="/signup" className="create-meme-button">
+//         Create Meme
+//       </Link>
+//       <Link to="/login" className="log-in-button">
+//         <i className="fas fa-user-astronaut"></i>
+//         Log In
+//       </Link>
+//       <Link to="/signup" className="log-in-button">
+//         <i className="fas fa-smile"></i>
+//         Sign Up
+//       </Link>
+
+//     </div>
+//   </div>
 /*  
 getLinks() {
     if (this.props.loggedIn) {
