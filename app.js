@@ -25,7 +25,13 @@ app.use(bodyParser.json());
 app.set("view engine", "ejs");
 
 app.use("/api/users", users);
-app.use("/api/meme-templates", memeTemplates);
+app.use("/api/meme_templates", memeTemplates);
+
+// Static Files
+app.use(express.static('public'))
+app.use('/css',express.static(__dirname + 'public/css'))
+app.use('/img',express.static(__dirname + 'public/img'))
+
 
 app.use(passport.initialize());
 

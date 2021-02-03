@@ -65,6 +65,7 @@ router.get("/:id", (req, res) => {
   );
 });
 
+// POST "/api/meme_templates/"
 router.post("/", upload.single("image"), (req, res, next) => {
   debugger;
   var obj = {
