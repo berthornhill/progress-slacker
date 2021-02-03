@@ -45,6 +45,12 @@ router.use(
     extended: false,
   })
 );
+router.get("/:id", (req, res) => {
+  debugger;
+  MemeTemplate.findById(req.params.id).then((MemeTemplate) =>
+    res.json(MemeTemplate)
+  );
+});
 
 // POST "/api/meme_templates/"
 router.post("/", upload.single("image"), (req, res, next) => {
@@ -61,8 +67,10 @@ router.post("/", upload.single("image"), (req, res, next) => {
     if (err) {
       console.log(err);
     } else {
-      item.save();
-      res.redirect("/");
+      item
+        .save()
+        // res.redirect("/");
+        .then((item) => res.json(item));
     }
   });
 });
