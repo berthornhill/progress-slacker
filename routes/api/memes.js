@@ -4,6 +4,7 @@ const router = express.Router();
 const Meme = require("../../models/Meme");
 const validateMeme = require("../../validation/meme");
 // const Template = require("../../models/Template");
+const Tag = require("../../models/Tag");
 
 const fs = require("fs");
 const path = require("path");
@@ -65,6 +66,12 @@ router.post("/", upload.single("image"), (req, res, next) => {
   }
 
   const newMeme = new Meme(obj);
+  debugger;
+  Tag.findOneAndUpdate(
+    { title: req.body.tags },
+    { $push: { memes: newMeme.id } },
+    function (err, result) {}
+  );
 
   newMeme.save().then((meme) => res.json(meme));
 });
