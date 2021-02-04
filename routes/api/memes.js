@@ -60,7 +60,7 @@ router.post("/", upload.single("image"), (req, res, next) => {
       contentType: req.file.mimetype,
     },
     title: req.body.title,
-    tags: req.body.tags.split(" "),
+    tags: req.body.tags,
   };
   const { errors, isValid } = validateMeme(req.body);
 

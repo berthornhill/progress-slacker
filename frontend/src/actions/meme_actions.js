@@ -61,7 +61,8 @@ export const fetchMeme = (memeId) => {
 export const postMeme = (meme) => {
   return (dispatch) => {
     return APIUtil.createMeme(meme).then((meme) => {
-      return dispatch(createMeme(meme)).catch((err) => console.log(err));
+      return dispatch(createMeme(meme));
+      // .catch((err) => console.log(err));
     });
   };
 };
