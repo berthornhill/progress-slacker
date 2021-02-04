@@ -10,9 +10,9 @@ class MemeFeed extends React.Component {
     // };
   }
 
-  componentDidMount() {
-    this.props.fetchMemes();
-  }
+  // componentDidMount() {
+  //   this.props.fetchMemes();
+  // }
 
   //   componentDidMount() {
   // fetch("https://api.imgflip.com/get_memes")
@@ -54,29 +54,29 @@ class MemeFeed extends React.Component {
     //     </Link>
     //   );
     // });
-    const keys = Object.keys(this.props.allMemes);
-    if (keys.length === 0) {
-      return null;
-    }
+    // const keys = Object.keys(this.props.allMemes);
+    // if (keys.length === 0) {
+    //   return null;
+    // }
 
-    const featureMemes = Object.values(this.props.allMemes).map((meme, i) => {
-      // let meme = this.props.allMemes[memeId];
-      // meme.img.data.data;
-      let src =
-        "data:image/png;base64," +
-        this.props._arrayBufferToBase64(meme.img.data.data);
+    // const featureMemes = Object.values(this.props.allMemes).map((meme, i) => {
+    //   // let meme = this.props.allMemes[memeId];
+    //   // meme.img.data.data;
+    //   let src =
+    //     "data:image/png;base64," +
+    //     this.props._arrayBufferToBase64(meme.img.data.data);
 
-      return (
-        <Link key={i} to={`/memes/${meme._id}`} className={"meme-box"}>
-          <img src={src} className={"meme-meme"} />
-        </Link>
-      );
-    });
+    //   return (
+    //     <Link key={i} to={`/memes/${meme._id}`} className={"meme-box"}>
+    //       <img src={src} className={"meme-meme"} />
+    //     </Link>
+    //   );
+    // });
     return (
       <div className="meme-content">
         <h1 className="catalog-header">Featured Memes</h1>
         <br />
-        {featureMemes}
+        {/* {featureMemes} */}
       </div>
     );
   }

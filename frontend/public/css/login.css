@@ -46,3 +46,190 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+/* login-meme */
+
+.login-main {
+    width: 100vw;
+    height: 100vh;
+	background-color: #17183B;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>😀</text></svg>") 16 0,auto; /*!emojicursor.app*/; */
+}
+
+.welcome{
+	margin-top: 150px;
+	font-size: 20px;
+}
+
+.login-form {
+    width: 500px;
+    height: 500px;
+	background-color: #596869;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	border-radius: 50%;
+}
+
+.extra-circle {
+	width: 500px;
+	height: 500px;
+	background-color: #1C0221;
+	margin-right: 200px;
+	margin-bottom: 500px;
+	border-radius: 50%;
+}
+
+.extra-circle2 {
+	width: 500px;
+	height: 500px;
+	background-color: #B8D8D8;
+	border-radius: 50%;
+	margin-top: 200px;
+}
+
+
+
+.form-user-login {
+	width: 400px;
+	height: 300px;
+	background: none;
+	 padding: 10px;
+	 margin-top: 20px;
+}
+
+
+.form-user-login > label{
+	margin-left: 40px;
+	font-size: 24px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 800;
+}
+
+.form-user-login label:hover {
+	color: #FFBA08;
+	cursor: pointer;
+}
+
+.form-user-login input {
+	margin: 15px 0px 15px 40px;
+	width: 190px;
+	height: 30px;
+	border-radius: 5px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	padding-left: 10px;
+	border: none;
+}
+
+.login-button {
+	height: 50px;
+	width: 150px;
+	border-radius: 7px;
+	font-size: 18px;
+	background-color: #fff;
+	cursor: pointer;
+}
+
+.login-button:hover {
+	background-color: #FFBA08;
+	cursor: pointer;
+}
+
+input[type=submit].login-button {
+	font-size: 16px;
+	font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.errors {
+	margin-left: 100px;
+	line-height: 20px;
+	color: white;
+}
+
+
+/* smiley face */
+
+    .face { 
+		position: relative; 
+        width: 200px; 
+        height: 200px; 
+        border-radius: 50%; 
+        background: #ffd528; 
+        display: flex; 
+        justify-content: center; 
+		align-items: center; 
+		margin-bottom: 100px;
+		margin-left: 25px;
+		margin-top: 30px;
+		cursor: pointer;
+	} 
+	
+	.face:hover {
+		background-color: #FF5F6D;
+		background-image:
+		linear-gradient(
+		#FF5F6D, #ffc371
+		);
+	}
+
+    .face::before { 
+        /*In this part we will make  
+            the mouth of the face*/
+        content: ""; 
+        position: absolute; 
+        top: 120px; 
+        width: 150px; 
+        height: 70px; 
+        background: #FFBA08; 
+        border-bottom-left-radius: 70px; 
+        border-bottom-right-radius: 70px; 
+        transition: 0.5s; 
+    } 
+    .face:hover::before { 
+        /*Here we will add the hover effects.  
+            Like when the cirser will came on the mouth the  
+            mouth will closed that means is radius 
+            will be decreased*/
+        top: 120px; 
+        width: 150px; 
+        height: 20px; 
+        background: #FFBA08; 
+        border-bottom-left-radius: 0px; 
+        border-bottom-right-radius: 0px; 
+    } 
+    /*In this part we will make 
+        the eyes of the face*/
+    .eyes { 
+        position: relative; 
+        top: -30px; 
+        display: flex; 
+    } 
+    .eyes .eye { 
+        position: relative; 
+        width: 60px; 
+        height: 60px; 
+        display: block; 
+        background: #fff; 
+        margin: 0 15px; 
+        border-radius: 50%; 
+    } 
+    .eyes .eye::before { 
+        content: ""; 
+        position: absolute; 
+        top: 50%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+        width: 40px; 
+        height: 40px; 
+        background: #333; 
+        border-radius: 50%; 
+	} 
+	
+	

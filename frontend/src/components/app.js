@@ -15,7 +15,7 @@ const App = () => (
     <Navbar />
     <Switch>
       <Route exact path="/" component={Dashboard} />
-      <AuthRoute exact path="/creatememes" component={MemeCanvas} />
+      <Route exact path="/creatememes" component={MemeCanvas} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
 

@@ -55,6 +55,9 @@ table {
     background-color: #fff;
     position: fixed;
     z-index: 2;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
 }
 
 .navbar-functions {
@@ -62,6 +65,7 @@ table {
     height: 56px;
     margin: 0 auto;
     background-color: #fff;
+    box-sizing: border-box;
 }
 
 .logo-nav {
@@ -71,6 +75,7 @@ table {
 }
 
 .name-logo {
+    text-decoration: none;
     height: 50px;
     width: 200px;
     float: left;
@@ -83,11 +88,28 @@ table {
     color: #333;
 }
 
+.demo-user-login {
+    float: right;
+    margin-top: 2px;
+    margin-right: 10px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    color: #fff;
+    background-color: black;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+
 .log-in-button {
     text-decoration: none;
     height: 46px;
     margin-top: 10px;
-    width: 150px;
+    /* margin-right: 1%; */
+    width: 11%;
     float: right;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 300px;
@@ -110,7 +132,7 @@ table {
 .create-meme-button {
     text-decoration: none;
     height: 30px;
-    width: 150px;
+    width: 15%;
     float: right;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 300px;
@@ -128,4 +150,23 @@ table {
 
 .create-meme-button:hover {
     background-color: #FFBA08;
+}
+
+
+/* sign in */
+
+.logout-button {
+    height: 40px;
+    width: 10%;
+    float: right;
+    border-radius: 15px;
+    margin-top: 9px;
+    margin-right: 10px;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    background-color:  #FFBA08;
+    cursor: pointer;
+    outline: none;
 }

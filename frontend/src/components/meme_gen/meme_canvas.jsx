@@ -195,7 +195,7 @@ class MemeCanvas extends React.Component {
           <canvas
             ref={this.setCanvasRef}
             width={500}
-            height={500}
+            height={500}        
             className="meme-pic"
           />
           <img
@@ -203,6 +203,7 @@ class MemeCanvas extends React.Component {
             alt="grumpy cat"
             style={imgStyle}
             ref={this.setImageRef}
+            className="img-meme-prev"
             // crossOrigin="user-credentials"
           />
         </div>
