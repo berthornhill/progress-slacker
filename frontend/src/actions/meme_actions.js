@@ -18,12 +18,7 @@ const createMeme = (payload) => {
   };
 };
 
-<<<<<<< HEAD:frontend/src/actions/meme_template_actions.js
-export const receiveMeme = (meme) => {
-  debugger
-=======
 const receiveMeme = (payload) => {
->>>>>>> 62d7a93fae10cffb4774bd2bcc23074277310b60:frontend/src/actions/meme_actions.js
   return {
     type: FETCH_MEME,
     payload,
