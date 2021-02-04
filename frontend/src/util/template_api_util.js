@@ -13,11 +13,11 @@ export const getTemplate = (templateId) => {
 };
 
 // post meme into db (CREATE)
-export const createMeme = (template) => {
+export const createTemplate = (template) => {
   return axios.post(`/api/templates`, template);
 };
 
 // delete meme (?) (DELETE)
-export const deleteMemeFromDb = (templateId) => {
+export const deleteTemplateFromDb = (templateId) => {
   return axios.delete(`/api/templates/${templateId}`);
 };

@@ -5,6 +5,7 @@ import jwt_decode from "jwt-decode";
 import Root from "./components/root";
 import { setAuthToken } from "./util/session_api_util";
 import { logout } from "./actions/session_actions";
+import { fetchTemplates } from "./actions/template_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -25,6 +26,13 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore({});
   }
+
+  // TESTING
+  window.getTemplates = fetchTemplates;
+  window.dispatch = store.dispatch;
+  window.getState = store.getState;
+
+  // END TESTING
 
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store} />, root);
