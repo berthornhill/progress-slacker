@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 class MemeFeed extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    // display: props.display,
-    //   allMemes: this.props.allMemes,
-    // };
+    this.state = {
+      // display: props.display,
+      // allMemes: [],
+    };
   }
 
   // componentDidMount() {
@@ -49,9 +49,14 @@ class MemeFeed extends React.Component {
 
     // const featureMemes = boxCount.map((meme, i) => {
     //   return (
-    //     <Link key={i} to={`/memes/${meme.id}`} className={"meme-box"}>
-    //       <img src={meme.url} className={"meme-meme"} />
-    //     </Link>
+    //     <div className={"meme-box"}>
+    //       <div className="multi-button">
+    //         <button class="fas fa-heart"></button>
+    //       </div>
+    //       <Link key={i} to={`/memes/${meme.id}`} >
+    //         <img src={meme.url} className={"meme-meme"} />
+    //       </Link>
+    //     </div>
     //   );
     // });
     // const keys = Object.keys(this.props.allMemes);
