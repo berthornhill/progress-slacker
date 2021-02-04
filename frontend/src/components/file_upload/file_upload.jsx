@@ -7,9 +7,12 @@ class FileUpload extends React.Component {
     this.state = {
       picFile: null,
       previewUrl: "img/logo2.png",
+      category: "",
+      title: "",
     };
     this.handleFileSelect = this.handleFileSelect.bind(this);
     this.handleFileUpload = this.handleFileUpload.bind(this);
+    this.updateValue = this.updateValue.bind(this);
 
     this.canvasRef = null;
     this.imageRef = null;
@@ -21,6 +24,15 @@ class FileUpload extends React.Component {
 
     this.setImageRef = (element) => {
       this.imageRef = element;
+    };
+  }
+
+  updateValue(value) {
+    debugger;
+    //  ;
+    return (e) => {
+      e.preventDefault();
+      this.setState({ [value]: e.target.value });
     };
   }
 
@@ -50,9 +62,20 @@ class FileUpload extends React.Component {
     }
 
     return (
-      <div className="file-upload">
-        <input type="file" onChange={this.handleFileSelect} />
-        <button className="" onClick={this.handleFileUpload}>
+      <div
+        className="file-upload"
+        style={{ position: "absolute", display: "block" }}
+      >
+        <input
+          type="file"
+          onChange={this.handleFileSelect}
+          style={{ position: "absolute", display: "block" }}
+        />
+        <button
+          className=""
+          onClick={this.handleFileUpload}
+          style={{ position: "absolute", display: "block" }}
+        >
           Create Template
         </button>
         <div className="canvas-creator">
@@ -70,6 +93,35 @@ class FileUpload extends React.Component {
             ref={this.setImageRef}
             crossOrigin="anonymous"
           />
+          <label>
+            Select a tag
+            <br />
+            <select
+              style={{ position: "absolute", display: "block" }}
+              className="category-select"
+              onChange={this.updateValue("category")}
+            >
+              <option value="app">App Academy</option>
+              <option value="animals">Animals</option>
+              <option value="anime">Anime</option>
+              <option value="gaming">Gaming</option>
+              <option value="tv">Tv Shows</option>
+              <option value="movies">Movies</option>
+              <option value="politics">Politics</option>
+              <option value="sports">Sports</option>
+              <option value="internet">Internet</option>
+            </select>
+            <label value="title" className="template-title">
+              title
+            </label>
+            <br />
+            <input
+              style={{ position: "absolute", display: "block" }}
+              type="text"
+              onChange={this.updateValue("title")}
+              value={this.state.title}
+            />
+          </label>
         </div>
       </div>
     );
@@ -101,8 +153,8 @@ class FileUpload extends React.Component {
     let meme = this.canvasRef.toDataURL("image/jpeg", 0.5);
     debugger;
 
-    let tags = "Anime";
-    let title = "KeyboardDan";
+    let tags = this.state.category;
+    let title = this.state.title;
 
     let formData = { title: title, tags: tags, img: meme };
     return axios.post("/api/templates", formData);
