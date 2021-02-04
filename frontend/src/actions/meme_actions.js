@@ -18,6 +18,8 @@ const createMeme = (payload) => {
   };
 };
 
+// we need to know what the fuck is going on
+// perhaps comments will enlighten us.
 const receiveMeme = (payload) => {
   return {
     type: FETCH_MEME,
