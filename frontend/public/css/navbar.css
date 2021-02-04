@@ -40,6 +40,8 @@
     color: #17183B;;
 }
 
+
+
 .demo-user-login {
     float: right;
     margin-top: 3px;
@@ -131,4 +133,24 @@
     background-color:  #FFBA08;
     cursor: pointer;
     outline: none;
+}
+
+.upload-file {
+    text-decoration: none;
+    height: 40px;
+    width: 10%;
+    float: right;
+    background-color:  #FFBA08;
+    border-radius: 15px;
+    margin-top: 9px;
+    margin-right: 10px;
+    font-family: 'Abril Fatface', serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

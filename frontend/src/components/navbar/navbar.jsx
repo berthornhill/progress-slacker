@@ -33,6 +33,7 @@ class NavBar extends React.Component {
             {/* <Link to={"/profile"}>Profile</Link> */}
             <Link to="/creatememes" className="create-meme-button">Make a Meme</Link>
             <button onClick={this.logoutUser} className="logout-button">Logout</button>
+            <Link to="/template" className="upload-file">Upload</Link>
           </div>
         </div>
       );
