@@ -13,6 +13,7 @@ class LoginForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   // Once the user has been authenticated, redirect to the Tweets page
@@ -31,6 +32,13 @@ class LoginForm extends React.Component {
       this.setState({
         [field]: e.currentTarget.value,
       });
+  }
+
+  handleDemo(e) {
+    e.preventDefault();
+    const demo = { email: "guest@demouser.com", password: "password" };
+
+    this.props.demoLogin(demo);
   }
 
   // Handle form submission
@@ -79,6 +87,9 @@ class LoginForm extends React.Component {
             {this.renderErrors()}
           </div>
         </form>
+        <div>
+          <button onClick={this.handleDemo}>Demo login</button>
+        </div>
       </div>
     );
   }
