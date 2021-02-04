@@ -231,8 +231,11 @@ class MemeCanvas extends React.Component {
     return (
       <div className="main-canvas">
         <div className="select-img">
-          <h1 className="table-header">Select Your Meme Template</h1>
-          <div className="img-table">{featureMemes}</div>
+          {/* <h1 className="table-header">Select Your Meme Template</h1> */}
+          <div className="img-table">
+            <h1 className="table-header">Select Your Meme Template</h1>
+            {featureMemes}
+          </div>
         </div>
 
         <div className="canvas-creator">

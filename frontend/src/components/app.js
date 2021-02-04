@@ -14,17 +14,17 @@ import FileUpload from "./file_upload/file_upload";
 const App = () => (
   // <div>dashboard</div>
   <div className="entire-window">
-    <div>
+
       <Navbar />
-    </div>
+   
     <div>
       <Switch>
         <Route exact path="/" component={Dashboard} />
         <Route exact path="/template" component={FileUpload} />
-        <AuthRoute exact path="/creatememes" component={MemeCanvas} />
+        <ProtectedRoute exact path="/creatememes" component={MemeCanvas} />
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
-
+        
         {/* <ProtectedRoute exact path="/create" component={CreateMemeContainer} /> */}
       </Switch>
     </div>
