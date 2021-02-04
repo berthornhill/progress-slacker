@@ -224,7 +224,7 @@ class MemeCanvas extends React.Component {
           <canvas
             ref={this.setCanvasRef}
             width={500}
-            height={500}
+            height={500}        
             className="meme-pic"
           />
           <img

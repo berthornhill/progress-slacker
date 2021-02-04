@@ -131,6 +131,7 @@ table {
 /* Navbar */
 
 .navbar-main {
+<<<<<<< HEAD
   width: 100%;
   height: 56px;
   background-color: #fff;
@@ -143,6 +144,24 @@ table {
   height: 56px;
   margin: 0 auto;
   background-color: #fff;
+=======
+    width: 100%;
+    height: 56px;
+    background-color: #fff;
+    position: fixed;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.navbar-functions {
+    width: 60vw;
+    height: 56px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-sizing: border-box;
+>>>>>>> f0e039eb4fe856b45540ecb35124639b51efbd97
 }
 
 .logo-nav {
@@ -152,6 +171,7 @@ table {
 }
 
 .name-logo {
+<<<<<<< HEAD
   height: 50px;
   width: 200px;
   float: left;
@@ -162,9 +182,47 @@ table {
   font-size: 24px;
   font-family: Arial, Helvetica, sans-serif;
   color: #333;
+=======
+    text-decoration: none;
+    height: 50px;
+    width: 200px;
+    float: left;
+    text-align: center;
+    font-weight: 900;
+    padding-top: 15px;
+    padding-left: 15px;
+    font-size: 24px;
+    font-family: 'Abril Fatface', serif;
+    color: #17183B;;
 }
 
+.demo-user-login {
+    float: right;
+    margin-top: 3px;
+    margin-right: 10px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    color: #fff;
+    font-weight: 800;
+    font-family: 'Abril Fatface', serif;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: #17183B;
+    /* background-color: #7f53ac;
+    background-image: linear-gradient(315deg, #7f53ac 0%, #647dee 74%); */
+}
+
+.demo-user-login:hover {
+    background-color: #FFBA08;
+>>>>>>> f0e039eb4fe856b45540ecb35124639b51efbd97
+}
+
+
 .log-in-button {
+<<<<<<< HEAD
   text-decoration: none;
   height: 46px;
   margin-top: 10px;
@@ -210,3 +268,71 @@ table {
 .create-meme-button:hover {
   background-color: #ffba08;
 }
+=======
+    text-decoration: none;
+    height: 42px;
+    margin-top: 13px;
+    /* margin-right: 1%; */
+    width: 11%;
+    float: right;
+    font-family: 'Abril Fatface', serif;
+    font-weight: 300px;
+    border: none;
+    font-size: 18px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+}
+
+.log-in-button:hover{
+    color: #FFBA08;
+}
+
+.log-in-button i {
+    margin-right: 10px;
+    font-size: 27px;
+    color: #17183B;
+}
+
+.create-meme-button {
+    text-decoration: none;
+    height: 30px;
+    width: 15%;
+    float: right;
+    font-family: 'Abril Fatface', serif;
+    font-weight: 300px;
+    border-radius: 30px;
+    font-size: 18px;
+    margin-top: 5px;
+    background-color: #17183B;
+    border: 1px thin black;
+    cursor: pointer;
+    text-align: center;
+    padding-top: 12px;
+    padding-bottom: 3px;
+    color: #fff;
+}
+
+.create-meme-button:hover {
+    background-color: #FFBA08;
+}
+
+
+/* sign in */
+
+.logout-button {
+    height: 40px;
+    width: 10%;
+    float: right;
+    border-radius: 15px;
+    margin-top: 9px;
+    margin-right: 10px;
+    border: none;
+    font-family: 'Abril Fatface', serif;
+    font-size: 18px;
+    font-weight: 500;
+    background-color:  #FFBA08;
+    cursor: pointer;
+    outline: none;
+}
+>>>>>>> f0e039eb4fe856b45540ecb35124639b51efbd97
