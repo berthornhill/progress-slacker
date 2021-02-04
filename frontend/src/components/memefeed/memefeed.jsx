@@ -6,7 +6,7 @@ class MemeFeed extends React.Component {
     super(props);
     this.state = {
       // display: props.display,
-      // allMemes: [],
+      // allMemes: ,
     };
   }
 
@@ -63,7 +63,7 @@ class MemeFeed extends React.Component {
     // if (keys.length === 0) {
     //   return null;
     // }
-
+    debugger
     const featureMemes = Object.values(this.props.allMemes).map((meme, i) => {
       // let meme = this.props.allMemes[memeId];
       // meme.img.data.data;

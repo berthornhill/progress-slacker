@@ -99,7 +99,7 @@ class MemeCanvas extends React.Component {
     debugger;
 
     // this.props.fetchMeme("601c3997765dd88b1c406f1d");
-    this.props.fetchTemplate("601c4ee5c62fe3cb3cf2a25c");
+    this.props.fetchTemplate("601c58fe00fa3dd36b44a7b9");
 
     debugger;
     const canvas = this.canvasRef;
@@ -214,8 +214,11 @@ class MemeCanvas extends React.Component {
     return (
       <div className="main-canvas">
         <div className="select-img">
-          <h1 className="table-header">Select Your Meme Template</h1>
-          <div className="img-table">{featureMemes}</div>
+          {/* <h1 className="table-header">Select Your Meme Template</h1> */}
+          <div className="img-table">
+            <h1 className="table-header">Select Your Meme Template</h1>
+            {featureMemes}
+          </div>
         </div>
 
         <div className="canvas-creator">
