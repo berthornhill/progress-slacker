@@ -39,6 +39,7 @@ router.get("/", (req, res) => {
 
 // GETs single meme by ID
 router.get("/:id", (req, res) => {
+  debugger;
   Meme.findById(req.params.id).then((meme) => res.json(meme));
 });
 

@@ -83,7 +83,7 @@ class SideBar extends React.Component {
 
   handleClick(tag) {
     //   return e
-    //     e.preventDefault();
+        // e.preventDefault();
     //    this.props.fetchTaggedMemes(tag);
     //   //passess array of tagged memes ids to memefeed
   }

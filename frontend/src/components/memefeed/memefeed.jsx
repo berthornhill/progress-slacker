@@ -5,7 +5,7 @@ class MemeFeed extends React.Component {
   constructor(props) {
     super(props);
     // this.state = {
-    //   // display: props.display,
+    // display: props.display,
     //   allMemes: this.props.allMemes,
     // };
   }
@@ -62,9 +62,7 @@ class MemeFeed extends React.Component {
     const featureMemes = Object.values(this.props.allMemes).map((meme, i) => {
       // let meme = this.props.allMemes[memeId];
       // meme.img.data.data;
-      let src =
-        "data:image/png;base64," +
-        this.props._arrayBufferToBase64(meme.img.data.data);
+      let src = this.props._arrayBufferToBase64(meme.img.data.data);
 
       return (
         <Link key={i} to={`/memes/${meme._id}`} className={"meme-box"}>

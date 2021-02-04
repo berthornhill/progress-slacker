@@ -1,8 +1,8 @@
-import { authorize } from "passport";
 import React from "react";
 
 class MemeCanvas extends React.Component {
   constructor(props) {
+    debugger;
     super(props);
     //text input to null
     this.state = {
@@ -12,8 +12,8 @@ class MemeCanvas extends React.Component {
       bottomTextSize: 70,
       allMemes: [],
       category: "",
-      image:
-        "https://media.wired.com/photos/5cdefb92b86e041493d389df/1:1/w_988,h_988,c_limit/Culture-Grumpy-Cat-487386121.jpg",
+      image: props.memes,
+      // "https://media.wired.com/photos/5cdefb92b86e041493d389df/1:1/w_988,h_988,c_limit/Culture-Grumpy-Cat-487386121.jpg",
     };
 
     this.canvasRef = null;
@@ -54,7 +54,8 @@ class MemeCanvas extends React.Component {
   }
 
   getImage() {
-    this.props.fetchMeme("601a0c3652f5ae75941588e5").then((image) => {
+    debugger;
+    this.props.fetchMeme("601af605f230b3d78dade52a").then((image) => {
       let buffer = image.meme.data.img.data.data;
 
       let img = this._arrayBufferToBase64(buffer);
@@ -68,7 +69,7 @@ class MemeCanvas extends React.Component {
       //   return window.btoa(binary);
       // };
       // <img src={"data:image/png;base64," + Data.Photo} />;
-      this.setState({ image: "data:image/png;base64," + img });
+      // this.setState({ image: "data:image/png;base64," + img });
     });
   }
 
@@ -84,34 +85,40 @@ class MemeCanvas extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.renderImage();
+    let image = this.renderImage();
+    debugger;
   }
 
   renderImage() {
     let meme = this.canvasRef.toDataURL("image/jpeg", 1);
     // console.log(meme);
+    debugger;
   }
 
   componentDidMount() {
-    //  ;
+    debugger;
+
+    this.props.fetchMeme("601af605f230b3d78dade52a");
+    debugger;
     const canvas = this.canvasRef;
     //  ;
     const ctx = canvas.getContext("2d");
     const image = this.imageRef;
 
-    image.onload = () => {
-      ctx.drawImage(
-        image,
-        0,
-        0,
-        image.width,
-        image.height, // source rectangle
-        0,
-        0,
-        canvas.width,
-        canvas.height
-      );
-    };
+    // image.onload = () => {
+    //   ctx.drawImage(
+    //     image,
+    //     0,
+    //     0,
+    //     image.width,
+    //     image.height, // source rectangle
+    //     0,
+    //     0,
+    //     canvas.width,
+    //     canvas.height
+    //   );
+    // };
+    debugger;
 
     fetch("https://api.imgflip.com/get_memes")
       .then((response) => response.json())
@@ -124,12 +131,29 @@ class MemeCanvas extends React.Component {
       });
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.memes !== prevProps.memes) {
+      this.setState({ image: this.props.memes });
+    }
+  }
+
   render() {
+    debugger;
+    // if (Object.keys(this.props.memes).length === 0) return null;
+    let imageUrl = "";
     //only after initial render of canvas and image:
     if (this.canvasRef) {
+      debugger;
+      if (Object.values(this.props.memes)[0]) {
+        imageUrl = this.props._arrayBufferToBase64(
+          Object.values(this.props.memes)[0].data
+        );
+      }
+      //
       //  ;
       const canvas = this.canvasRef;
       // //  ;
+      debugger;
       const image = this.imageRef;
       let ctx = this.canvasRef.getContext("2d");
       ctx.drawImage(
@@ -199,11 +223,11 @@ class MemeCanvas extends React.Component {
             className="meme-pic"
           />
           <img
-            src={this.state.image}
+            src={imageUrl}
             alt="grumpy cat"
             style={imgStyle}
             ref={this.setImageRef}
-            // crossOrigin="user-credentials"
+            crossOrigin="anonymous"
           />
         </div>
 
