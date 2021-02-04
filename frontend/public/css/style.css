@@ -3,154 +3,236 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* dashboard */
 
 .main-page {
-    width: 100vw;
-    height: 100%;
-    background-color: black;
+  width: 100vw;
+  height: 100%;
+  background-color: black;
 }
 
 .main-content {
-    width: 60vw;
-    height: 100%;
-    background-color: black;
-    margin: 0 auto;
-    display: flex;
+  width: 60vw;
+  height: 100%;
+  background-color: black;
+  margin: 0 auto;
+  display: flex;
 }
 
 .sidebar {
-    width: 300px;
-    height: 100%;
-    background-color: black;
-    position: fixed;
+  width: 300px;
+  height: 100%;
+  background-color: black;
+  position: fixed;
 }
 
 .feature-button {
-    width: 290px;
-    height: 45px;
-    background-color: black;
-    padding-top: 100px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 900;
-    font-size: 18px;
-    padding-left: 10px;
-    color: #FFBA08;
-    cursor: pointer;
+  width: 290px;
+  height: 45px;
+  background-color: black;
+  padding-top: 100px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  padding-left: 10px;
+  color: #ffba08;
+  cursor: pointer;
 }
 
 .feature-button i {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .sidebar li {
-    width: 290px;
-    height: 45px;
-    background-color: black;
-    margin-top: 20px;
-    padding-left: 10px;
-    list-style: none;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 900;
-    font-size: 18px;
-    color: #fff;
-    cursor: pointer;
+  width: 290px;
+  height: 45px;
+  background-color: black;
+  margin-top: 20px;
+  padding-left: 10px;
+  list-style: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
 }
 
 .sidebar li:hover {
-    color: #FFBA08;
-    opacity: 1;
-    transform: scale(1);
-    transition: all 0.3s ease-in-out 0.1s;
+  color: #ffba08;
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.3s ease-in-out 0.1s;
 }
 
 .meme-content {
-    height: 100%;
-    width: 900px;
-    background-color: black;
-    margin-left: 15vw;
-    padding-top: 50px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap:wrap;
-    align-items: flex-start;
+  height: 100%;
+  width: 900px;
+  background-color: black;
+  margin-left: 15vw;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .catalog-header {
-    font-size: 32px;
-    width: 550px;
-    height: 40px;
-    /* background-color: red; */
-    margin:60px 0px 20px 150px;
-    border-bottom: 1px solid grey;
-    font-weight: 900;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #fff;
+  font-size: 32px;
+  width: 550px;
+  height: 40px;
+  /* background-color: red; */
+  margin: 60px 0px 20px 150px;
+  border-bottom: 1px solid grey;
+  font-weight: 900;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
 }
 
 .meme-meme {
-    width: 350px;
-    height: 350px;
-    background-color: #fff;
-    /* margin: 40px; */
-    /* margin-left: 150px; */
-    border-radius: 5px;
+  width: 350px;
+  height: 350px;
+  background-color: #fff;
+  /* margin: 40px; */
+  /* margin-left: 150px; */
+  border-radius: 5px;
 }
 
-
-.meme-box{
-    width: 300px;
-    height: 300px;
-    margin: 20px 0px 70px 80px;
+.meme-box {
+  width: 300px;
+  height: 300px;
+  margin: 20px 0px 70px 80px;
 }
-
 
 @keyframes bounce {
-  0%, 20%, 60%, 100% {
+  0%,
+  20%,
+  60%,
+  100% {
     -webkit-transform: translateY(0);
     transform: translateY(0);
   }
@@ -166,6 +248,11 @@ table {
   }
 }
 
-.meme-box:hover{
-    animation: bounce 1s;
+.meme-box:hover {
+  animation: bounce 1s;
+}
+
+.entire-window {
+  width: 100%;
+  height: 100%;
 }

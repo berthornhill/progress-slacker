@@ -45,15 +45,21 @@ router.get("/:id", (req, res) => {
 
 // POST "/api/templates/"
 router.post("/", upload.single("image"), (req, res, next) => {
+  // var obj = {
+  //   img: {
+  //     data: fs.readFileSync(
+  //       path.join(__dirname + "/uploads/" + req.file.filename)
+  //     ),
+  //     // contentType: "image/png",
+  //     contentType: req.file.mimetype,
+  //   },
+  //   title: req.body.title,
+  // };
+  debugger;
   var obj = {
-    img: {
-      data: fs.readFileSync(
-        path.join(__dirname + "/uploads/" + req.file.filename)
-      ),
-      // contentType: "image/png",
-      contentType: req.file.mimetype,
-    },
+    img: req.body.img,
     title: req.body.title,
+    tags: req.body.tags,
   };
 
   const { errors, isValid } = validateTemplate(req.body);

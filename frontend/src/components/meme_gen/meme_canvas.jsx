@@ -1,4 +1,5 @@
 import React from "react";
+import FileUpload from "../file_upload/file_upload";
 
 class MemeCanvas extends React.Component {
   constructor(props) {
@@ -55,7 +56,7 @@ class MemeCanvas extends React.Component {
 
   getImage() {
     debugger;
-    this.props.fetchMeme("601af605f230b3d78dade52a").then((image) => {
+    this.props.fetchMeme("601b7e9d6179d448b2350485").then((image) => {
       let buffer = image.meme.data.img.data.data;
 
       let img = this._arrayBufferToBase64(buffer);
@@ -90,15 +91,17 @@ class MemeCanvas extends React.Component {
   }
 
   renderImage() {
-    let meme = this.canvasRef.toDataURL("image/jpeg", 1);
-    // console.log(meme);
+    let meme = this.canvasRef.toDataURL("image/jpeg", 0.5);
     debugger;
+    this.props.postMeme({ title: "newMeme", img: meme });
   }
 
   componentDidMount() {
     debugger;
 
-    this.props.fetchMeme("601af605f230b3d78dade52a");
+    // this.props.fetchMeme("601c3997765dd88b1c406f1d");
+    this.props.fetchTemplate("601c3997765dd88b1c406f1d");
+
     debugger;
     const canvas = this.canvasRef;
     //  ;
@@ -145,9 +148,11 @@ class MemeCanvas extends React.Component {
     if (this.canvasRef) {
       debugger;
       if (Object.values(this.props.memes)[0]) {
-        imageUrl = this.props._arrayBufferToBase64(
-          Object.values(this.props.memes)[0].data
-        );
+        // imageUrl = this.props._arrayBufferToBase64(
+        //   Object.values(this.props.memes)[0].data
+        // );
+
+        imageUrl = Object.values(this.props.memes)[0];
       }
       //
       //  ;

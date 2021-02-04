@@ -7,7 +7,7 @@ import {
 
 const MemesReducer = (state = {}, action) => {
   Object.freeze(state);
-  debugger;
+  // debugger;
   const { payload } = action;
 
   switch (action.type) {
@@ -15,8 +15,11 @@ const MemesReducer = (state = {}, action) => {
       return Object.assign({}, state, payload.data);
     case FETCH_MEME:
       //  ;
+      // return Object.assign({}, state, {
+      //   [payload.data._id]: payload.data.img.data,
+      // });
       return Object.assign({}, state, {
-        [payload.data._id]: payload.data.img.data,
+        [payload.data._id]: payload.data.img,
       });
     case DELETE_MEME:
       const newState = Object.assign({}, state);

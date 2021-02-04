@@ -73,7 +73,8 @@ export const postMeme = (meme) => {
 export const deleteMeme = (memeId) => {
   return (dispatch) => {
     return APIUtil.deleteMemeFromDb(memeId).then((meme) => {
-      return dispatch(removeMeme(meme.id)).catch((err) => console.log(err));
+      return dispatch(removeMeme(meme.id));
+      // .catch((err) => console.log(err));
     });
   };
 };

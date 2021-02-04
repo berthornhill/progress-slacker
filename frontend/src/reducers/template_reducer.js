@@ -14,9 +14,9 @@ const TemplatesReducer = (state = {}, action) => {
     case FETCH_TEMPLATES:
       return Object.assign({}, state, payload.data);
     case FETCH_TEMPLATE:
-      //  ;
+      debugger;
       return Object.assign({}, state, {
-        [payload.data._id]: payload.data.img.data,
+        [payload.data._id]: payload.data.img,
       });
     case DELETE_TEMPLATE:
       const newState = Object.assign({}, state);
