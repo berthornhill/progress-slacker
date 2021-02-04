@@ -107,8 +107,9 @@ table {
 .form-user-login > label{
 	margin-left: 40px;
 	font-size: 24px;
-	font-family: Arial, Helvetica, sans-serif;
-	font-weight: 800;
+	font-family: 'Abril Fatface', serif;
+	font-weight: 500;
+	color: rgb(24, 24, 24);
 }
 
 .form-user-login label:hover {
@@ -121,7 +122,8 @@ table {
 	width: 190px;
 	height: 30px;
 	border-radius: 5px;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: 'Roboto', sans-serif;
+ 	font-weight: 300;
 	font-size: 12px;
 	padding-left: 10px;
 	border: none;
@@ -132,8 +134,9 @@ table {
 	width: 150px;
 	border-radius: 7px;
 	font-size: 18px;
-	background-color: #fff;
+	background-color: rgb(24, 24, 24);
 	cursor: pointer;
+	color: rgba(255, 255, 255, 0.943);
 }
 
 .login-button:hover {
@@ -142,15 +145,15 @@ table {
 }
 
 input[type=submit].login-button {
-	font-size: 16px;
-	font-family: Arial, Helvetica, sans-serif;
-
+	font-size: 18px;
+	font-family: 'Abril Fatface', serif;
 }
 
 .errors {
 	margin-left: 100px;
 	line-height: 20px;
 	color: white;
+	font-family: 'Open Sans', sans-serif;
 }
 
 
@@ -180,8 +183,6 @@ input[type=submit].login-button {
 	}
 
     .face::before { 
-        /*In this part we will make  
-            the mouth of the face*/
         content: ""; 
         position: absolute; 
         top: 120px; 
@@ -193,10 +194,6 @@ input[type=submit].login-button {
         transition: 0.5s; 
     } 
     .face:hover::before { 
-        /*Here we will add the hover effects.  
-            Like when the cirser will came on the mouth the  
-            mouth will closed that means is radius 
-            will be decreased*/
         top: 120px; 
         width: 150px; 
         height: 20px; 
@@ -204,8 +201,6 @@ input[type=submit].login-button {
         border-bottom-left-radius: 0px; 
         border-bottom-right-radius: 0px; 
     } 
-    /*In this part we will make 
-        the eyes of the face*/
     .eyes { 
         position: relative; 
         top: -30px; 

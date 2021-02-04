@@ -28,7 +28,7 @@ class NavBar extends React.Component {
         <div className="navbar-main">
           <div className="navbar-functions">
             <img src="img/logo2.png" alt="" className="logo-nav" />
-            <div className="name-logo">Progress Slacker</div>
+            <Link to="/" className="name-logo">Progress Slacker</Link>
             {/* <Link to={"/"}>Dashboard</Link> */}
             {/* <Link to={"/profile"}>Profile</Link> */}
             <Link to="/creatememes" className="create-meme-button">Make a Meme</Link>

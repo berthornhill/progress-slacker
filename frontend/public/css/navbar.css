@@ -84,49 +84,58 @@ table {
     padding-top: 15px;
     padding-left: 15px;
     font-size: 24px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #333;
+    font-family: 'Abril Fatface', serif;
+    color: #17183B;;
 }
 
 .demo-user-login {
     float: right;
-    margin-top: 2px;
+    margin-top: 3px;
     margin-right: 10px;
     border-radius: 50%;
     height: 50px;
     width: 50px;
     text-align: center;
     color: #fff;
-    background-color: black;
+    font-weight: 800;
+    font-family: 'Abril Fatface', serif;
     cursor: pointer;
     border: none;
     outline: none;
+    background-color: #17183B;
+    /* background-color: #7f53ac;
+    background-image: linear-gradient(315deg, #7f53ac 0%, #647dee 74%); */
+}
+
+.demo-user-login:hover {
+    background-color: #FFBA08;
 }
 
 
 .log-in-button {
     text-decoration: none;
-    height: 46px;
-    margin-top: 10px;
+    height: 42px;
+    margin-top: 13px;
     /* margin-right: 1%; */
     width: 11%;
     float: right;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Abril Fatface', serif;
     font-weight: 300px;
     border: none;
     font-size: 18px;
     background-color: #fff;
-    color: black;
+    color: #333;
     cursor: pointer;
 }
 
 .log-in-button:hover{
-    color: #333;
+    color: #FFBA08;
 }
 
 .log-in-button i {
     margin-right: 10px;
     font-size: 27px;
+    color: #17183B;
 }
 
 .create-meme-button {
@@ -134,12 +143,12 @@ table {
     height: 30px;
     width: 15%;
     float: right;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Abril Fatface', serif;
     font-weight: 300px;
     border-radius: 30px;
     font-size: 18px;
     margin-top: 5px;
-    background-color: #333;
+    background-color: #17183B;
     border: 1px thin black;
     cursor: pointer;
     text-align: center;
@@ -163,9 +172,9 @@ table {
     margin-top: 9px;
     margin-right: 10px;
     border: none;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    font-weight: 600;
+    font-family: 'Abril Fatface', serif;
+    font-size: 18px;
+    font-weight: 500;
     background-color:  #FFBA08;
     cursor: pointer;
     outline: none;
