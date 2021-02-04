@@ -10,9 +10,9 @@ class MemeFeed extends React.Component {
     // };
   }
 
-  // componentDidMount() {
-  //   this.props.fetchMemes();
-  // }
+  componentDidMount() {
+    this.props.fetchMemes();
+  }
 
   //   componentDidMount() {
   // fetch("https://api.imgflip.com/get_memes")

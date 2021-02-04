@@ -92,14 +92,14 @@ class MemeCanvas extends React.Component {
   renderImage() {
     let meme = this.canvasRef.toDataURL("image/jpeg", 0.5);
     debugger;
-    this.props.postMeme({ title: "newMeme", img: meme });
+    this.props.postMeme({ title: "newMeme", img: meme, tags: "Anime" });
   }
 
   componentDidMount() {
     debugger;
 
     // this.props.fetchMeme("601c3997765dd88b1c406f1d");
-    this.props.fetchTemplate("601c3997765dd88b1c406f1d");
+    this.props.fetchTemplate("601c4ee5c62fe3cb3cf2a25c");
 
     debugger;
     const canvas = this.canvasRef;
@@ -223,7 +223,7 @@ class MemeCanvas extends React.Component {
           <canvas
             ref={this.setCanvasRef}
             width={500}
-            height={500}        
+            height={500}
             className="meme-pic"
           />
           <img

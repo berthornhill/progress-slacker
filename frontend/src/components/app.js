@@ -19,7 +19,7 @@ const App = () => (
     <div>
       <Switch>
         <Route exact path="/" component={Dashboard} />
-        <AuthRoute exact path="/template" component={FileUpload} />
+        <Route exact path="/template" component={FileUpload} />
         <AuthRoute exact path="/creatememes" component={MemeCanvas} />
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />

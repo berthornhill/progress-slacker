@@ -75,7 +75,7 @@ router.post("/", upload.single("image"), (req, res, next) => {
   // });
   Tag.findOneAndUpdate(
     { title: req.body.tags },
-    { $push: { memes: newTemplate.id } },
+    { $push: { templates: newTemplate.id } },
     function (err, result) {}
   );
   newTemplate.save().then((template) => res.json(template));
