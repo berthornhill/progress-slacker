@@ -52,16 +52,11 @@ router.get("/tags/tag", (req, res) => {
 
 // POSTS template to meme
 router.post("/", upload.single("image"), (req, res, next) => {
+  debugger;
   var obj = {
-    img: {
-      data: fs.readFileSync(
-        path.join(__dirname + "/uploads/" + req.file.filename)
-      ),
-      // contentType: "image/png",
-      contentType: req.file.mimetype,
-    },
+    img: req.body.img,
     title: req.body.title,
-    tags: req.body.tags.split(" "),
+    // tags: req.body.tags.split(" "),
   };
   const { errors, isValid } = validateMeme(req.body);
 

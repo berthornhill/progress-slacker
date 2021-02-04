@@ -21,6 +21,7 @@ mongoose
 app.use(
   bodyParser.urlencoded({
     extended: false,
+    limit: "1mb",
   })
 );
 app.use(bodyParser.json());

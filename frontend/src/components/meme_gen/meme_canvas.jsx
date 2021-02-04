@@ -55,7 +55,7 @@ class MemeCanvas extends React.Component {
 
   getImage() {
     debugger;
-    this.props.fetchMeme("601af605f230b3d78dade52a").then((image) => {
+    this.props.fetchMeme("601b7e9d6179d448b2350485").then((image) => {
       let buffer = image.meme.data.img.data.data;
 
       let img = this._arrayBufferToBase64(buffer);
@@ -90,15 +90,15 @@ class MemeCanvas extends React.Component {
   }
 
   renderImage() {
-    let meme = this.canvasRef.toDataURL("image/jpeg", 1);
-    // console.log(meme);
+    let meme = this.canvasRef.toDataURL("image/jpeg", 0.5);
     debugger;
+    this.props.postMeme({ title: "newMeme", img: meme });
   }
 
   componentDidMount() {
     debugger;
 
-    this.props.fetchMeme("601af605f230b3d78dade52a");
+    this.props.fetchMeme("601b7e9d6179d448b2350485");
     debugger;
     const canvas = this.canvasRef;
     //  ;
