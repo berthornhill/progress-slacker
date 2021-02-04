@@ -67,12 +67,13 @@ class FileUpload extends React.Component {
         style={{ position: "absolute", display: "block" }}
       >
         <input
+          className="file-input"
           type="file"
           onChange={this.handleFileSelect}
           style={{ position: "absolute", display: "block" }}
         />
         <button
-          className=""
+          className="file-input-button"
           onClick={this.handleFileUpload}
           style={{ position: "absolute", display: "block" }}
         >
@@ -116,7 +117,7 @@ class FileUpload extends React.Component {
             </label>
             <br />
             <input
-              style={{ position: "absolute", display: "block" }}
+              className="fi-title"
               type="text"
               onChange={this.updateValue("title")}
               value={this.state.title}
