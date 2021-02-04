@@ -107,7 +107,7 @@ class FileUpload extends React.Component {
               </label>
               <br />
               <input
-                style={{ position: "absolute", display: "block" }}
+                // style={{ position: "absolute", display: "block" }}
                 type="text"
                 onChange={this.updateValue("title")}
                 value={this.state.title}
