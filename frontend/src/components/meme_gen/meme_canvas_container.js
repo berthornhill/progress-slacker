@@ -16,7 +16,6 @@ const mDTP = (dispatch) => {
     fetchTemplate: (id) => dispatch(fetchTemplate(id)),
     postMeme: (imgURL) => dispatch(postMeme(imgURL)),
     fetchMeme: (id) => dispatch(fetchMeme(id)),
-    _arrayBufferToBase64,
   };
 };
 

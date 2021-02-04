@@ -16,7 +16,6 @@ const mSTP = (state, ownProps) => {
 const mDTp = (dispatch) => {
   return {
     fetchMemes: () => dispatch(fetchMemes()),
-    _arrayBufferToBase64,
   };
 };
 

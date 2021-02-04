@@ -3,6 +3,7 @@ const router = express.Router();
 // const Meme = require("../../models/Meme");
 const validateTemplate = require("../../validation/template");
 const Template = require("../../models/Template");
+const Tag = require("../../models/Tag");
 
 const fs = require("fs");
 const path = require("path");
@@ -68,11 +69,16 @@ router.post("/", upload.single("image"), (req, res, next) => {
     return res.status(400).json(errors);
   }
   const newTemplate = new Template(obj);
-  newTemplate.save().then((template) => res.json(template));
 
   // Template.create(obj, (err, item) => {
   //   item.save().then((item) => res.json(item));
   // });
+  Tag.findOneAndUpdate(
+    { title: req.body.tags },
+    { $push: { memes: newTemplate.id } },
+    function (err, result) {}
+  );
+  newTemplate.save().then((template) => res.json(template));
 });
 
 module.exports = router;

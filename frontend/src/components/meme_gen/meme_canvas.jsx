@@ -55,34 +55,33 @@ class MemeCanvas extends React.Component {
   }
 
   getImage() {
-    debugger;
-    this.props.fetchMeme("601b7e9d6179d448b2350485").then((image) => {
-      let buffer = image.meme.data.img.data.data;
-
-      let img = this._arrayBufferToBase64(buffer);
-      // let img = function _arrayBufferToBase64(buffer) {
-      //   var binary = "";
-      //   var bytes = new Uint8Array(buffer);
-      //   var len = bytes.byteLength;
-      //   for (var i = 0; i < len; i++) {
-      //     binary += String.fromCharCode(bytes[i]);
-      //   }
-      //   return window.btoa(binary);
-      // };
-      // <img src={"data:image/png;base64," + Data.Photo} />;
-      // this.setState({ image: "data:image/png;base64," + img });
-    });
+    // debugger;
+    // this.props.fetchMeme("601b7e9d6179d448b2350485").then((image) => {
+    //   let buffer = image.meme.data.img.data.data;
+    // let img = this._arrayBufferToBase64(buffer);
+    // let img = function _arrayBufferToBase64(buffer) {
+    //   var binary = "";
+    //   var bytes = new Uint8Array(buffer);
+    //   var len = bytes.byteLength;
+    //   for (var i = 0; i < len; i++) {
+    //     binary += String.fromCharCode(bytes[i]);
+    //   }
+    //   return window.btoa(binary);
+    // };
+    // <img src={"data:image/png;base64," + Data.Photo} />;
+    // this.setState({ image: "data:image/png;base64," + img });
+    // });
   }
 
-  _arrayBufferToBase64(buffer) {
-    var binary = "";
-    var bytes = new Uint8Array(buffer);
-    var len = bytes.byteLength;
-    for (var i = 0; i < len; i++) {
-      binary += String.fromCharCode(bytes[i]);
-    }
-    return window.btoa(binary);
-  }
+  // _arrayBufferToBase64(buffer) {
+  //   var binary = "";
+  //   var bytes = new Uint8Array(buffer);
+  //   var len = bytes.byteLength;
+  //   for (var i = 0; i < len; i++) {
+  //     binary += String.fromCharCode(bytes[i]);
+  //   }
+  //   return window.btoa(binary);
+  // }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -301,13 +300,13 @@ class MemeCanvas extends React.Component {
               Generate Meme
             </button>
           </form>
-          <form onSubmit={() => this.getImage}>
+          {/* <form onSubmit={() => this.getImage}>
             <input
               type="button"
               value="submit"
               onClick={() => this.getImage()}
             />
-          </form>
+          </form> */}
         </div>
       </div>
     );
