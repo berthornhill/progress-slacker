@@ -14,6 +14,7 @@ class SignupForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearedErrors = false;
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -29,6 +30,13 @@ class SignupForm extends React.Component {
       this.setState({
         [field]: e.currentTarget.value,
       });
+  }
+
+  handleDemo(e) {
+    e.preventDefault();
+    const demo = { email: "guest@demouser.com", password: "password" };
+
+    this.props.demoLogin(demo);
   }
 
   handleSubmit(e) {
@@ -114,6 +122,9 @@ class SignupForm extends React.Component {
             {this.renderErrors()}
           </div>
         </form>
+        <div>
+          <button onClick={this.handleDemo}>Demo login</button>
+        </div>
       </div>
     );
   }

@@ -40,7 +40,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  Template.findById(req.params.id).then((Template) => res.json(Template));
+  Template.findById(req.params.id).then((template) => res.json(template));
 });
 
 // POST "/api/templates/"

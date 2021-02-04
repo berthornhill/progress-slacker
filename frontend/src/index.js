@@ -6,6 +6,7 @@ import Root from "./components/root";
 import { setAuthToken } from "./util/session_api_util";
 import { logout } from "./actions/session_actions";
 import { fetchTemplates } from "./actions/template_actions";
+import { fetchTags } from "./actions/tag_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -29,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // TESTING
   window.getTemplates = fetchTemplates;
+  window.getTags = fetchTags;
   window.dispatch = store.dispatch;
   window.getState = store.getState;
 
