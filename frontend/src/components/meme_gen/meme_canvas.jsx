@@ -12,8 +12,10 @@ class MemeCanvas extends React.Component {
       textSize: 70,
       bottomTextSize: 70,
       allMemes: [],
-      category: "",
+      category: "app",
       image: props.memes,
+      selected: 0,
+      title: "",
       // "https://media.wired.com/photos/5cdefb92b86e041493d389df/1:1/w_988,h_988,c_limit/Culture-Grumpy-Cat-487386121.jpg",
     };
 
@@ -45,6 +47,8 @@ class MemeCanvas extends React.Component {
   //   e.preventDefault()
 
   // }
+
+  handleSelect() {}
 
   updateValue(value) {
     //  ;
@@ -91,15 +95,18 @@ class MemeCanvas extends React.Component {
 
   renderImage() {
     let meme = this.canvasRef.toDataURL("image/jpeg", 0.5);
+    let title = this.state.title;
+    let tags = this.state.category;
     debugger;
-    this.props.postMeme({ title: "newMeme", img: meme, tags: "Anime" });
+    this.props.postMeme({ title: title, img: meme, tags: tags });
   }
 
   componentDidMount() {
     debugger;
 
     // this.props.fetchMeme("601c3997765dd88b1c406f1d");
-    this.props.fetchTemplate("601c4ee5c62fe3cb3cf2a25c");
+    // this.props.fetchTemplate("601c58fe00fa3dd36b44a7b9");
+    this.props.fetchTemplates();
 
     debugger;
     const canvas = this.canvasRef;
@@ -122,15 +129,15 @@ class MemeCanvas extends React.Component {
     // };
     debugger;
 
-    fetch("https://api.imgflip.com/get_memes")
-      .then((response) => response.json())
-      .then((response) => {
-        const { memes } = response.data;
+    // fetch("https://api.imgflip.com/get_memes")
+    //   .then((response) => response.json())
+    //   .then((response) => {
+    //     const { memes } = response.data;
 
-        this.setState({
-          allMemes: memes,
-        });
-      });
+    //     this.setState({
+    //       allMemes: memes,
+    //     });
+    //   });
   }
 
   componentDidUpdate(prevProps) {
@@ -151,7 +158,8 @@ class MemeCanvas extends React.Component {
         //   Object.values(this.props.memes)[0].data
         // );
 
-        imageUrl = Object.values(this.props.memes)[0];
+        // imageUrl = Object.values(this.props.memes)[this.state.selected].img;
+        imageUrl = Object.values(this.props.memes)[3].img;
       }
       //
       //  ;
@@ -197,18 +205,25 @@ class MemeCanvas extends React.Component {
 
     // meme template code
 
-    const { allMemes } = this.state;
+    const allMemes = Object.values(this.props.templates);
 
+    debugger;
     let boxCount = [];
 
-    const boxMemes = allMemes.map((meme) => {
-      if (meme.box_count <= 2) {
-        boxCount.push(meme);
-      }
-    });
+    // const boxMemes = allMemes.map((meme) => {
+    //   if (meme.box_count <= 2) {
+    //     boxCount.push(meme);
+    //   }
+    // });
 
-    const featureMemes = boxCount.map((meme) => {
-      return <img src={meme.url} className={"meme-template-inner"} />;
+    const featureMemes = allMemes.map((meme) => {
+      return (
+        <img
+          src={meme.img}
+          className={"meme-template-inner"}
+          onClick={this.handleSelect}
+        />
+      );
     });
 
     return (
@@ -282,16 +297,22 @@ class MemeCanvas extends React.Component {
                 className="category-select"
                 onChange={this.updateValue("category")}
               >
-                <option value="App Academy">App Academy</option>
-                <option value="Animals">Animals</option>
-                <option value="Anime">Anime</option>
-                <option value="Gaming">Gaming</option>
-                <option value="Tv Shows">Tv Shows</option>
-                <option value="Movies">Movies</option>
-                <option value="Politics">Politics</option>
-                <option value="Sports">Sports</option>
-                <option value="Internet">Internet</option>
+                <option value="app">App Academy</option>
+                <option value="animals">Animals</option>
+                <option value="anime">Anime</option>
+                <option value="gaming">Gaming</option>
+                <option value="tv">Tv Shows</option>
+                <option value="movies">Movies</option>
+                <option value="politics">Politics</option>
+                <option value="sports">Sports</option>
+                <option value="internet">Internet</option>
               </select>
+              <input
+                style={{ position: "absolute", display: "block" }}
+                type="text"
+                onChange={this.updateValue("title")}
+                value={this.state.title}
+              />
             </label>
           </div>
 
