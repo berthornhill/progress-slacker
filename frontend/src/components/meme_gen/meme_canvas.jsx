@@ -48,7 +48,9 @@ class MemeCanvas extends React.Component {
 
   // }
 
-  handleSelect() {}
+  handleSelect(i) {
+    this.setState({ selected: i });
+  }
 
   updateValue(value) {
     //  ;
@@ -159,7 +161,7 @@ class MemeCanvas extends React.Component {
         // );
 
         // imageUrl = Object.values(this.props.memes)[this.state.selected].img;
-        imageUrl = Object.values(this.props.memes)[3].img;
+        imageUrl = Object.values(this.props.memes)[this.state.selected].img;
       }
       //
       //  ;
@@ -216,12 +218,12 @@ class MemeCanvas extends React.Component {
     //   }
     // });
 
-    const featureMemes = allMemes.map((meme) => {
+    const featureMemes = allMemes.map((meme, i) => {
       return (
         <img
           src={meme.img}
           className={"meme-template-inner"}
-          onClick={this.handleSelect}
+          onClick={() => this.handleSelect(i)}
         />
       );
     });
