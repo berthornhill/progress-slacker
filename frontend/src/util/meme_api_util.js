@@ -13,7 +13,7 @@ export const getMeme = (memeId) => {
 };
 
 // post meme into db (CREATE)
-export const createMemeTemplate = (meme) => {
+export const createMeme = (meme) => {
   return axios.post(`/api/memes`, meme);
 };
 

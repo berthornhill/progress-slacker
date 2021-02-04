@@ -2,53 +2,52 @@
 // Fetch Meme - get meme from url id
 // Delete meme
 
-import {
-  getMeme,
-  getMemes,
-  createMemeTemplate,
-  deleteMemeFromDb,
-} from "../util/meme_api_util";
+import * as APIUtil from "../util/meme_api_util";
 
 // catch typos section
 export const FETCH_MEME = "FETCH_MEME";
 export const FETCH_MEMES = "FETCH_MEMES";
-export const CREATE_MEME_TEMPLATE = "CREATE_MEME_TEMPLATE";
+export const CREATE_MEME = "CREATE_MEME";
 export const DELETE_MEME = "DELETE_MEME";
 
 // reg actions to reducer
-export const postMeme = (memeTemplate) => {
+const createMeme = (payload) => {
   return {
-    type: CREATE_MEME_TEMPLATE,
-    memeTemplate,
+    type: CREATE_MEME,
+    payload,
   };
 };
 
+<<<<<<< HEAD:frontend/src/actions/meme_template_actions.js
 export const receiveMeme = (meme) => {
   debugger
+=======
+const receiveMeme = (payload) => {
+>>>>>>> 62d7a93fae10cffb4774bd2bcc23074277310b60:frontend/src/actions/meme_actions.js
   return {
     type: FETCH_MEME,
-    meme,
+    payload,
   };
 };
 
-export const receiveMemes = (memes) => {
+const receiveMemes = (payload) => {
   return {
     type: FETCH_MEMES,
-    memes,
+    payload,
   };
 };
 
-export const removeMeme = (memeId) => {
+const removeMeme = (payload) => {
   return {
     type: DELETE_MEME,
-    memeId,
+    payload,
   };
 };
 
 // thunk actions to backend API
 export const fetchMemes = () => {
   return (dispatch) => {
-    return getMemes().then((memes) => {
+    return APIUtil.getMemes().then((memes) => {
       return dispatch(receiveMemes(memes));
       // .catch((err) => console.log(err));
     });
@@ -58,26 +57,30 @@ export const fetchMemes = () => {
 export const fetchMeme = (memeId) => {
   debugger
   return (dispatch) => {
+<<<<<<< HEAD:frontend/src/actions/meme_template_actions.js
     debugger
     return getMeme(memeId).then((meme) => {
       debugger
+=======
+    return APIUtil.getMeme(memeId).then((meme) => {
+>>>>>>> 62d7a93fae10cffb4774bd2bcc23074277310b60:frontend/src/actions/meme_actions.js
       return dispatch(receiveMeme(meme));
       // .catch((err) => console.log(err));
     });
   };
 };
 
-export const createMeme = (meme) => {
+export const postMeme = (meme) => {
   return (dispatch) => {
-    return createMemeTemplate(meme).then((meme) => {
-      return dispatch(postMeme(meme)).catch((err) => console.log(err));
+    return APIUtil.createMeme(meme).then((meme) => {
+      return dispatch(createMeme(meme)).catch((err) => console.log(err));
     });
   };
 };
 
 export const deleteMeme = (memeId) => {
   return (dispatch) => {
-    return deleteMemeFromDb(memeId).then((meme) => {
+    return APIUtil.deleteMemeFromDb(memeId).then((meme) => {
       return dispatch(removeMeme(meme.id)).catch((err) => console.log(err));
     });
   };
