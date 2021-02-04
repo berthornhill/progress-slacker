@@ -50,15 +50,9 @@ export const fetchMemes = () => {
 };
 
 export const fetchMeme = (memeId) => {
-  debugger
+  debugger;
   return (dispatch) => {
-<<<<<<< HEAD:frontend/src/actions/meme_template_actions.js
-    debugger
-    return getMeme(memeId).then((meme) => {
-      debugger
-=======
     return APIUtil.getMeme(memeId).then((meme) => {
->>>>>>> 62d7a93fae10cffb4774bd2bcc23074277310b60:frontend/src/actions/meme_actions.js
       return dispatch(receiveMeme(meme));
       // .catch((err) => console.log(err));
     });
