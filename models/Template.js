@@ -7,13 +7,13 @@ const TemplateSchema = new Schema({
     type: String,
     required: true,
   },
-  // tags: {
-  //   type: String,
-  //   required: true,
-  // },
+  tags: {
+    type: String,
+    required: true,
+  },
   img: {
-    data: Buffer,
-    contentType: String,
+    // data: Buffer,
+    type: String,
   },
   created: {
     type: Date,
