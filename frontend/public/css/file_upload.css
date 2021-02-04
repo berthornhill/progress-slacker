@@ -1,0 +1,32 @@
+.file-upload {
+  width: 100%;
+  height: 1080px;
+  background-color: rgb(0, 146, 146);
+  display: grid;
+  grid-template-columns: 70% 30%;
+}
+
+.template-creator {
+  padding-top: 200px;
+  width: auto;
+  min-width: 550px;
+  height: 1080px;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+  grid-column-start: 1;
+}
+
+.right-side {
+  grid-column-start: 2;
+  min-width: 300px;
+  margin-top: 30%;
+  padding-top: 200px;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+
+  height: 500px;
+}

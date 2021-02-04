@@ -64,21 +64,9 @@ class FileUpload extends React.Component {
     return (
       <div
         className="file-upload"
-        style={{ position: "absolute", display: "block" }}
+        // style={{ position: "absolute", display: "block" }}
       >
-        <input
-          type="file"
-          onChange={this.handleFileSelect}
-          style={{ position: "absolute", display: "block" }}
-        />
-        <button
-          className=""
-          onClick={this.handleFileUpload}
-          style={{ position: "absolute", display: "block" }}
-        >
-          Create Template
-        </button>
-        <div className="canvas-creator">
+        <div className="template-creator">
           {/* <canvas ref={this.setCanvasRef} width={500} height={500} /> */}
           <canvas
             ref={this.setCanvasRef}
@@ -93,35 +81,51 @@ class FileUpload extends React.Component {
             ref={this.setImageRef}
             crossOrigin="anonymous"
           />
-          <label>
-            Select a tag
-            <br />
-            <select
-              style={{ position: "absolute", display: "block" }}
-              className="category-select"
-              onChange={this.updateValue("category")}
-            >
-              <option value="app">App Academy</option>
-              <option value="animals">Animals</option>
-              <option value="anime">Anime</option>
-              <option value="gaming">Gaming</option>
-              <option value="tv">Tv Shows</option>
-              <option value="movies">Movies</option>
-              <option value="politics">Politics</option>
-              <option value="sports">Sports</option>
-              <option value="internet">Internet</option>
-            </select>
-            <label value="title" className="template-title">
-              title
+        </div>
+        <div className="right-side">
+          <div className="form-fields">
+            <label>
+              Select a tag
+              <br />
+              <select
+                // style={{ position: "absolute", display: "block" }}
+                className="category-select"
+                onChange={this.updateValue("category")}
+              >
+                <option value="app">App Academy</option>
+                <option value="animals">Animals</option>
+                <option value="anime">Anime</option>
+                <option value="gaming">Gaming</option>
+                <option value="tv">Tv Shows</option>
+                <option value="movies">Movies</option>
+                <option value="politics">Politics</option>
+                <option value="sports">Sports</option>
+                <option value="internet">Internet</option>
+              </select>
+              <label value="title" className="template-title">
+                title
+              </label>
+              <br />
+              <input
+                style={{ position: "absolute", display: "block" }}
+                type="text"
+                onChange={this.updateValue("title")}
+                value={this.state.title}
+              />
             </label>
-            <br />
             <input
-              style={{ position: "absolute", display: "block" }}
-              type="text"
-              onChange={this.updateValue("title")}
-              value={this.state.title}
+              type="file"
+              onChange={this.handleFileSelect}
+              // style={{ position: "absolute", display: "block" }}
             />
-          </label>
+            <button
+              className=""
+              onClick={this.handleFileUpload}
+              // style={{ position: "absolute", display: "block" }}
+            >
+              Create Template
+            </button>
+          </div>
         </div>
       </div>
     );
