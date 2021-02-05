@@ -68,18 +68,24 @@ class FileUpload extends React.Component {
     }
 
     return (
-      <div
-        className="file-upload"
-        // style={{ position: "absolute", display: "block" }}
-      >
-        {this.renderRedirect()}
-        <div className="template-creator">
+      <div className="file-upload">
+          {this.renderRedirect()}
+        <input
+          className="file-input"
+          name="file-input"
+          id="file-input"
+          type="file"
+          onChange={this.handleFileSelect}
+        />
+        <label htmlFor="file-input">Upload image</label>
+        <br/>
+        <div>
           {/* <canvas ref={this.setCanvasRef} width={500} height={500} /> */}
           <canvas
             ref={this.setCanvasRef}
             width={500}
             height={500}
-            className="meme-pic"
+            className="meme-pic2"
           />
           <img
             src={this.state.previewUrl}
@@ -88,51 +94,41 @@ class FileUpload extends React.Component {
             ref={this.setImageRef}
             crossOrigin="anonymous"
           />
-        </div>
-        <div className="right-side">
-          <div className="form-fields">
-            <label>
-              Select a tag
-              <br />
-              <select
-                // style={{ position: "absolute", display: "block" }}
-                className="category-select"
-                onChange={this.updateValue("category")}
-              >
-                <option value="app">App Academy</option>
-                <option value="animals">Animals</option>
-                <option value="anime">Anime</option>
-                <option value="gaming">Gaming</option>
-                <option value="tv">Tv Shows</option>
-                <option value="movies">Movies</option>
-                <option value="politics">Politics</option>
-                <option value="sports">Sports</option>
-                <option value="internet">Internet</option>
-              </select>
-              <label value="title" className="template-title">
-                title
-              </label>
-              <br />
-              <input
-                // style={{ position: "absolute", display: "block" }}
-                type="text"
-                onChange={this.updateValue("title")}
-                value={this.state.title}
-              />
+          <br/>
+        <div className="file-load-container">
+          <label className="select-tag">
+            Select a tag
+            <br />
+            <select
+              onChange={this.updateValue("category")}
+              className="tag-drop"
+            >
+              <option value="app">App Academy</option>
+              <option value="animals">Animals</option>
+              <option value="anime">Anime</option>
+              <option value="gaming">Gaming</option>
+              <option value="tv">Tv Shows</option>
+              <option value="movies">Movies</option>
+              <option value="politics">Politics</option>
+              <option value="sports">Sports</option>
+              <option value="internet">Internet</option>
+            </select>
+            <br/>
+            <label className="title-header">
+              Select a Title
             </label>
             <input
-              type="file"
-              onChange={this.handleFileSelect}
-              accept=".png, .jpg, .jpeg"
-              // style={{ position: "absolute", display: "block" }}
+              type="text"
+              onChange={this.updateValue("title")}
+              value={this.state.title}
+              className='tag-selector'
+              placeholder="Enter Meme Title here"
             />
-            <button
-              className=""
-              onClick={this.handleFileUpload}
-              // style={{ position: "absolute", display: "block" }}
-            >
-              Create Template
-            </button>
+          </label>
+          <br/>
+           <button onClick={this.handleFileUpload} className="create-template">
+            Create Template
+          </button>
           </div>
         </div>
       </div>
