@@ -1,90 +1,28 @@
 import React from "react";
+import { Link, Redirect } from "react-router-dom";
 
 class SideBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       allMemes: [],
-      page: 0,
     };
 
-    this.handleFeature = this.handleFeature.bind(this);
-    this.handleAnimals = this.handleAnimals.bind(this);
-    this.handleApp = this.handleApp.bind(this);
-    this.handleAnime = this.handleAnime.bind(this);
-    this.handleGaming = this.handleGaming.bind(this);
-    this.handleTv = this.handleTv.bind(this);
-    this.handleMovies = this.handleMovies.bind(this);
-    this.handlePolitics = this.handlePolitics.bind(this);
-    this.handleSports = this.handleSports.bind(this);
-    this.handleInternet = this.handleInternet.bind(this);
-
+    this.featureClick = this.featureClick.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleFeature(e) {
-    e.preventDefault();
-    this.setState({ page: 0 });
+  featureClick() {
+    this.props.fetchTags();
   }
-  handleApp(e) {
-    e.preventDefault();
-    this.setState({ page: 1 });
-  }
-  handleAnimals(e) {
-    e.preventDefault();
-    this.setState({ page: 2 });
-  }
-  handleAnime(e) {
-    e.preventDefault();
-    this.setState({ page: 3 });
-  }
-  handleGaming(e) {
-    e.preventDefault();
-    this.setState({ page: 4 });
-  }
-  handleTv(e) {
-    e.preventDefault();
-    this.setState({ page: 5 });
-  }
-  handleMovies(e) {
-    e.preventDefault();
-    this.setState({ page: 6 });
-  }
-  handlePolitics(e) {
-    e.preventDefault();
-    this.setState({ page: 7 });
-  }
-  handleSports(e) {
-    e.preventDefault();
-    this.setState({ page: 8 });
-  }
-  handleInternet(e) {
-    e.preventDefault();
-    this.setState({ page: 9 });
-  }
-
-  //   componentDidMount() {
-  //     fetch("https://api.imgflip.com/get_memes")
-  //       .then((response) => response.json())
-  //       .then((response) => {
-  //         const { memes } = response.data;
-  //          ;
-  //         this.setState({
-  //           allMemes: memes,
-  //         });
-  //       });
-  //   }
 
   componentDidMount() {
     // request to backend to return each tag with its specific array imgs of that tag
-    this.props.fetchTags();
+    // this.props.fetchTags();
     // this.props
   }
 
   handleClick(tag) {
-    // // debugger;
-    // return (e) => {
-    //   e.preventDefault();
     // debugger;
     this.props.displayTags(tag);
     // };
@@ -95,18 +33,19 @@ class SideBar extends React.Component {
     const { tags, tagIds } = this.props;
 
     const displayTags = Object.values(tags).map((tag, i) => {
+      debugger;
       return (
         <li key={i} onClick={() => this.handleClick(tag)} tag={tag}>
-          {tag.title}
+          <Link to={`/${tag._id}`}>{tag.title}</Link>
         </li>
       );
     });
 
     return (
       <div className="sidebar">
-        <div className="feature-button" onClick={this.handleFeature}>
+        <div className="feature-button">
           <i className="fas fa-laugh-squint"></i>
-          Feature
+          <Link to="/">Feature</Link>
         </div>
         {/* {tagList} */}
         <div>{displayTags}</div>
@@ -116,6 +55,18 @@ class SideBar extends React.Component {
 }
 
 export default SideBar;
+
+//   componentDidMount() {
+//     fetch("https://api.imgflip.com/get_memes")
+//       .then((response) => response.json())
+//       .then((response) => {
+//         const { memes } = response.data;
+//          ;
+//         this.setState({
+//           allMemes: memes,
+//         });
+//       });
+//   }
 
 // tags object
 // let tagList = tagIds.map((tag, i) => {

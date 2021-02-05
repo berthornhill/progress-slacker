@@ -14,26 +14,6 @@ class MemeFeed extends React.Component {
     this.props.fetchMemes();
   }
 
-  //   componentDidMount() {
-  // fetch("https://api.imgflip.com/get_memes")
-  //   .then((response) => response.json())
-  //   .then((response) => {
-  //     const { memes } = response.data;
-  //      ;
-  //     this.setState({
-  //       allMemes: memes,
-  //     });
-  //   });
-  // }
-  //     randomArr(arr) {
-  //     for (var i = arr.length - 1; i > 0; i--) {
-  //       let randomNum = Math.floor(Math.random() * (i + 1));
-  //       [arr[i], arr[randomNum]] = [arr[randomNum], arr[i]];
-  //     }
-
-  //     return arr;
-  //   }
-
   render() {
     // const { allMemes } = this.state;
 
@@ -73,21 +53,32 @@ class MemeFeed extends React.Component {
     //     </Link>
     //   );
     // });
-
-    if (!this.props.display) return null;
-
+    debugger;
     const allMemes = this.props.allMemes;
+    let tagsArr = this.props.allTags[this.props.match.params.id];
+    let display2;
 
-    const featureMemes = this.props.display.map((id, i) => {
+    if (tagsArr) {
+      display2 = tagsArr.memes;
+    } else {
+      display2 = Object.keys(allMemes);
+    }
+
+    // all memes
+    if (!display2) {
+      return null;
+    }
+    debugger;
+    const featureMemes = display2.map((id, i) => {
       let src = allMemes[id].img;
-
+      debugger;
       return (
         <div className={"meme-box"}>
           <div className="multi-button">
             <button class="fas fa-heart"></button>
           </div>
           <Link key={i} to={`/memes/${id}`}>
-          <img src={src} className={"meme-meme"} />
+            <img src={src} className={"meme-meme"} />
           </Link>
         </div>
       );
@@ -104,3 +95,23 @@ class MemeFeed extends React.Component {
 }
 
 export default MemeFeed;
+
+//   componentDidMount() {
+// fetch("https://api.imgflip.com/get_memes")
+//   .then((response) => response.json())
+//   .then((response) => {
+//     const { memes } = response.data;
+//      ;
+//     this.setState({
+//       allMemes: memes,
+//     });
+//   });
+// }
+//     randomArr(arr) {
+//     for (var i = arr.length - 1; i > 0; i--) {
+//       let randomNum = Math.floor(Math.random() * (i + 1));
+//       [arr[i], arr[randomNum]] = [arr[randomNum], arr[i]];
+//     }
+
+//     return arr;
+//   }
