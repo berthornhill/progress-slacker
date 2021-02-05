@@ -11,7 +11,7 @@ class FileUpload extends React.Component {
     this.state = {
       picFile: null,
       previewUrl: "img/logo2.png",
-      category: "",
+      category: "app",
       title: "",
       redirect: false,
     };
@@ -69,7 +69,7 @@ class FileUpload extends React.Component {
 
     return (
       <div className="file-upload">
-          {this.renderRedirect()}
+        {this.renderRedirect()}
         <input
           className="file-input"
           name="file-input"
@@ -78,7 +78,7 @@ class FileUpload extends React.Component {
           onChange={this.handleFileSelect}
         />
         <label htmlFor="file-input">Upload image</label>
-        <br/>
+        <br />
         <div>
           {/* <canvas ref={this.setCanvasRef} width={500} height={500} /> */}
           <canvas
@@ -94,41 +94,39 @@ class FileUpload extends React.Component {
             ref={this.setImageRef}
             crossOrigin="anonymous"
           />
-          <br/>
-        <div className="file-load-container">
-          <label className="select-tag">
-            Select a tag
-            <br />
-            <select
-              onChange={this.updateValue("category")}
-              className="tag-drop"
-            >
-              <option value="app">App Academy</option>
-              <option value="animals">Animals</option>
-              <option value="anime">Anime</option>
-              <option value="gaming">Gaming</option>
-              <option value="tv">Tv Shows</option>
-              <option value="movies">Movies</option>
-              <option value="politics">Politics</option>
-              <option value="sports">Sports</option>
-              <option value="internet">Internet</option>
-            </select>
-            <br/>
-            <label className="title-header">
-              Select a Title
+          <br />
+          <div className="file-load-container">
+            <label className="select-tag">
+              Select a tag
+              <br />
+              <select
+                onChange={this.updateValue("category")}
+                className="tag-drop"
+              >
+                <option value="app">App Academy</option>
+                <option value="animals">Animals</option>
+                <option value="anime">Anime</option>
+                <option value="gaming">Gaming</option>
+                <option value="tv">Tv Shows</option>
+                <option value="movies">Movies</option>
+                <option value="politics">Politics</option>
+                <option value="sports">Sports</option>
+                <option value="internet">Internet</option>
+              </select>
+              <br />
+              <label className="title-header">Select a Title</label>
+              <input
+                type="text"
+                onChange={this.updateValue("title")}
+                value={this.state.title}
+                className="tag-selector"
+                placeholder="Enter Meme Title here"
+              />
             </label>
-            <input
-              type="text"
-              onChange={this.updateValue("title")}
-              value={this.state.title}
-              className='tag-selector'
-              placeholder="Enter Meme Title here"
-            />
-          </label>
-          <br/>
-           <button onClick={this.handleFileUpload} className="create-template">
-            Create Template
-          </button>
+            <br />
+            <button onClick={this.handleFileUpload} className="create-template">
+              Create Template
+            </button>
           </div>
         </div>
       </div>
