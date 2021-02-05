@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import SideBar from "./sidebar";
 import { fetchTags } from "../../actions/tag_actions";
+import { displayTags } from "../../actions/display_actions";
 
 const mSTP = (state) => {
   debugger;
@@ -14,6 +15,7 @@ const mDTP = (dispatch) => {
   debugger;
   return {
     fetchTags: () => dispatch(fetchTags()),
+    displayTags: (tag) => dispatch(displayTags(tag)),
   };
 };
 

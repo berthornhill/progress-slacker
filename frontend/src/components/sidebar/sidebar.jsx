@@ -82,10 +82,12 @@ class SideBar extends React.Component {
   }
 
   handleClick(tag) {
-    return (e) => {
-      e.preventDefault();
-      this.props.fetchTaggedMemes(tag);
-    };
+    // debugger;
+    // return (e) => {
+    //   e.preventDefault();
+    debugger;
+    this.props.displayTags(tag);
+    // };
     //   //passess array of tagged memes ids to memefeed
   }
 
@@ -94,7 +96,7 @@ class SideBar extends React.Component {
 
     const displayTags = Object.values(tags).map((tag, i) => {
       return (
-        <li key={i} onClick={this.handleClick(tag.id)} tag={tag}>
+        <li key={i} onClick={() => this.handleClick(tag)} tag={tag}>
           {tag.title}
         </li>
       );
