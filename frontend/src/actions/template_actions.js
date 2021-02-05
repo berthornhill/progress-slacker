@@ -38,9 +38,9 @@ const removeTemplate = (payload) => {
 // thunk actions to backend API
 export const fetchTemplates = () => {
   return (dispatch) => {
-    debugger;
+    // debugger;
     return APIUtil.getTemplates().then((templates) => {
-      debugger;
+      // debugger;
       return dispatch(receiveTemplates(templates));
       // .catch((err) => console.log(err));
     });

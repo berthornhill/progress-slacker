@@ -4,7 +4,7 @@ import { fetchTags } from "../../actions/tag_actions";
 import { displayTags } from "../../actions/display_actions";
 
 const mSTP = (state) => {
-  debugger;
+  // debugger;
   return {
     // tagIds: Object.values(state.entities.tags.id), // array of each tag id
     tags: state.entities.tags, // each tag object
@@ -12,7 +12,7 @@ const mSTP = (state) => {
 };
 
 const mDTP = (dispatch) => {
-  debugger;
+  // debugger;
   return {
     fetchTags: () => dispatch(fetchTags()),
     displayTags: (tag) => dispatch(displayTags(tag)),

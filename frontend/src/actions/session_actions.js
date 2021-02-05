@@ -42,7 +42,7 @@ export const signup = (user) => {
 
         // .then(
         //   (user) => {
-        //     debugger;
+        //     // debugger;
         //     return dispatch(login(user));
       },
       (err) => {

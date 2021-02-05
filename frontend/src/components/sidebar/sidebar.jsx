@@ -82,10 +82,10 @@ class SideBar extends React.Component {
   }
 
   handleClick(tag) {
-    // debugger;
+    // // debugger;
     // return (e) => {
     //   e.preventDefault();
-    debugger;
+    // debugger;
     this.props.displayTags(tag);
     // };
     //   //passess array of tagged memes ids to memefeed

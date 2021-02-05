@@ -39,7 +39,7 @@ router.post("/register", (req, res) => {
                 keys.secretOrKey,
                 { expiresIn: 3600 },
                 (err, token) => {
-                  debugger;
+                  // debugger;
                   res.json({
                     success: true,
                     token: "Bearer " + token,

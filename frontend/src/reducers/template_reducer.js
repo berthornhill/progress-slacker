@@ -7,9 +7,9 @@ import {
 
 const TemplatesReducer = (state = {}, action) => {
   Object.freeze(state);
-  // debugger;
+  // // debugger;
   const { payload } = action;
-  // debugger;
+  // // debugger;
 
   switch (action.type) {
     case FETCH_TEMPLATES:

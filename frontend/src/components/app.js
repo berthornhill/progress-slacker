@@ -9,22 +9,22 @@ import Dashboard from "./dashboard/dashboard";
 // import CreateMemeContainer from "./meme/meme_template_container";
 import Navbar from "./navbar/navbar_container";
 import FileUpload from "./file_upload/file_upload";
-
+import MemeShow from "./meme/meme_show_container";
 
 const App = () => (
   // <div>dashboard</div>
   <div className="entire-window">
+    <Navbar />
 
-      <Navbar />
-   
     <div>
       <Switch>
-        <Route exact path="/" component={Dashboard} />
-        <Route exact path="/template" component={FileUpload} />
-        <ProtectedRoute exact path="/creatememes" component={MemeCanvas} />
-        <AuthRoute exact path="/login" component={LoginFormContainer} />
-        <AuthRoute exact path="/signup" component={SignupFormContainer} />
-        
+        <AuthRoute path="/login" component={LoginFormContainer} />
+        <AuthRoute path="/signup" component={SignupFormContainer} />
+        <Route path="/memes/:id" component={MemeShow} />
+        <ProtectedRoute path="/creatememes" component={MemeCanvas} />
+        <ProtectedRoute path="/template" component={FileUpload} />
+        <Route path="/" component={Dashboard} />
+
         {/* <ProtectedRoute exact path="/create" component={CreateMemeContainer} /> */}
       </Switch>
     </div>

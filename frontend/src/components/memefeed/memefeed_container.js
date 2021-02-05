@@ -4,7 +4,7 @@ import { _arrayBufferToBase64 } from "../../util/image_util";
 import { fetchMemes } from "../../actions/meme_actions";
 
 const mSTP = (state, ownProps) => {
-  debugger;
+  // debugger;
   return {
     // array of all 6 memes
     allMemes: state.entities.memes,

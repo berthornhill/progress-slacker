@@ -40,7 +40,7 @@ router.get("/", (req, res) => {
 
 // GETs single meme by ID
 router.get("/:id", (req, res) => {
-  debugger;
+  // debugger;
   Meme.findById(req.params.id).then((meme) => res.json(meme));
 });
 
@@ -53,7 +53,7 @@ router.get("/tags/tag", (req, res) => {
 
 // POSTS template to meme
 router.post("/", upload.single("image"), (req, res, next) => {
-  debugger;
+  // debugger;
   var obj = {
     img: req.body.img,
     title: req.body.title,
@@ -66,7 +66,7 @@ router.post("/", upload.single("image"), (req, res, next) => {
   }
 
   const newMeme = new Meme(obj);
-  debugger;
+  // debugger;
   Tag.findOneAndUpdate(
     { title: req.body.tags },
     { $push: { memes: newMeme.id } },
@@ -74,6 +74,18 @@ router.post("/", upload.single("image"), (req, res, next) => {
   );
 
   newMeme.save().then((meme) => res.json(meme));
+});
+
+router.delete("/:id", (req, res) => {
+  Meme.findById(req.params.id).then((meme) => {
+    Tag.findOneAndUpdate(
+      { title: meme.tags },
+      { $pull: { memes: meme.id } },
+      function (err, result) {}
+    );
+    meme.remove();
+  });
+  return res.status(200).json({ meme: "meme has been deleted" });
 });
 
 module.exports = router;
