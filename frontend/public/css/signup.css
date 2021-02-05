@@ -10,7 +10,7 @@
 	/* cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>😀</text></svg>") 16 0,auto; /*!emojicursor.app*/; */
 }
 
-.welcome-signup {
+/* .welcome-signup {
 	width: 800px;
 	height: 400px;
 	position: absolute;
@@ -20,6 +20,17 @@
 	font-weight: 500;
 	color: #fff;
   	text-shadow: 2px 2px 2px #CCCCCC;
+} */
+
+.animate__animated.animate__zoomIn {
+	width: 350px;
+    height: 500px;
+	background-color: #596869;
+	position: absolute;
+	display: flex; 
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
 }
 
 .signup-block {
@@ -33,7 +44,7 @@
 	border-radius: 10px;
 }
 
-.signup-block label {
+.animate__animated.animate__zoomIn label {
 	/* margin-left: 50px; */
 	text-align: center;
 	font-size: 24px;
@@ -42,12 +53,12 @@
 	color: rgb(24, 24, 24);
 }
 
-.signup-block label:hover {
+.animate__animated.animate__zoomIn label:hover {
 	color: #FFBA08;
 	cursor: pointer;
 }
 
-.signup-block input {
+.animate__animated.animate__zoomIn input {
 	margin: 15px 0px 15px 0px;
 	width: 190px;
 	height: 30px;

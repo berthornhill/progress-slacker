@@ -1,6 +1,7 @@
 .meme-show-outer {
   width: 100%;
-  height: 100vw;
+  min-height: 100vh;
+  height: 100%;
   background-color: #17183b;
 }
 .meme-show-inner {
@@ -8,18 +9,100 @@
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
-  padding-top: 120px;
+  padding-top: 100px;
+  padding-bottom: 20px;
+  background-color: rgb(71, 75, 113);
+}
+
+.animate__animated.animate__backInDown {
+  -webkit-box-shadow: -1px 0px 14px 5px #000000;
+  box-shadow: -1px 0px 14px 5px #575656;
+  border-radius: 10px;
 }
 
 .meme-show-image {
-  -webkit-box-shadow: -1px 0px 14px 5px #000000;
-  box-shadow: -1px 0px 14px 5px #575656;
   border-radius: 5px;
   display: block;
   position: relative;
   height: 500px;
-  wid
 }
 
-.delete-button {
+.meme-info-holder{
+  display: flex;
+  justify-content: space-around;
+}
+
+.delete-button-show {
+    /* margin-top: 100px;
+    margin-left: 24vw; */
+    height: 30px;
+    width: 100px;
+    border-radius: 10px;
+    border: none;
+    background: none;
+    font-family: "Abril Fatface", serif;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.delete-button-show:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.info-meme {
+  width: 500px;
+  height: 200px;
+  background-color: rgba(255, 255, 255, 0.104);
+  margin-top: 20px;
+  border-radius: 5px;
+  line-height: 47px;
+  border: 2px solid black;
+}
+
+.info-meme h1 {
+  font-family: "Abril Fatface", serif;
+  padding-left: 10px;
+  font-size: 27px;
+  color: #ffba08;
+}
+
+.info-meme li {
+  font-family: "Roboto", sans-serif;
+  padding-left: 10px;
+  font-weight: 400;
+  color: #fff;
+  font-size: 12px;
+}
+
+.fa-arrow-alt-circle-left {
+  margin-top: 60px;
+  border-radius: 50%;
+  font-size: 100px;
+  /* margin-left: 100px; */
+  color: #fff;
+  text-decoration: none;
+}
+
+.fa-arrow-alt-circle-left:hover{
+  color: green;
+}
+
+.fa-trash-alt {
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #fff;
+}
+
+.fa-plus-square {
+  margin-top: 60px;
+  border-radius: 50%;
+  font-size: 100px;
+  color: #fff;
+  /* margin-left: 900px; */
+}
+
+.fa-plus-square:hover {
+  color: green;
 }
