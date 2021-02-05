@@ -86,7 +86,7 @@ class MemeFeed extends React.Component {
           <div className="multi-button">
             <button class="fas fa-heart"></button>
           </div>
-          <Link key={i} to={`/memes/${meme._id}`}>
+          <Link key={i} to={`/memes/${id}`}>
           <img src={src} className={"meme-meme"} />
           </Link>
         </div>
