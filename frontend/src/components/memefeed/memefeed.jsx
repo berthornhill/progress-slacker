@@ -63,18 +63,31 @@ class MemeFeed extends React.Component {
     // if (keys.length === 0) {
     //   return null;
     // }
-    debugger
-    const featureMemes = Object.values(this.props.allMemes).map((meme, i) => {
-      // let meme = this.props.allMemes[memeId];
-      // meme.img.data.data;
-      let src = meme.img;
+    debugger;
+
+    // const featureMemes = Object.values(this.props.allMemes).map((meme, i) => {
+    //   let src = meme.img;
+    //   return (
+    //     <Link key={i} to={`/memes/${meme._id}`} className={"meme-box"}>
+    //       <img src={src} className={"meme-meme"} />
+    //     </Link>
+    //   );
+    // });
+
+    if (!this.props.display) return null;
+
+    const allMemes = this.props.allMemes;
+
+    const featureMemes = this.props.display.map((id, i) => {
+      let src = allMemes[id].img;
 
       return (
-        <Link key={i} to={`/memes/${meme._id}`} className={"meme-box"}>
+        <Link key={i} to={`/memes/${id}`} className={"meme-box"}>
           <img src={src} className={"meme-meme"} />
         </Link>
       );
     });
+
     return (
       <div className="meme-content">
         <h1 className="catalog-header">Featured Memes</h1>

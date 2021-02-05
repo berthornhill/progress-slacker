@@ -50,6 +50,16 @@ class MemeCanvas extends React.Component {
 
   handleSelect(i) {
     this.setState({ selected: i });
+    debugger;
+    // let pic = document.getElementById("grumpy").src = `${
+    //   Object.values(this.props.memes)[this.state.selected].img
+    // }`;
+    let pic = document.getElementById("grumpy");
+    debugger;
+    let imgurl = Object.values(this.props.memes)[i].img;
+    debugger;
+    pic.src = imgurl;
+    debugger;
   }
 
   updateValue(value) {
@@ -252,6 +262,7 @@ class MemeCanvas extends React.Component {
             style={imgStyle}
             ref={this.setImageRef}
             crossOrigin="anonymous"
+            id="grumpy"
           />
         </div>
 

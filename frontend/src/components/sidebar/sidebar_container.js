@@ -1,16 +1,21 @@
-import { connect } from "recat-redux";
+import { connect } from "react-redux";
 import SideBar from "./sidebar";
+import { fetchTags } from "../../actions/tag_actions";
+import { displayTags } from "../../actions/display_actions";
 
 const mSTP = (state) => {
+  debugger;
   return {
-    tagIds: Object.values(state.entities.tags.id), // array of each tag id
+    // tagIds: Object.values(state.entities.tags.id), // array of each tag id
     tags: state.entities.tags, // each tag object
   };
 };
 
 const mDTP = (dispatch) => {
+  debugger;
   return {
     fetchTags: () => dispatch(fetchTags()),
+    displayTags: (tag) => dispatch(displayTags(tag)),
   };
 };
 

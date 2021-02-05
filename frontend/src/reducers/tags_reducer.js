@@ -12,7 +12,12 @@ const TagsReducer = (state = {}, action) => {
 
   switch (action.type) {
     case FETCH_TAGS:
-      return Object.assign({}, state, payload.data);
+      let newerState = {};
+      payload.data.forEach((tag) => {
+        newerState[tag._id] = tag;
+      });
+      // return Object.assign({}, state, payload.data);
+      return newerState;
     case FETCH_TAG:
       //  ;
       return Object.assign({}, state, {
