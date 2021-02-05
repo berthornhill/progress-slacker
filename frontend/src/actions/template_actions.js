@@ -59,9 +59,8 @@ export const fetchTemplate = (templateId) => {
 export const postTemplate = (template) => {
   return (dispatch) => {
     return APIUtil.createTemplate(template).then((template) => {
-      return dispatch(createTemplate(template)).catch((err) =>
-        console.log(err)
-      );
+      return dispatch(createTemplate(template));
+      // .catch((err) => console.log(err));
     });
   };
 };
