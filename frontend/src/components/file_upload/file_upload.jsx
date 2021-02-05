@@ -1,5 +1,9 @@
 import React from "react";
-import axios from "axios";
+// import axios from "axios";
+import { postTemplate } from "../../actions/template_actions";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import MemeCanvas from "../meme_gen/meme_canvas_container";
 
 class FileUpload extends React.Component {
   constructor(props) {
@@ -9,10 +13,12 @@ class FileUpload extends React.Component {
       previewUrl: "img/logo2.png",
       category: "",
       title: "",
+      redirect: false,
     };
     this.handleFileSelect = this.handleFileSelect.bind(this);
     this.handleFileUpload = this.handleFileUpload.bind(this);
     this.updateValue = this.updateValue.bind(this);
+    this.renderRedirect = this.renderRedirect.bind(this);
 
     this.canvasRef = null;
     this.imageRef = null;
@@ -66,6 +72,7 @@ class FileUpload extends React.Component {
         className="file-upload"
         // style={{ position: "absolute", display: "block" }}
       >
+        {this.renderRedirect()}
         <div className="template-creator">
           {/* <canvas ref={this.setCanvasRef} width={500} height={500} /> */}
           <canvas
@@ -116,6 +123,7 @@ class FileUpload extends React.Component {
             <input
               type="file"
               onChange={this.handleFileSelect}
+              accept=".png, .jpg, .jpeg"
               // style={{ position: "absolute", display: "block" }}
             />
             <button
@@ -161,11 +169,16 @@ class FileUpload extends React.Component {
     let title = this.state.title;
 
     let formData = { title: title, tags: tags, img: meme };
-    return axios.post("/api/templates", formData);
-    // this.props.postMeme({ title: "newMeme", img: meme });
+    this.props.postTemplate(formData).then(() => {
+      this.setState({ redirect: true });
+    });
   }
 
-  renderImage() {}
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to="creatememes" />;
+    }
+  };
 
   componentDidMount() {
     const canvas = this.canvasRef;
@@ -195,4 +208,13 @@ class FileUpload extends React.Component {
   }
 }
 
-export default FileUpload;
+const mSTP = (state) => {
+  return {};
+};
+
+const mDTP = (dispatch) => {
+  return {
+    postTemplate: (meme) => dispatch(postTemplate(meme)),
+  };
+};
+export default connect(mSTP, mDTP)(FileUpload);

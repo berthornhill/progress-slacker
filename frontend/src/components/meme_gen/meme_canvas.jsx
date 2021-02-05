@@ -1,5 +1,6 @@
 import React from "react";
 import FileUpload from "../file_upload/file_upload";
+import { Redirect } from "react-router-dom";
 
 class MemeCanvas extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class MemeCanvas extends React.Component {
       image: props.memes,
       selected: 0,
       title: "",
-      // "https://media.wired.com/photos/5cdefb92b86e041493d389df/1:1/w_988,h_988,c_limit/Culture-Grumpy-Cat-487386121.jpg",
+      redirect: false,
     };
 
     this.canvasRef = null;
@@ -41,6 +42,7 @@ class MemeCanvas extends React.Component {
     this.renderImage = this.renderImage.bind(this);
     // this.handlePic = this.handlePic.bind(this);
     this.getImage = this.getImage.bind(this);
+    this.renderRedirect = this.renderRedirect.bind(this);
   }
 
   // handlePic(e){
@@ -100,7 +102,9 @@ class MemeCanvas extends React.Component {
     let title = this.state.title;
     let tags = this.state.category;
     debugger;
-    this.props.postMeme({ title: title, img: meme, tags: tags });
+    this.props.postMeme({ title: title, img: meme, tags: tags }).then(() => {
+      this.setState({ redirect: true });
+    });
   }
 
   componentDidMount() {
@@ -147,6 +151,12 @@ class MemeCanvas extends React.Component {
       this.setState({ image: this.props.memes });
     }
   }
+
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to="/" />;
+    }
+  };
 
   render() {
     debugger;
@@ -230,6 +240,7 @@ class MemeCanvas extends React.Component {
 
     return (
       <div className="main-canvas">
+        {this.renderRedirect()}
         <div className="select-img">
           {/* <h1 className="table-header">Select Your Meme Template</h1> */}
           <div className="img-table">
