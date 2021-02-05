@@ -74,7 +74,7 @@ class SignupForm extends React.Component {
       </div>
 
         
-        <form onSubmit={this.handleSubmit} className="signup-block">
+        <form onSubmit={this.handleSubmit} className="animate__animated animate__zoomIn">
           <div className="signup-form">
             <br />
             <label>Email

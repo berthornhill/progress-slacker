@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 class MemeShow extends React.Component {
   constructor(props) {
@@ -11,6 +11,7 @@ class MemeShow extends React.Component {
 
     this.handleDelete = this.handleDelete.bind(this);
     this.renderRedirect = this.renderRedirect.bind(this);
+    debugger
   }
 
   componentDidMount() {
@@ -41,12 +42,22 @@ class MemeShow extends React.Component {
         {this.renderRedirect()}
         <div className="meme-show-inner">
           <div>
-            <img src={this.props.meme} className="meme-show-image" />
-          </div>
-          <div>
-            <button onClick={() => this.handleDelete()}>DELETE</button>
+            <img src={this.props.meme} className="animate__animated animate__backInDown" />
           </div>
         </div>
+          <div className="meme-info-holder">
+            <Link to='/' className="far fa-arrow-alt-circle-left" onClick={() => this.renderRedirect()}></Link>
+            <div className="info-meme">
+              <h1>Welcome To Your Meme</h1>
+              <ul>
+                <li>Click arrow to take out main</li>
+                <li>Click on plus to create your own Meme!</li>
+              </ul>
+              <i className="fas fa-trash-alt"></i>
+              <button onClick={() => this.handleDelete()} className='delete-button-show'>DELETE</button>
+            </div>
+            <Link to='/creatememes' class="far fa-plus-square"></Link>
+          </div>
       </div>
     );
   }

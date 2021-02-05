@@ -83,6 +83,7 @@
 
 .log-in-button:hover{
     color: #FFBA08;
+    cursor: pointer;
 }
 
 .log-in-button i {

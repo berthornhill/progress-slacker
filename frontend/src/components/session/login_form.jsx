@@ -67,8 +67,8 @@ class LoginForm extends React.Component {
 
     return (
         <div className="login-main">
-          <div className="extra-circle"></div>
-          <div className="extra-circle2"></div>
+          <div className="animate__animated animate__fadeInLeft"></div>
+          <div className="animate__animated animate__fadeInRight"></div>
         <form onSubmit={this.handleSubmit} className="login-form">
              <div className="face"> 
             <div className="eyes"> 
