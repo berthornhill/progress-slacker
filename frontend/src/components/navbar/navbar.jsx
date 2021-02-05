@@ -31,7 +31,7 @@ class NavBar extends React.Component {
             <Link to="/" className="name-logo">Progress Slacker</Link>
             {/* <Link to={"/"}>Dashboard</Link> */}
             {/* <Link to={"/profile"}>Profile</Link> */}
-            <Link to="/creatememes" className="create-meme-button">Make a Meme</Link>
+            <Link to="/creatememes" className="create-meme-button">Create Meme</Link>
             <button onClick={this.logoutUser} className="logout-button">Logout</button>
             <Link to="/template" className="upload-file">Upload</Link>
           </div>

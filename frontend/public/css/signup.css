@@ -3,11 +3,23 @@
 .signup-form-container {
     width: 100vw;
     height: 100vh;
-	background-color: #17183B;
+	background-color: #181849;
 	display: flex;
-	justify-content: center;
+	justify-content:space-around;
 	align-items: center;
 	/* cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>😀</text></svg>") 16 0,auto; /*!emojicursor.app*/; */
+}
+
+.welcome-signup {
+	width: 800px;
+	height: 400px;
+	position: absolute;
+	margin-right: 900px;
+	font-size: 60px;
+	font-family: 'Abril Fatface', serif;
+	font-weight: 500;
+	color: #fff;
+  	text-shadow: 2px 2px 2px #CCCCCC;
 }
 
 .signup-block {
@@ -75,7 +87,7 @@ input[type=submit].signup-button {
   width:100px; 
   position:absolute;
   margin-bottom: 43.5vh;
-  margin-left: 5vw;
+  margin-left: 6vw;
   transform:translate(-50%,-50%) rotate(45deg);
   border-radius : 75% 0;
   overflow:hidden;
@@ -114,4 +126,48 @@ input[type=submit].signup-button {
 
 .one-eye:hover >.shut span{
   height:100%;
+}
+
+/* sign up */
+
+
+.box {
+    display: flex;
+    margin-bottom: 10px;
+    margin-right: 1000px;
+}
+
+.box .inner {
+	width: 400px;
+	height: 400px;
+	line-height: 400px;
+	font-size: 90px;
+	font-family: sans-serif;
+	font-weight: bold;
+	white-space: nowrap;
+    overflow: hidden;
+}
+
+.box .inner:first-child {
+	background-color: #FFBA08;
+	color: darkred;
+	transform-origin: right;
+	transform: perspective(100px) rotateY(-15deg);
+}
+
+.box .inner:last-child {
+	background-color: #FFBA08;
+	color: antiquewhite;
+	transform-origin: left;
+	transform: perspective(100px) rotateY(15deg);
+}
+
+.box .inner span {
+	position: absolute;
+	animation: marquee 5s linear infinite;
+}
+
+.box .inner:first-child span {
+	animation-delay: 2.5s;
+	left: -100%;
 }

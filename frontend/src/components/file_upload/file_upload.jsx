@@ -62,30 +62,23 @@ class FileUpload extends React.Component {
     }
 
     return (
-      <div
-        className="file-upload"
-        style={{ position: "absolute", display: "block" }}
-      >
+      <div className="file-upload">
         <input
           className="file-input"
+          name="file-input"
+          id="file-input"
           type="file"
           onChange={this.handleFileSelect}
-          style={{ position: "absolute", display: "block" }}
         />
-        <button
-          className="file-input-button"
-          onClick={this.handleFileUpload}
-          style={{ position: "absolute", display: "block" }}
-        >
-          Create Template
-        </button>
-        <div className="canvas-creator">
+        <label htmlFor="file-input">Upload image</label>
+        <br/>
+        <div>
           {/* <canvas ref={this.setCanvasRef} width={500} height={500} /> */}
           <canvas
             ref={this.setCanvasRef}
             width={500}
             height={500}
-            className="meme-pic"
+            className="meme-pic2"
           />
           <img
             src={this.state.previewUrl}
@@ -94,13 +87,14 @@ class FileUpload extends React.Component {
             ref={this.setImageRef}
             crossOrigin="anonymous"
           />
-          <label>
+          <br/>
+        <div className="file-load-container">
+          <label className="select-tag">
             Select a tag
             <br />
             <select
-              style={{ position: "absolute", display: "block" }}
-              className="category-select"
               onChange={this.updateValue("category")}
+              className="tag-drop"
             >
               <option value="app">App Academy</option>
               <option value="animals">Animals</option>
@@ -112,17 +106,24 @@ class FileUpload extends React.Component {
               <option value="sports">Sports</option>
               <option value="internet">Internet</option>
             </select>
-            <label value="title" className="template-title">
-              title
+            <br/>
+            <label className="title-header">
+              Select a Title
             </label>
             <br />
             <input
-              className="fi-title"
               type="text"
               onChange={this.updateValue("title")}
               value={this.state.title}
+              className='tag-selector'
+              placeholder="Enter Meme Title here"
             />
           </label>
+          <br/>
+           <button onClick={this.handleFileUpload} className="create-template">
+            Create Template
+          </button>
+          </div>
         </div>
       </div>
     );

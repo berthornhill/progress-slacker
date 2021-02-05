@@ -1,0 +1,106 @@
+.file-upload {
+    width: 100%;
+    height: 100vh;
+    background: url(https://i.redd.it/n8xfdriw9siy.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.file-input {
+    width: 200px;
+    height: 50px;
+    margin-left: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+	opacity: 0;
+	overflow: hidden;
+	/* position: absolute; */
+    z-index: -1;
+}
+
+.file-input + label {
+    color: #fff;
+    margin-left: 38%;
+    font-size: 24px;
+    font-family: "Abril Fatface", serif;
+    cursor: pointer;
+}
+
+.file-input + label:hover {
+    color: #ffba08;
+}
+
+.file-load-container {
+    width: 200px;
+    height: 250px;
+    background-color: rgba(7, 7, 7, 0.467);
+    margin-left: 37.5%;
+    margin-top: 150px;
+    padding: 100px;
+    border-radius: 15px;
+}
+
+.meme-pic2 {
+    width: 200px;
+    height: 200px;
+    margin-left: 43.5%;
+    margin-top: 30px;
+    border-radius: 50%;
+    position: absolute;
+    
+}
+
+.select-tag {
+    font-family: "Abril Fatface", serif;
+    font-weight: 300;
+    font-size: 20px;
+    color: #fff;
+}
+
+
+
+.tag-drop {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-family: "Roboto", sans-serif;
+    border-radius: 10px;
+    height: 30px;
+    width: 150px;
+    color: #333;
+    cursor: pointer;
+}
+
+.title-header {
+    font-family: "Abril Fatface", serif;
+    font-weight: 500;
+}
+
+.tag-selector {
+    margin-top: 25px;
+}
+
+input[type=text].tag-selector {
+    width: 200px;
+    height: 24px;
+    border: none;
+    border-radius: 5px;
+}
+
+.create-template {
+    background-color: #ffba08;
+    color: #333;
+    border: none;
+    margin-top: 40px;
+    border-radius: 20px;
+    width: 160px;
+    height: 40px;
+    font-family: "Abril Fatface", serif;
+    cursor: pointer;
+}
+
+.create-template:hover {
+  box-shadow: 0px 0px 7px #fff;
+}

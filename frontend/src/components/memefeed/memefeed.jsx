@@ -70,9 +70,14 @@ class MemeFeed extends React.Component {
       let src = meme.img;
 
       return (
-        <Link key={i} to={`/memes/${meme._id}`} className={"meme-box"}>
+        <div className={"meme-box"}>
+          <div className="multi-button">
+            <button class="fas fa-heart"></button>
+          </div>
+          <Link key={i} to={`/memes/${meme._id}`}>
           <img src={src} className={"meme-meme"} />
-        </Link>
+          </Link>
+        </div>
       );
     });
     return (

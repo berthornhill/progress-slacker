@@ -64,8 +64,7 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className="signup-form-container">
-
-        
+             
       <div class="one-eye">
         <div class="shut">
           <span></span>
@@ -121,10 +120,7 @@ class SignupForm extends React.Component {
             <input type="submit" value="Sign Up" className='signup-button'/>
             {this.renderErrors()}
           </div>
-        </form>
-        <div>
-          <button onClick={this.handleDemo}>Demo login</button>
-        </div>
+        </form>  
       </div>
     );
   }
