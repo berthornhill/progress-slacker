@@ -35,8 +35,8 @@ class SideBar extends React.Component {
     const displayTags = Object.values(tags).map((tag, i) => {
       debugger;
       return (
-        <li key={i} onClick={() => this.handleClick(tag)} tag={tag}>
-          <Link to={`/${tag._id}`}>{tag.title}</Link>
+        <li key={i} onClick={() => this.handleClick(tag)} tag={tag} className="tag-list">
+          <Link className="tag-list-link" to={`/${tag._id}`}>{tag.title}</Link>
         </li>
       );
     });
@@ -45,7 +45,7 @@ class SideBar extends React.Component {
       <div className="sidebar">
         <div className="feature-button">
           <i className="fas fa-laugh-squint"></i>
-          <Link to="/">Feature</Link>
+          <Link to="/" className="feature-button">Feature</Link>
         </div>
         {/* {tagList} */}
         <div>{displayTags}</div>

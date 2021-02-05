@@ -159,17 +159,21 @@ table {
     padding-top: 100px;
     font-family: 'Roboto', sans-serif;
     font-weight: 900;
-    font-size: 18px;
+    font-size: 22px;
     padding-left: 10px;
     color: #FFBA08;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .feature-button i {
   margin-right: 10px;
 }
+.tag-list {
+  list-style: none;
+}
 
-.sidebar li {
+.tag-list-link {
     width: 290px;
     height: 45px;
     /* background-color: #17183B; */
@@ -177,24 +181,26 @@ table {
     padding-left: 10px;
     list-style: none;
     font-family: 'Roboto', sans-serif;
-    font-weight: 900;
-    font-size: 20px;
+    font-weight: 600;
+    font-size: 22px;
     color: #fff;
     cursor: pointer;
+    text-decoration: none;
+    line-height: 75px;
 }
 
-.sidebar li:hover {
+.tag-list-link:hover {
   color: #ffba08;
   opacity: 1;
   transform: scale(1);
-  transition: all 0.3s ease-in-out 0.1s;
+  transition: all 0.2s ease-in-out 0.1s;
 }
 
 .meme-content {
     height: 100%;
     width: 900px;
     /* background-color: #17183B; */
-    margin-left: 15vw;
+    margin-left: 12vw;
     padding-top: 50px;
     display: flex;
     flex-direction: row;
@@ -207,7 +213,7 @@ table {
     width: 550px;
     height: 40px;
     /* background-color: red; */
-    margin:60px 0px 20px 150px;
+    margin:60px 0px 20px 90px;
     border-bottom: 1px solid rgba(111, 109, 109, 0.68);
     font-weight: 900;
     font-family: 'Abril Fatface', serif;
@@ -230,7 +236,7 @@ table {
 .meme-box{
     width: 300px;
     height: 300px;
-    margin: 20px 0px 70px 80px;
+    margin: 20px 15px 70px 90px;
     box-shadow: 0 8px 6px -6px black;
 }
 
