@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import SideBar from "./sidebar";
 import { fetchTags } from "../../actions/tag_actions";
 import { displayTags } from "../../actions/display_actions";
+import { fetchMemes } from "../../actions/meme_actions";
 
 const mSTP = (state) => {
   // debugger;
@@ -16,6 +17,7 @@ const mDTP = (dispatch) => {
   return {
     fetchTags: () => dispatch(fetchTags()),
     displayTags: (tag) => dispatch(displayTags(tag)),
+    fetchMemes: () => dispatch(fetchMemes()),
   };
 };
 

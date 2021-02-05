@@ -23,8 +23,7 @@ class SideBar extends React.Component {
   }
 
   handleFeature(e) {
-    e.preventDefault();
-    this.setState({ page: 0 });
+    this.props.fetchMemes();
   }
   handleApp(e) {
     e.preventDefault();
