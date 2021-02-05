@@ -12,7 +12,12 @@ const MemesReducer = (state = {}, action) => {
 
   switch (action.type) {
     case FETCH_MEMES:
-      return Object.assign({}, state, payload.data);
+      let newerState = {};
+      payload.data.forEach((meme) => {
+        newerState[meme._id] = meme;
+      });
+      // return Object.assign({}, state, payload.data);
+      return newerState;
     case FETCH_MEME:
       //  ;
       // return Object.assign({}, state, {

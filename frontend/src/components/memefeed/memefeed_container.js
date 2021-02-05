@@ -7,6 +7,7 @@ const mSTP = (state, ownProps) => {
   return {
     // array of all 6 memes
     allMemes: state.entities.memes,
+    allTags: state.entities.tags,
     // display is the array of memes to render
     // display: ownProps.params.match.display,
     // display: [],

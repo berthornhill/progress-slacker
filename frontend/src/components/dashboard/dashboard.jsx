@@ -15,7 +15,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import MemeFeed from "../memefeed/memefeed_container";
-import SideBar from "../sidebar/sidebar";
+import SideBarContainer from "../sidebar/sidebar_container";
 
 class DashBoard extends React.Component {
   render() {
@@ -23,7 +23,7 @@ class DashBoard extends React.Component {
       <div className="main-page">
         {/*  */}
         <div className="main-content">
-          <SideBar />
+          <SideBarContainer />
           <MemeFeed />
         </div>
       </div>

@@ -77,46 +77,58 @@ class SideBar extends React.Component {
 
   componentDidMount() {
     // request to backend to return each tag with its specific array imgs of that tag
-    // this.props.fetchTags()
+    this.props.fetchTags();
     // this.props
   }
 
   handleClick(tag) {
-    //   return e
-        // e.preventDefault();
-    //    this.props.fetchTaggedMemes(tag);
+    return (e) => {
+      e.preventDefault();
+      this.props.fetchTaggedMemes(tag);
+    };
     //   //passess array of tagged memes ids to memefeed
   }
 
   render() {
     const { tags, tagIds } = this.props;
 
-    // tags object
-    // let tagList = tagIds.map((tag, i) => {
-    let tagList = [
-      "anime",
-      "animals",
-      "sports",
-      "internet",
-      "appAcademy",
-      "10-26",
-    ].map((tag, i) => {
+    const displayTags = Object.values(tags).map((tag, i) => {
       return (
-        <li key={i} onClick={this.handleClick(tag.id)}>
-          {tag}
+        <li key={i} onClick={this.handleClick(tag.id)} tag={tag}>
+          {tag.title}
         </li>
       );
     });
+
     return (
       <div className="sidebar">
         <div className="feature-button" onClick={this.handleFeature}>
           <i className="fas fa-laugh-squint"></i>
           Feature
         </div>
-        {tagList}
+        {/* {tagList} */}
+        <div>{displayTags}</div>
       </div>
     );
   }
 }
 
 export default SideBar;
+
+// tags object
+// let tagList = tagIds.map((tag, i) => {
+// let displayTags;
+// let tagList = [
+//   "anime",
+//   "animals",
+//   "sports",
+//   "internet",
+//   "appAcademy",
+//   "10-26",
+// ].map((tag, i) => {
+//   return (
+//     <li key={i} onClick={this.handleClick(tag.id)}>
+//       {tag}
+//     </li>
+//   );
+// });
