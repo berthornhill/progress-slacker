@@ -22,8 +22,9 @@ const UserSchema = new Schema({
   },
   likes: {
     type: Array,
+    required: true,
   },
-});
+})
 
 const User = mongoose.model("users", UserSchema);
 module.exports = User;
