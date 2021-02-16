@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import MemeFeed from "./memefeed";
 import { _arrayBufferToBase64 } from "../../util/image_util";
-import { fetchMemes } from "../../actions/meme_actions";
+import { fetchMemes, postLike } from "../../actions/meme_actions";
 
 const mSTP = (state, ownProps) => {
   debugger;
@@ -9,17 +9,14 @@ const mSTP = (state, ownProps) => {
     // array of all 6 memes
     allMemes: state.entities.memes,
     allTags: state.entities.tags,
-    // display: ownProps.featured,
-
-    // display is the array of memes to render
-    // display: ownProps.params.match.display,
-    // display: [],
+    currentUser: state.session.user,
   };
 };
 
 const mDTp = (dispatch) => {
   return {
     fetchMemes: () => dispatch(fetchMemes()),
+    postLike: (like) => dispatch(postLike(like)),
   };
 };
 

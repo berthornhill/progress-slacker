@@ -21,3 +21,8 @@ export const createMeme = (meme) => {
 export const deleteMemeFromDb = (memeId) => {
   return axios.delete(`/api/memes/${memeId}`);
 };
+
+export const postLike = (like) => {
+  debugger;
+  return axios.post("/api/likes", like);
+};

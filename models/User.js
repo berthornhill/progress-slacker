@@ -20,6 +20,9 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  likes: {
+    type: Array,
+  },
 });
 
 const User = mongoose.model("users", UserSchema);

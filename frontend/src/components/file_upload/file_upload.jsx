@@ -22,6 +22,7 @@ class FileUpload extends React.Component {
 
     this.canvasRef = null;
     this.imageRef = null;
+    this.errorRef = React.createRef();
 
     //function to set CanvasRef to the element using reference callback
     this.setCanvasRef = (element) => {
@@ -69,18 +70,9 @@ class FileUpload extends React.Component {
 
     return (
       <div className="file-upload">
-        {this.renderRedirect()}
-        <input
-          className="file-input"
-          name="file-input"
-          id="file-input"
-          type="file"
-          onChange={this.handleFileSelect}
-        />
-        <label htmlFor="file-input">Upload image</label>
-        <br />
         <div>
-          {/* <canvas ref={this.setCanvasRef} width={500} height={500} /> */}
+          {this.renderRedirect()}
+
           <canvas
             ref={this.setCanvasRef}
             width={500}
@@ -96,6 +88,17 @@ class FileUpload extends React.Component {
           />
           <br />
           <div className="file-load-container">
+            <input
+              className="file-input"
+              name="file-input"
+              id="file-input"
+              type="file"
+              onChange={this.handleFileSelect}
+            />
+            <label htmlFor="file-input">Upload image</label>
+            <br />
+            <br />
+            <br />
             <label className="select-tag">
               Select a tag
               <br />
@@ -122,6 +125,9 @@ class FileUpload extends React.Component {
                 className="tag-selector"
                 placeholder="Enter Meme Title here"
               />
+              <div ref={this.errorRef} className="hidden">
+                * Title Cannot Be Blank
+              </div>
             </label>
             <br />
             <button onClick={this.handleFileUpload} className="create-template">
@@ -134,11 +140,6 @@ class FileUpload extends React.Component {
   }
 
   handleFileSelect = (e) => {
-    // debugger;
-    // this.setState({
-    //   picFile: e.target.files[0],
-    // });
-
     let urlArr = URL.createObjectURL(e.target.files[0]);
     // debugger;
     this.setState({ previewUrl: urlArr });
@@ -148,13 +149,12 @@ class FileUpload extends React.Component {
 
   handleFileUpload(e) {
     e.preventDefault();
-
     // debugger;
-    // const image = this.state.picFile;
-    // const formData = new FormData();
-    // formData.append("image", image);
-
-    // {  tags: "Anime", title: "", image: "urlEncodedString" }
+    if (this.state.title === "") {
+      this.errorRef.current.className = "title-error";
+      return null;
+    }
+    // debugger;
 
     let meme = this.canvasRef.toDataURL("image/jpeg", 0.5);
     // debugger;

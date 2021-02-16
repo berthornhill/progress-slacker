@@ -11,6 +11,7 @@ const users = require("./routes/api/users");
 const templates = require("./routes/api/templates");
 const memes = require("./routes/api/memes");
 const tags = require("./routes/api/tags");
+const likes = require("./routes/api/likes");
 const path = require("path");
 
 mongoose
@@ -32,6 +33,7 @@ app.use("/api/users", users);
 app.use("/api/templates", templates);
 app.use("/api/memes", memes);
 app.use("/api/tags", tags);
+app.use("/api/likes", likes);
 
 // Static Files
 app.use(express.static("public"));

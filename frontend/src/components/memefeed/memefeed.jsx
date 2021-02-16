@@ -8,51 +8,30 @@ class MemeFeed extends React.Component {
       // display: props.display,
       // allMemes: ,
     };
+
+    this.handleLike = this.handleLike.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchMemes();
   }
 
+  handleLike(id) {
+    debugger;
+    return (e) => {
+      e.preventDefault();
+      debugger;
+      this.props.postLike({
+        user: this.props.currentUser.id,
+        meme: id,
+      });
+      console.log(id);
+      console.log("inside Handle like");
+    };
+    // this.props.currentUser
+  }
+
   render() {
-    // const { allMemes } = this.state;
-
-    // let boxCount = [];
-
-    // const boxMemes = allMemes.map((meme) => {
-    //   if (meme.box_count <= 2) {
-    //     boxCount.push(meme);
-    //   }
-    // });
-
-    // let randomMemes = this.randomArr(allMemes);
-
-    // const featureMemes = boxCount.map((meme, i) => {
-    //   return (
-    //     <div className={"meme-box"}>
-    //       <div className="multi-button">
-    //         <button class="fas fa-heart"></button>
-    //       </div>
-    //       <Link key={i} to={`/memes/${meme.id}`} >
-    //         <img src={meme.url} className={"meme-meme"} />
-    //       </Link>
-    //     </div>
-    //   );
-    // });
-    // const keys = Object.keys(this.props.allMemes);
-    // if (keys.length === 0) {
-    //   return null;
-    // }
-    // debugger;
-
-    // const featureMemes = Object.values(this.props.allMemes).map((meme, i) => {
-    //   let src = meme.img;
-    //   return (
-    //     <Link key={i} to={`/memes/${meme._id}`} className={"meme-box"}>
-    //       <img src={src} className={"meme-meme"} />
-    //     </Link>
-    //   );
-    // });
     debugger;
     const allMemes = this.props.allMemes;
     let tagsArr = this.props.allTags[this.props.match.params.id];
@@ -75,7 +54,7 @@ class MemeFeed extends React.Component {
       return (
         <div className={"meme-box"}>
           <div className="multi-button">
-            <button class="fas fa-heart"></button>
+            <button class="fas fa-heart" onClick={this.handleLike(id)}></button>
           </div>
           <Link key={i} to={`/memes/${id}`}>
             <img src={src} className={"meme-meme"} />

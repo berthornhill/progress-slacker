@@ -145,15 +145,22 @@
 }
 
 .title-canvas {
-    margin-top: 10px;
-    width: 400px;
-    height: 40px;
-    border-radius: 5px;
-    border: none;
+  margin-top: 10px;
+  width: 400px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
 }
 
-input[type=text]{
-    font-size: 30px;
-    padding-left: 10px;
-    color: #333;
+input[type="text"] {
+  font-size: 30px;
+  padding-left: 10px;
+  color: #333;
+}
+
+.hidden {
+  display: none;
+}
+.title-error {
+  color: red;
 }
