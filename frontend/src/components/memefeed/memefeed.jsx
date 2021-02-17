@@ -22,9 +22,10 @@ class MemeFeed extends React.Component {
       e.preventDefault();
       debugger;
       this.props.postLike({
-        handle: this.props.currentUser.handle,
+        // handle: this.props.currentUser.handle,
+        id: this.props.currentUser.id,
         meme: id,
-      })
+      });
       console.log(id);
       console.log("inside Handle like");
     };

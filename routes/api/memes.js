@@ -66,12 +66,13 @@ router.post("/", upload.single("image"), (req, res, next) => {
   }
 
   const newMeme = new Meme(obj);
-  // debugger;
+  debugger;
   Tag.findOneAndUpdate(
     { title: req.body.tags },
     { $push: { memes: newMeme.id } },
     function (err, result) {}
   );
+  debugger;
 
   newMeme.save().then((meme) => res.json(meme));
 });
