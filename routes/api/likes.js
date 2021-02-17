@@ -25,4 +25,9 @@ router.get("/:id", (req, res) => {
   res.send("test");
 });
 
+router.get("/", (req, res) => {
+  debugger
+  console.log("in like router")
+})
+
 module.exports = router;

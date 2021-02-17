@@ -8,8 +8,7 @@ import * as APIUtil from "../util/meme_api_util";
 export const FETCH_MEME = "FETCH_MEME";
 export const FETCH_MEMES = "FETCH_MEMES";
 export const CREATE_MEME = "CREATE_MEME";
-export const DELETE_MEME = "DELETE_MEME";
-export const RECEIVE_LIKES = "RECEIVE_LIKES";
+export const DELETE_MEME = "DELETE_MEME"
 
 // reg actions to reducer
 const createMeme = (payload) => {
@@ -42,13 +41,6 @@ const removeMeme = (payload) => {
   };
 };
 
-const receiveLikes = (payload) => {
-  debugger;
-  return {
-    type: RECEIVE_LIKES,
-    payload,
-  };
-};
 
 // thunk actions to backend API
 export const fetchMemes = () => {
@@ -84,16 +76,6 @@ export const deleteMeme = (memeId) => {
     return APIUtil.deleteMemeFromDb(memeId).then((meme) => {
       return dispatch(removeMeme(meme.id));
       // .catch((err) => console.log(err));
-    });
-  };
-};
-
-export const postLike = (like) => {
-  return (dispatch) => {
-    debugger;
-    return APIUtil.postLike(like).then((likes) => {
-      debugger;
-      return dispatch(receiveLikes(likes));
     });
   };
 };

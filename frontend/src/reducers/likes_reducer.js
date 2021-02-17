@@ -1,4 +1,4 @@
-import { RECEIVE_LIKES } from "../actions/meme_actions";
+import { RECEIVE_LIKES } from "../actions/like_actions"
 import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
 
 const LikesReducer = (state = [], action) => {
