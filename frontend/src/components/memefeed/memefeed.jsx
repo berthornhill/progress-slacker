@@ -52,10 +52,22 @@ class MemeFeed extends React.Component {
     const featureMemes = display2.map((id, i) => {
       let src = allMemes[id].img;
       debugger;
+      let classTags;
+
+      if (this.props.likes[0] && this.props.likes.includes(id)) {
+        classTags = "fas fa-heart liked";
+      } else {
+        classTags = "fas fa-heart";
+      }
+
+      debugger;
       return (
         <div className={"meme-box"}>
           <div className="multi-button">
-            <button class="fas fa-heart" onClick={this.handleLike(id)}></button>
+            <button
+              className={classTags}
+              onClick={this.handleLike(id)}
+            ></button>
           </div>
           <Link key={i} to={`/memes/${id}`}>
             <img src={src} className={"meme-meme"} />

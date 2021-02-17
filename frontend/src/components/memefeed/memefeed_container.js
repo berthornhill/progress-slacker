@@ -10,6 +10,7 @@ const mSTP = (state, ownProps) => {
     allMemes: state.entities.memes,
     allTags: state.entities.tags,
     currentUser: state.session.user,
+    likes: state.entities.likes,
   };
 };
 

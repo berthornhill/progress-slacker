@@ -14,7 +14,10 @@ router.post("/", (req, res) => {
     { _id: req.body.id },
     { $push: { likes: req.body.meme } },
     function (err, result) {}
-  );
+  ).then((user) => {
+    debugger;
+    res.json(user.likes);
+  });
 });
 
 router.get("/:id", (req, res) => {

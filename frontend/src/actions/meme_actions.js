@@ -9,7 +9,7 @@ export const FETCH_MEME = "FETCH_MEME";
 export const FETCH_MEMES = "FETCH_MEMES";
 export const CREATE_MEME = "CREATE_MEME";
 export const DELETE_MEME = "DELETE_MEME";
-export const LIKE_MEME = "LIKE_MEME";
+export const RECEIVE_LIKES = "RECEIVE_LIKES";
 
 // reg actions to reducer
 const createMeme = (payload) => {
@@ -45,7 +45,7 @@ const removeMeme = (payload) => {
 const receiveLikes = (payload) => {
   debugger;
   return {
-    type: LIKE_MEME,
+    type: RECEIVE_LIKES,
     payload,
   };
 };
