@@ -10,6 +10,7 @@ import Dashboard from "./dashboard/dashboard_container";
 import Navbar from "./navbar/navbar_container";
 import FileUpload from "./file_upload/file_upload";
 import MemeShow from "./meme/meme_show_container";
+import UserShow from "./user_show/user_show_container";
 
 const App = () => (
   // <div>dashboard</div>
@@ -23,6 +24,7 @@ const App = () => (
         <Route path="/memes/:id" component={MemeShow} />
         <ProtectedRoute path="/creatememes" component={MemeCanvas} />
         <ProtectedRoute path="/template" component={FileUpload} />
+        <ProtectedRoute path="/favorites" component={UserShow} />
         <Route path="/" component={Dashboard} />
 
         {/* <ProtectedRoute exact path="/create" component={CreateMemeContainer} /> */}
