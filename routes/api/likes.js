@@ -15,20 +15,24 @@ router.post("/", (req, res) => {
     { $push: { likes: req.body.meme } },
     function (err, result) {}
   ).then((user) => {
-    debugger;
     res.json(user.likes);
   });
 });
 
-router.get("/", (req, res) => {
-  debugger;
-
-  console.log("in like router");
+router.get("/:id", (req, res) => {
+  User.findById(req.params.id).then((user) => {
+    res.json(user.likes);
+  });
 });
 
-router.delete("/:id", (req, res) => {
-  //   res.json({ hello: "I work" });
-  res.send("test");
+router.delete("/", (req, res) => {
+  User.findByIdAndUpdate(
+    { _id: req.body.id },
+    { $pull: { likes: req.body.meme } },
+    function (err, result) {}
+  ).then((user) => {
+    res.json(user.likes);
+  });
 });
 
 module.exports = router;

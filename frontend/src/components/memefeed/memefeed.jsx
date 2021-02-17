@@ -18,7 +18,7 @@ class MemeFeed extends React.Component {
     this.props.fetchMemes();
 
     if (userId) {
-      this.props.fetchLikes({ userId });
+      this.props.fetchLikes(userId);
     }
   }
 
