@@ -7,6 +7,7 @@ import { setAuthToken } from "./util/session_api_util";
 import { logout } from "./actions/session_actions";
 import { fetchTemplates } from "./actions/template_actions";
 import { fetchTags } from "./actions/tag_actions";
+import { fetchLikes } from "./actions/like_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -33,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.getTags = fetchTags;
   window.dispatch = store.dispatch;
   window.getState = store.getState;
+  window.fetchLikes = fetchLikes;
 
   // END TESTING
 
