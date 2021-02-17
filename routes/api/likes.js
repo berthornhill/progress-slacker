@@ -26,13 +26,14 @@ router.get("/:id", (req, res) => {
 });
 
 router.delete("/", (req, res) => {
+  debugger
   User.findByIdAndUpdate(
-    { _id: req.body.id },
-    { $pull: { likes: req.body.meme } },
-    function (err, result) {}
+    { _id: req.query.id },
+    { $pull: { likes: req.query.meme } },
+    function (err, result) {},
   ).then((user) => {
-    res.json(user.likes);
-  });
+    res.json(user.likes)
+  })
 });
 
 module.exports = router;

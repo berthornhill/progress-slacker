@@ -23,6 +23,7 @@ const UserSchema = new Schema({
   likes: {
     type: Array,
     required: true,
+    unique: true,
   },
 })
 

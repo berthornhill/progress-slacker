@@ -106,3 +106,7 @@
 .fa-plus-square:hover {
   color: green;
 }
+
+.fa.fas-heart {
+  color: yellow
+}

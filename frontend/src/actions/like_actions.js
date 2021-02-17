@@ -22,10 +22,10 @@ export const postLike = (like) => {
   };
 };
 
-export const removeLike = () => {
+export const removeLike = (likeId) => {
   return (dispatch) => {
     debugger;
-    return APIUtil.removeLike().then((likes) => {
+    return APIUtil.removeLike(likeId).then((likes) => {
       debugger;
       return dispatch(receiveLikes(likes));
     });
