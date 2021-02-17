@@ -28,10 +28,10 @@ export const postLike = (like) => {
 };
 
 export const removeLike = (likeId) => {
-  return axios.delete("/api/likes", likeId)
-}
+  return axios.delete("/api/likes", likeId);
+};
 
 export const fetchLikes = (userId) => {
-  debugger
-  return axios.get("/api/likes", userId)
-}
+  debugger;
+  return axios.get("/api/likes", userId);
+};

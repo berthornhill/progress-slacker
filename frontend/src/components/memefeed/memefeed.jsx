@@ -13,25 +13,24 @@ class MemeFeed extends React.Component {
   }
 
   componentDidMount() {
-    const userId = this.props.currentUser.id
-    debugger
+    const userId = this.props.currentUser.id;
+    debugger;
     this.props.fetchMemes();
 
     if (userId) {
-      this.props.fetchLikes(userId)
+      this.props.fetchLikes({ userId });
     }
   }
 
   handleLike(id) {
     const { likes, currentUser, postLike, removeLike } = this.props;
 
-
     return (e) => {
       e.preventDefault();
       debugger;
 
       if (likes.includes(id)) {
-        removeLike(id)
+        removeLike(id);
       } else {
         postLike({
           // handle: this.props.currentUser.handle,

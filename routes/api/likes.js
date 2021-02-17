@@ -20,14 +20,15 @@ router.post("/", (req, res) => {
   });
 });
 
-router.get("/:id", (req, res) => {
+router.get("/", (req, res) => {
+  debugger;
+
+  console.log("in like router");
+});
+
+router.delete("/:id", (req, res) => {
   //   res.json({ hello: "I work" });
   res.send("test");
 });
-
-router.get("/", (req, res) => {
-  debugger
-  console.log("in like router")
-})
 
 module.exports = router;
