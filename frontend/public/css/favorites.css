@@ -1,0 +1,31 @@
+#outer-show {
+  width: 100%;
+  height: 100vh;
+  background-color: #17183b;
+}
+
+#inner-show {
+  width: 1100px;
+  margin: auto;
+}
+
+#memes-container {
+  /* margin: auto; */
+  display: flex;
+  justify-content: center;
+  /* width: 1200px; */
+  padding-right: 100px;
+  flex-wrap: wrap;
+  padding-top: 130px;
+}
+
+#back-to-feed {
+  margin: auto;
+  width: 300px;
+  height: 51px;
+}
+#btf-container {
+  padding-top: 15px;
+  display: flex;
+  justify-content: center;
+}

@@ -205,6 +205,8 @@ input:focus {
 .meme-content {
   height: 100%;
   width: 900px;
+  min-width: 900px;
+
   /* background-color: #17183B; */
   margin-left: 12vw;
   padding-top: 50px;
@@ -292,8 +294,8 @@ input:focus {
   box-shadow: 0 0 1rem -0.25rem;
 }
 
-.multi-button .liked:hover{
-    display: grid;
+.multi-button .liked:hover {
+  display: grid;
   place-items: center;
   position: absolute;
   width: 2rem;
