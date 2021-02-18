@@ -30,13 +30,12 @@ class MemeFeed extends React.Component {
       debugger;
 
       if (likes.includes(id)) {
-        
-        debugger
+        debugger;
 
         removeLike({
           id: currentUser.id,
           meme: id,
-        })
+        });
       } else {
         postLike({
           // handle: this.props.currentUser.handle,
@@ -78,14 +77,14 @@ class MemeFeed extends React.Component {
 
       debugger;
       return (
-        <div className={"meme-box"}>
+        <div key={i} className={"meme-box"}>
           <div className="multi-button">
             <button
               className={classTags}
               onClick={this.handleLike(id)}
             ></button>
           </div>
-          <Link key={i} to={`/memes/${id}`}>
+          <Link to={`/memes/${id}`}>
             <img src={src} className={"meme-meme"} />
           </Link>
         </div>

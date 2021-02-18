@@ -1,17 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 class UserShow extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { redirect: false };
 
     this.handleUnLike = this.handleUnLike.bind(this);
+    this.renderRedirect = this.renderRedirect.bind(this);
+    this.handleRedirect = this.handleRedirect.bind(this);
   }
 
   componentDidMount() {
-    if (!this.props.likes[0]) {
-      this.props.fetchLikes(this.props.currentUser.id);
-    }
+    this.props.fetchMemes();
+    this.props.fetchLikes(this.props.currentUser.id);
   }
 
   handleUnLike(id) {
@@ -24,10 +26,25 @@ class UserShow extends React.Component {
     };
   }
 
+  handleRedirect() {
+    debugger;
+    this.setState({ redirect: true });
+  }
+
+  renderRedirect = () => {
+    debugger;
+    if (this.state.redirect) {
+      return <Redirect to="/" />;
+    }
+  };
+
   render() {
     const { allMemes, likes } = this.props;
+    // const { likes } = this.state;
     let display2;
-    if (!likes[0]) return null;
+
+    debugger;
+    if (Object.keys(allMemes).length === 0) return null;
 
     debugger;
     const likedMemes = likes.map((id, i) => {
@@ -36,14 +53,14 @@ class UserShow extends React.Component {
       let classTags = "fas fa-heart liked";
 
       return (
-        <div className={"meme-box"}>
+        <div key={i} className={"meme-box"}>
           <div className="multi-button">
             <button
               className={classTags}
               onClick={this.handleUnLike(id)}
             ></button>
           </div>
-          <Link key={i} to={`/memes/${id}`}>
+          <Link to={`/memes/${id}`}>
             <img src={src} className={"meme-meme"} />
           </Link>
         </div>
@@ -51,9 +68,20 @@ class UserShow extends React.Component {
     });
 
     return (
-      <div className="outer-show">
-        <div className="inner-show">
-          <div className="memes-containers">{likedMemes}</div>
+      <div id="outer-show">
+        {this.renderRedirect()}
+        <div id="inner-show">
+          <div id="memes-container">{likedMemes}</div>
+          <div id="btf-container">
+            <button
+              className="logout-button"
+              id="back-to-feed"
+              onClick={() => this.handleRedirect()}
+              //   onClick={<Redirect to="/" />}
+            >
+              Return to Feed
+            </button>
+          </div>
         </div>
       </div>
     );

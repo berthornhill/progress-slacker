@@ -3,14 +3,14 @@ import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
 
 const LikesReducer = (state = [], action) => {
   Object.freeze(state);
-  debugger;
+  // debugger;
 
   switch (action.type) {
     case RECEIVE_LIKES:
-      debugger;
+      // debugger;
       return action.payload.data;
     case RECEIVE_CURRENT_USER:
-      debugger;
+      // debugger;
       return action.currentUser.likes;
     default:
       return state;
