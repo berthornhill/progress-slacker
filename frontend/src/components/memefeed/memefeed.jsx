@@ -13,12 +13,13 @@ class MemeFeed extends React.Component {
   }
 
   componentDidMount() {
-    const userId = this.props.currentUser.id;
-    debugger;
+    // debugger;
+    // const userId = this.props.currentUser.id;
+    // debugger;
     this.props.fetchMemes();
-
-    if (userId) {
-      this.props.fetchLikes(userId);
+    debugger;
+    if (this.props.currentUser) {
+      this.props.fetchLikes(this.props.currentUser.id);
     }
   }
 
@@ -54,19 +55,22 @@ class MemeFeed extends React.Component {
     let display2;
 
     if (tagsArr) {
+      debugger;
       display2 = tagsArr.memes;
     } else {
+      debugger;
       display2 = Object.keys(allMemes);
     }
 
     // all memes
     if (!display2) {
+      debugger;
       return null;
     }
     debugger;
     const featureMemes = display2.map((id, i) => {
       let src = allMemes[id].img;
-      debugger;
+      // debugger;
       let classTags;
 
       if (this.props.likes[0] && this.props.likes.includes(id)) {
@@ -75,7 +79,7 @@ class MemeFeed extends React.Component {
         classTags = "fas fa-heart";
       }
 
-      debugger;
+      // debugger;
       return (
         <div key={i} className={"meme-box"}>
           <div className="multi-button">
@@ -90,7 +94,7 @@ class MemeFeed extends React.Component {
         </div>
       );
     });
-
+    debugger;
     return (
       <div className="meme-content">
         <h1 className="catalog-header">Featured Memes</h1>

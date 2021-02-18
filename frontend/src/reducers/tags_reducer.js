@@ -7,7 +7,7 @@ import {
 
 const TagsReducer = (state = {}, action) => {
   Object.freeze(state);
-  // debugger;
+  debugger;
   const { payload } = action;
 
   switch (action.type) {
