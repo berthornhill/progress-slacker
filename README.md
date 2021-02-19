@@ -55,4 +55,4 @@ Project Slacker is built with the MERN Stack framework utizing `MongoDB`, `Expre
 
 ### Bert Hill: [GitHub](https://github.com/berthornhill), [LinkedIn](https://www.linkedin.com/in/bert-hill-0324b120/), [AngelList](https://angel.co/u/bert-hill-2)
 
-### Paul Stonebreaker: [GitHub](https://github.com/wpstonebraker), [LinkedIn](https://www.linkedin.com/in/paul-stonebraker-a8b034207/), [AngelList](https://angel.co/u/paul-stonebraker)
+### Paul Stonebraker: [GitHub](https://github.com/wpstonebraker), [LinkedIn](https://www.linkedin.com/in/paul-stonebraker-a8b034207/), [AngelList](https://angel.co/u/paul-stonebraker)
