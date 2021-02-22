@@ -7,7 +7,7 @@ import {
 
 const MemesReducer = (state = {}, action) => {
   Object.freeze(state);
-  // // debugger;
+  // // ;
   const { payload } = action;
 
   switch (action.type) {

@@ -13,7 +13,6 @@ class DashBoard extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
     this.props.fetchTags();
   }
 

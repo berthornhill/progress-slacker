@@ -14,7 +14,6 @@ class MemeFeed extends React.Component {
 
   componentDidMount() {
     const userId = this.props.currentUser.id;
-    debugger;
     this.props.fetchMemes();
 
     if (userId) {
@@ -27,12 +26,9 @@ class MemeFeed extends React.Component {
 
     return (e) => {
       e.preventDefault();
-      debugger;
 
       if (currentUser.id) {
         if (likes.includes(id)) {
-          debugger;
-
           removeLike({
             id: currentUser.id,
             meme: id,
@@ -50,7 +46,6 @@ class MemeFeed extends React.Component {
   }
 
   render() {
-    debugger;
     const allMemes = this.props.allMemes;
     let tagsArr = this.props.allTags[this.props.match.params.id];
     let display2;
@@ -65,10 +60,8 @@ class MemeFeed extends React.Component {
     if (!display2) {
       return null;
     }
-    debugger;
     const featureMemes = display2.map((id, i) => {
       let src = allMemes[id].img;
-      debugger;
       let classTags;
 
       if (this.props.likes[0] && this.props.likes.includes(id)) {
@@ -77,7 +70,6 @@ class MemeFeed extends React.Component {
         classTags = "fas fa-heart";
       }
 
-      debugger;
       return (
         <div key={i} className={"meme-box"}>
           <div className="multi-button">
@@ -104,23 +96,3 @@ class MemeFeed extends React.Component {
 }
 
 export default MemeFeed;
-
-//   componentDidMount() {
-// fetch("https://api.imgflip.com/get_memes")
-//   .then((response) => response.json())
-//   .then((response) => {
-//     const { memes } = response.data;
-//      ;
-//     this.setState({
-//       allMemes: memes,
-//     });
-//   });
-// }
-//     randomArr(arr) {
-//     for (var i = arr.length - 1; i > 0; i--) {
-//       let randomNum = Math.floor(Math.random() * (i + 1));
-//       [arr[i], arr[randomNum]] = [arr[randomNum], arr[i]];
-//     }
-
-//     return arr;
-//   }

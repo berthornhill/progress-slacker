@@ -27,12 +27,10 @@ class UserShow extends React.Component {
   }
 
   handleRedirect() {
-    debugger;
     this.setState({ redirect: true });
   }
 
   renderRedirect = () => {
-    debugger;
     if (this.state.redirect) {
       return <Redirect to="/" />;
     }
@@ -43,13 +41,10 @@ class UserShow extends React.Component {
     // const { likes } = this.state;
     let display2;
 
-    debugger;
     if (Object.keys(allMemes).length === 0) return null;
 
-    debugger;
     const likedMemes = likes.map((id, i) => {
       let src = allMemes[id].img;
-      debugger;
       let classTags = "fas fa-heart liked";
 
       return (
