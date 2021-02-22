@@ -29,19 +29,21 @@ class MemeFeed extends React.Component {
       e.preventDefault();
       debugger;
 
-      if (likes.includes(id)) {
-        debugger;
+      if (currentUser.id) {
+        if (likes.includes(id)) {
+          debugger;
 
-        removeLike({
-          id: currentUser.id,
-          meme: id,
-        });
-      } else {
-        postLike({
-          // handle: this.props.currentUser.handle,
-          id: currentUser.id,
-          meme: id,
-        });
+          removeLike({
+            id: currentUser.id,
+            meme: id,
+          });
+        } else {
+          postLike({
+            // handle: this.props.currentUser.handle,
+            id: currentUser.id,
+            meme: id,
+          });
+        }
       }
     };
     // this.props.currentUser

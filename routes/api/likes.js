@@ -10,13 +10,15 @@ const bodyParser = require("body-parser"); // json
 // takes in { user: id, meme: id}
 //  adds meme id to user's array of liked memes
 router.post("/", (req, res) => {
+  debugger;
   User.findByIdAndUpdate(
     { _id: req.body.id },
-    { $push: { likes: req.body.meme } },
+    { $addToSet: { likes: req.body.meme } },
     function (err, result) {}
   ).then((user) => {
     res.json(user.likes);
   });
+  debugger;
 });
 
 router.get("/:id", (req, res) => {
@@ -26,14 +28,14 @@ router.get("/:id", (req, res) => {
 });
 
 router.delete("/", (req, res) => {
-  debugger
+  debugger;
   User.findByIdAndUpdate(
     { _id: req.query.id },
     { $pull: { likes: req.query.meme } },
-    function (err, result) {},
+    function (err, result) {}
   ).then((user) => {
-    res.json(user.likes)
-  })
+    res.json(user.likes);
+  });
 });
 
 module.exports = router;
