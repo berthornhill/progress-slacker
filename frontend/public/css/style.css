@@ -184,7 +184,7 @@ input:focus {
 }
 
 .sidebar {
-  width: 300px;
+  width: 225px;
   height: 100%;
   /* background-color: #17183B; */
   position: fixed;
@@ -295,6 +295,10 @@ input:focus {
   transform: translate(-50%, -50%);
   transition: 0.25s cubic-bezier(0.25, 0, 0, 1);
 }
+
+/* .multi-button:hover{
+  z-index: 0;
+} */
 
 /* fas fa-heart */
 .multi-button button {
