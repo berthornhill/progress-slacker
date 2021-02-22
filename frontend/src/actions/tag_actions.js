@@ -38,9 +38,7 @@ const removeTag = (payload) => {
 // thunk actions to backend API
 export const fetchTags = () => {
   return (dispatch) => {
-    // // ;
     return APIUtil.getTags().then((tags) => {
-      // // ;
       return dispatch(receiveTags(tags));
       // .catch((err) => console.log(err));
     });

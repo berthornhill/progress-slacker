@@ -15,9 +15,9 @@ class MemeFeed extends React.Component {
   componentDidMount() {
     const userId = this.props.currentUser.id;
     this.props.fetchMemes();
-
-    if (userId) {
-      this.props.fetchLikes(userId);
+    debugger;
+    if (this.props.currentUser) {
+      this.props.fetchLikes(this.props.currentUser.id);
     }
   }
 
@@ -84,7 +84,7 @@ class MemeFeed extends React.Component {
         </div>
       );
     });
-
+    debugger;
     return (
       <div className="meme-content">
         <h1 className="catalog-header">Featured Memes</h1>
