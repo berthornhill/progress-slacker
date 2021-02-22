@@ -98,23 +98,3 @@ class MemeFeed extends React.Component {
 }
 
 export default MemeFeed;
-
-//   componentDidMount() {
-// fetch("https://api.imgflip.com/get_memes")
-//   .then((response) => response.json())
-//   .then((response) => {
-//     const { memes } = response.data;
-//      ;
-//     this.setState({
-//       allMemes: memes,
-//     });
-//   });
-// }
-//     randomArr(arr) {
-//     for (var i = arr.length - 1; i > 0; i--) {
-//       let randomNum = Math.floor(Math.random() * (i + 1));
-//       [arr[i], arr[randomNum]] = [arr[randomNum], arr[i]];
-//     }
-
-//     return arr;
-//   }

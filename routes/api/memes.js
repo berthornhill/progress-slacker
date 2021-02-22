@@ -71,7 +71,6 @@ router.post("/", upload.single("image"), (req, res, next) => {
     { $push: { memes: newMeme.id } },
     function (err, result) {}
   );
-
   newMeme.save().then((meme) => res.json(meme));
 });
 
