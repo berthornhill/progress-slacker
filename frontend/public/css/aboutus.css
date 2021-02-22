@@ -1,0 +1,123 @@
+.aboutUsMain {
+    background-color: #17183b;
+    height: 100%;
+    min-height: 100vh;
+    width: 100vw;
+    /* display: flex;
+    justify-content: center; 
+    vertical-align: center; */
+}
+
+.auHeader {
+    width: 100vw;
+    height: 50px;
+    padding-top: 8%;
+    font-size: 40px;
+    color: #fff;
+    background: transparent;
+    font-family: 'Merriweather', serif;
+    padding-left: 10%;
+    padding-bottom: 5%;
+    text-decoration: underline;
+    text-decoration-color: #FFBA08;
+    text-underline-position: under
+}
+
+.creators {
+    width: 72%;
+    min-width: 30%;
+    margin-left: 8%;
+    /* margin-right: 15%; */
+    /* background-color: red; */
+    display: flex;
+    justify-content: flex-start;
+}
+
+.aboutSingle1 {
+    width: 300px;
+    height: 450px;
+    /* background-color: rgba(46, 44, 44, 0.495); */
+    margin: 10px;
+    /* margin-left: 5%; */
+    /* margin-top: 10%; */
+    /* display: flex;
+    justify-content: center;
+    flex-wrap: wrap; */
+}
+
+.aboutSingle {
+    width: 300px;
+    height: 450px;
+    margin: 10px;
+    /* margin-left: 5%; */
+    /* display: flex;
+    justify-content: center;
+    flex-wrap: wrap; */
+}
+
+.creator-pic{
+    height: 300px;
+    width: 300px;
+    /* border-radius: 50%; */
+    /* margin-top: 5%; */
+}
+
+.creator-pic > img {
+    height: 300px;
+    width: 300px;
+    /* object-fit: contain; */
+    border-radius: 50%;
+}
+
+.creator-info {
+    width: 300px;
+    height: 100px;
+    margin-top: 10%;
+}
+
+.creatorname {
+    font-size: 20px;
+    font-size: 300;
+    font-family: 'Merriweather', serif;
+    color: #fff;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.pageLinks {
+    margin-top: 5%;
+    /* background-color: rgba(252, 252, 252, 0.31); */
+    width: 300px;
+    height: 50px;
+    display: flex;
+    justify-content: center
+}
+
+.github {
+    background: url('../img/github.svg');
+    background-size: cover;
+    background-repeat: none;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.linkedin {
+     background: url('../img/linkedin.png');
+     background-size: cover;
+     background-repeat: none;
+     width: 60px;
+     height: 60px;
+    cursor: pointer;
+}
+
+.angelList{
+    background: url('../img/angellist.png');
+    background-size: 100% 100%;
+    background-repeat: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin-top: 20%;
+}
+

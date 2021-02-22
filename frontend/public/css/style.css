@@ -134,13 +134,45 @@ input:focus {
   outline-style: none;
 }
 
+/* full page */
+
+.full-page {
+  height: 3000px;
+  width: 100vw;
+}
+
 /* dashboard */
 
 .main-page {
   width: 100vw;
   min-height: 100vh;
-  height: 100%;
-  background-color: #17183b;
+  height: 30%;
+  background-color: #17183B;
+  /* background: url('../img/vector-abstract-landscape-illustration.jpg');
+  background-size: cover;
+  background-repeat: none; */
+  display: flex;
+  align-items: center;
+}
+
+.animate__fadeInLeftBig{
+  margin-left: 10%;
+  margin-bottom: 15%;
+}
+
+.animate__fadeInLeftBig > div {
+  font-size: 60px;
+  margin-bottom: 5%;
+  color: #fff;
+  font-family: 'Merriweather', serif;
+}
+
+.squid {
+  height: 300px;
+  width: 600px;
+  background: url('../img/handsome.png');
+  background-size: 100% 100%;
+  background-repeat: none;
 }
 
 .main-content {
@@ -152,7 +184,7 @@ input:focus {
 }
 
 .sidebar {
-  width: 300px;
+  width: 225px;
   height: 100%;
   /* background-color: #17183B; */
   position: fixed;
@@ -264,6 +296,10 @@ input:focus {
   transition: 0.25s cubic-bezier(0.25, 0, 0, 1);
 }
 
+/* .multi-button:hover{
+  z-index: 0;
+} */
+
 /* fas fa-heart */
 .multi-button button {
   display: grid;
@@ -339,3 +375,12 @@ input:focus {
   width: 100%;
   height: 100%;
 }
+
+
+/* meme feed */
+
+/* .memes-main-content {
+  width: 100vw;
+  height: 30%;
+  background-color: red;
+} */
