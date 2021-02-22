@@ -27,7 +27,6 @@ const App = () => (
         <ProtectedRoute path="/template" component={FileUpload} />
         <ProtectedRoute path="/favorites" component={UserShow} />
         <Route path="/" component={Dashboard} />
-
         {/* <ProtectedRoute exact path="/create" component={CreateMemeContainer} /> */}
       </Switch>
     </div>

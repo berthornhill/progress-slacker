@@ -38,7 +38,7 @@ class MemeShow extends React.Component {
         <div className="meme-show-inner">
           <div>
             <img
-              src={this.props.meme}
+              src={this.props.meme.img}
               className="animate__animated animate__backInDown"
             />
           </div>
