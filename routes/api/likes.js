@@ -12,7 +12,7 @@ const bodyParser = require("body-parser"); // json
 router.post("/", (req, res) => {
   User.findByIdAndUpdate(
     { _id: req.body.id },
-    { $push: { likes: req.body.meme } },
+    { $addToSet: { likes: req.body.meme } },
     function (err, result) {}
   ).then((user) => {
     res.json(user.likes);
@@ -26,14 +26,13 @@ router.get("/:id", (req, res) => {
 });
 
 router.delete("/", (req, res) => {
-  debugger
   User.findByIdAndUpdate(
     { _id: req.query.id },
     { $pull: { likes: req.query.meme } },
-    function (err, result) {},
+    function (err, result) {}
   ).then((user) => {
-    res.json(user.likes)
-  })
+    res.json(user.likes);
+  });
 });
 
 module.exports = router;

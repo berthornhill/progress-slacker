@@ -8,7 +8,7 @@ import * as APIUtil from "../util/meme_api_util";
 export const FETCH_MEME = "FETCH_MEME";
 export const FETCH_MEMES = "FETCH_MEMES";
 export const CREATE_MEME = "CREATE_MEME";
-export const DELETE_MEME = "DELETE_MEME"
+export const DELETE_MEME = "DELETE_MEME";
 
 // reg actions to reducer
 const createMeme = (payload) => {
@@ -41,7 +41,6 @@ const removeMeme = (payload) => {
   };
 };
 
-
 // thunk actions to backend API
 export const fetchMemes = () => {
   return (dispatch) => {
@@ -53,7 +52,6 @@ export const fetchMemes = () => {
 };
 
 export const fetchMeme = (memeId) => {
-  debugger;
   return (dispatch) => {
     return APIUtil.getMeme(memeId).then((meme) => {
       return dispatch(receiveMeme(meme));

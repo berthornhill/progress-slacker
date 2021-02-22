@@ -40,7 +40,7 @@ router.get("/", (req, res) => {
 
 // GETs single meme by ID
 router.get("/:id", (req, res) => {
-  // debugger;
+  // ;
   Meme.findById(req.params.id).then((meme) => res.json(meme));
 });
 
@@ -53,7 +53,7 @@ router.get("/tags/tag", (req, res) => {
 
 // POSTS template to meme
 router.post("/", upload.single("image"), (req, res, next) => {
-  // debugger;
+  // ;
   var obj = {
     img: req.body.img,
     title: req.body.title,
@@ -66,13 +66,11 @@ router.post("/", upload.single("image"), (req, res, next) => {
   }
 
   const newMeme = new Meme(obj);
-  debugger;
   Tag.findOneAndUpdate(
     { title: req.body.tags },
     { $push: { memes: newMeme.id } },
     function (err, result) {}
   );
-  debugger;
 
   newMeme.save().then((meme) => res.json(meme));
 });

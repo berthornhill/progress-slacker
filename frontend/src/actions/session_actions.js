@@ -39,11 +39,6 @@ export const signup = (user) => {
         APIUtil.setAuthToken(token);
         const decoded = jwt_decode(token);
         dispatch(receiveCurrentUser(decoded));
-
-        // .then(
-        //   (user) => {
-        //     // debugger;
-        //     return dispatch(login(user));
       },
       (err) => {
         return dispatch(receiveErrors(err.response.data));

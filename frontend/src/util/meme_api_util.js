@@ -23,18 +23,15 @@ export const deleteMemeFromDb = (memeId) => {
 };
 
 export const postLike = (like) => {
-  debugger;
   return axios.post("/api/likes", like);
 };
 
 export const removeLike = (likeId) => {
-  debugger
-  return axios.delete("/api/likes", { params: likeId })
+  return axios.delete("/api/likes", { params: likeId });
   // return axios.post("/api/likes/delete", likeId)
 };
 
 export const fetchLikes = (userId) => {
-  debugger;
   return axios.get(`/api/likes/${userId}`);
   // return axios.get(`/api/likes`, userId);
 };

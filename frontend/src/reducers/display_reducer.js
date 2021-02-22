@@ -2,7 +2,7 @@ import { DISPLAY_TAGS } from "../actions/display_actions";
 import { FETCH_MEMES } from "../actions/meme_actions";
 
 const DisplayReducer = (state = [], action) => {
-  // debugger;
+  // ;
   Object.freeze(state);
   const { payload } = action;
   switch (action.type) {

@@ -35,8 +35,6 @@ class FileUpload extends React.Component {
   }
 
   updateValue(value) {
-    // debugger;
-    //  ;
     return (e) => {
       e.preventDefault();
       this.setState({ [value]: e.target.value });
@@ -44,17 +42,14 @@ class FileUpload extends React.Component {
   }
 
   render() {
-    // debugger;
     const imgStyle = {
       display: "none",
     };
 
     if (this.canvasRef) {
       const canvas = this.canvasRef;
-      // debugger;
       const image = this.imageRef;
       let ctx = this.canvasRef.getContext("2d");
-      // debugger;
       ctx.drawImage(
         image,
         0,
@@ -141,7 +136,6 @@ class FileUpload extends React.Component {
 
   handleFileSelect = (e) => {
     let urlArr = URL.createObjectURL(e.target.files[0]);
-    // debugger;
     this.setState({ previewUrl: urlArr });
 
     // console.log(e.target.files[0]);
@@ -149,15 +143,12 @@ class FileUpload extends React.Component {
 
   handleFileUpload(e) {
     e.preventDefault();
-    // debugger;
     if (this.state.title === "") {
       this.errorRef.current.className = "title-error";
       return null;
     }
-    // debugger;
 
     let meme = this.canvasRef.toDataURL("image/jpeg", 0.5);
-    // debugger;
 
     let tags = this.state.category;
     let title = this.state.title;
@@ -195,7 +186,6 @@ class FileUpload extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    // debugger;
     if (this.state.previewUrl !== prevState.previewUrl) {
       this.setState({ previewUrl: this.state.previewUrl });
     }

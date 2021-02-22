@@ -5,7 +5,6 @@ import { _arrayBufferToBase64 } from "../../util/image_util";
 import { fetchTemplate, fetchTemplates } from "../../actions/template_actions";
 
 const mSTP = (state) => {
-  // debugger;
   return {
     memes: state.entities.templates,
     templates: state.entities.templates,

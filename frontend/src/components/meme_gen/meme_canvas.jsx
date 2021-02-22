@@ -4,7 +4,6 @@ import { Redirect } from "react-router-dom";
 
 class MemeCanvas extends React.Component {
   constructor(props) {
-    // debugger;
     super(props);
     //text input to null
     this.state = {
@@ -53,16 +52,16 @@ class MemeCanvas extends React.Component {
 
   handleSelect(i) {
     this.setState({ selected: i });
-    // debugger;
+    // ;
     // let pic = document.getElementById("grumpy").src = `${
     //   Object.values(this.props.memes)[this.state.selected].img
     // }`;
     let pic = document.getElementById("grumpy");
-    // debugger;
+    // ;
     let imgurl = Object.values(this.props.memes)[i].img;
-    // debugger;
+    // ;
     pic.src = imgurl;
-    // debugger;
+    // ;
   }
 
   updateValue(value) {
@@ -74,7 +73,7 @@ class MemeCanvas extends React.Component {
   }
 
   getImage() {
-    // // debugger;
+    // // ;
     // this.props.fetchMeme("601b7e9d6179d448b2350485").then((image) => {
     //   let buffer = image.meme.data.img.data.data;
     // let img = this._arrayBufferToBase64(buffer);
@@ -104,34 +103,33 @@ class MemeCanvas extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    debugger;
     if (this.state.title === "") {
       this.errorRef.current.className = "title-error";
       return null;
     }
 
     let image = this.renderImage();
-    // debugger;
+    // ;
   }
 
   renderImage() {
     let meme = this.canvasRef.toDataURL("image/jpeg", 0.5);
     let title = this.state.title;
     let tags = this.state.category;
-    // debugger;
+    // ;
     this.props.postMeme({ title: title, img: meme, tags: tags }).then(() => {
       this.setState({ redirect: true });
     });
   }
 
   componentDidMount() {
-    // debugger;
+    // ;
 
     // this.props.fetchMeme("601c3997765dd88b1c406f1d");
     // this.props.fetchTemplate("601c58fe00fa3dd36b44a7b9");
     this.props.fetchTemplates();
 
-    // debugger;
+    // ;
     const canvas = this.canvasRef;
     //  ;
     const ctx = canvas.getContext("2d");
@@ -150,7 +148,7 @@ class MemeCanvas extends React.Component {
     //     canvas.height
     //   );
     // };
-    // debugger;
+    // ;
 
     // fetch("https://api.imgflip.com/get_memes")
     //   .then((response) => response.json())
@@ -176,12 +174,12 @@ class MemeCanvas extends React.Component {
   };
 
   render() {
-    // debugger;
+    // ;
     // if (Object.keys(this.props.memes).length === 0) return null;
     let imageUrl = "";
     //only after initial render of canvas and image:
     if (this.canvasRef) {
-      // debugger;
+      // ;
       if (Object.values(this.props.memes)[0]) {
         // imageUrl = this.props._arrayBufferToBase64(
         //   Object.values(this.props.memes)[0].data
@@ -194,7 +192,7 @@ class MemeCanvas extends React.Component {
       //  ;
       const canvas = this.canvasRef;
       // //  ;
-      // debugger;
+      // ;
       const image = this.imageRef;
       let ctx = this.canvasRef.getContext("2d");
       ctx.drawImage(
@@ -236,7 +234,7 @@ class MemeCanvas extends React.Component {
 
     const allMemes = Object.values(this.props.templates);
 
-    // debugger;
+    // ;
     let boxCount = [];
 
     // const boxMemes = allMemes.map((meme) => {

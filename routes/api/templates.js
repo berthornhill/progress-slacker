@@ -56,7 +56,7 @@ router.post("/", upload.single("image"), (req, res, next) => {
   //   },
   //   title: req.body.title,
   // };
-  // debugger;
+  // ;
   var obj = {
     img: req.body.img,
     title: req.body.title,

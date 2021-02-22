@@ -11,11 +11,9 @@ class MemeShow extends React.Component {
 
     this.handleDelete = this.handleDelete.bind(this);
     this.renderRedirect = this.renderRedirect.bind(this);
-    debugger
   }
 
   componentDidMount() {
-    debugger;
     this.props.fetchMeme(this.props.match.params.id);
   }
 
@@ -32,32 +30,41 @@ class MemeShow extends React.Component {
   }
 
   render() {
-    debugger;
-
     if (!this.props.meme) return null;
 
-    debugger;
     return (
       <div className="meme-show-outer">
         {this.renderRedirect()}
         <div className="meme-show-inner">
           <div>
-            <img src={this.props.meme} className="animate__animated animate__backInDown" />
+            <img
+              src={this.props.meme}
+              className="animate__animated animate__backInDown"
+            />
           </div>
         </div>
-          <div className="meme-info-holder">
-            <Link to='/' className="far fa-arrow-alt-circle-left" onClick={() => this.renderRedirect()}></Link>
-            <div className="info-meme">
-              <h1>Welcome To Your Meme</h1>
-              <ul>
-                <li>Click arrow to take out main</li>
-                <li>Click on plus to create your own Meme!</li>
-              </ul>
-              <i className="fas fa-trash-alt"></i>
-              <button onClick={() => this.handleDelete()} className='delete-button-show'>DELETE</button>
-            </div>
-            <Link to='/creatememes' class="far fa-plus-square"></Link>
+        <div className="meme-info-holder">
+          <Link
+            to="/"
+            className="far fa-arrow-alt-circle-left"
+            onClick={() => this.renderRedirect()}
+          ></Link>
+          <div className="info-meme">
+            <h1>Welcome To Your Meme</h1>
+            <ul>
+              <li>Click arrow to take out main</li>
+              <li>Click on plus to create your own Meme!</li>
+            </ul>
+            <i className="fas fa-trash-alt"></i>
+            <button
+              onClick={() => this.handleDelete()}
+              className="delete-button-show"
+            >
+              DELETE
+            </button>
           </div>
+          <Link to="/creatememes" class="far fa-plus-square"></Link>
+        </div>
       </div>
     );
   }

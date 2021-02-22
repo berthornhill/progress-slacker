@@ -23,7 +23,7 @@ class SideBar extends React.Component {
   }
 
   handleClick(tag) {
-    // debugger;
+    // ;
     this.props.displayTags(tag);
     // };
     //   //passess array of tagged memes ids to memefeed
@@ -33,7 +33,7 @@ class SideBar extends React.Component {
     const { tags, tagIds } = this.props;
 
     const displayTags = Object.values(tags).map((tag, i) => {
-      // debugger;
+      // ;
       return (
         <li
           key={i}
