@@ -40,8 +40,9 @@ router.get("/", (req, res) => {
 
 // GETs single meme by ID
 router.get("/:id", (req, res) => {
-  // ;
-  Meme.findById(req.params.id).then((meme) => res.json(meme));
+  Meme.findById(req.params.id).then((meme) => {
+    return res.json(meme);
+  });
 });
 
 // GETs meme(s) by tag

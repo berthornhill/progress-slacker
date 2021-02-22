@@ -10,6 +10,7 @@ export const getMemes = () => {
 // grabs single meme to view (READ)
 export const getMeme = (memeId) => {
   return axios.get(`/api/memes/${memeId}`);
+  // return axios.get(`/api/memes/banana`);
 };
 
 // post meme into db (CREATE)
