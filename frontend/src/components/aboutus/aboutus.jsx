@@ -19,7 +19,7 @@ class AboutUs extends React.Component {
                                 <img src="./img/bert.jpeg" alt=""/>
                             </div>
                             <div className="creator-info">
-                                <h2 className="creatorname">Robert Hill</h2>
+                                <h2 className="creatorname">Bert Hill</h2>
                                 <div className="pageLinks">
                                         <a href="https://github.com/berthornhill">
                                             <div className="github"></div>
@@ -57,7 +57,7 @@ class AboutUs extends React.Component {
                                 <img src="./img/paul.jpg" alt=""/>
                             </div>
                             <div className="creator-info">
-                                <h2 className="creatorname">Paul Stonebreaker</h2>
+                                <h2 className="creatorname">Paul Stonebraker</h2>
                                 <div className="pageLinks">                               
                                     <a href="https://github.com/wpstonebraker">
                                         <div className="github"></div>
