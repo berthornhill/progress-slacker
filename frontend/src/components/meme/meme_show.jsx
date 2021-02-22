@@ -63,7 +63,7 @@ class MemeShow extends React.Component {
               DELETE
             </button>
           </div>
-          <Link to="/creatememes" class="far fa-plus-square"></Link>
+          <Link to="/creatememes" className="far fa-plus-square"></Link>
         </div>
       </div>
     );

@@ -41,7 +41,7 @@ class NavBar extends React.Component {
               Create Meme
             </Link>
             <Link to="/aboutus" className="aboutus-button">
-              <i class="fas fa-address-card"></i>
+              <i className="fas fa-address-card"></i>
             </Link>
             <button onClick={this.logoutUser} className="logout-button">
               Logout
@@ -73,7 +73,7 @@ class NavBar extends React.Component {
               Create Meme
             </Link>
             <Link to="/aboutus" className="aboutus-button">
-              <i class="fas fa-address-card"></i>
+              <i className="fas fa-address-card"></i>
             </Link>
           </div>
           <div className="extra-space-nav"></div>
