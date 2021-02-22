@@ -26,52 +26,63 @@ class NavBar extends React.Component {
     if (this.props.loggedIn) {
       return (
         <div className="navbar-main">
-          <div className="navbar-functions">
-            <img src="img/logo2.png" alt="" className="logo-nav" />
+            <img src="./img/LOGOreal.png" alt="" className="logo-nav" />
             <Link to="/" className="name-logo">
               Progress Slacker
             </Link>
-            {/* <Link to={"/"}>Dashboard</Link> */}
-            {/* <Link to={"/profile"}>Profile</Link> */}
-            <Link to="/creatememes" className="create-meme-button">
-              Create Meme
-            </Link>
-            <button onClick={this.logoutUser} className="logout-button">
-              Logout
-            </button>
-            <Link to="/template" className="upload-file">
-              Upload
-            </Link>
-            <Link to="favorites" className="upload-file">
-              Favorites
-            </Link>
-          </div>
+            <div className="navbar-functions">
+              {/* <Link to={"/"}>Dashboard</Link> */}
+              {/* <Link to={"/profile"}>Profile</Link> */}
+              <Link to="favorites" className="upload-file">
+                Favorites
+              </Link>
+              <Link to="/template" className="upload-file">
+                Upload
+              </Link>
+              <Link to="/creatememes" className="create-meme-button2">
+                Create Meme
+              </Link>
+              <Link to="/aboutus" className="aboutus-button">
+                <i class="fas fa-address-card"></i>
+              </Link>
+              <button onClick={this.logoutUser} className="logout-button">
+                Logout
+              </button>
+            </div>
+            <div className="extra-space-nav">
+            
+            </div>
         </div>
       );
     } else {
       return (
         <div className="navbar-main">
-          <div className="navbar-functions">
-            <img src="img/logo2.png" alt="" className="logo-nav" />
+            <img src="./img/LOGOreal.png" alt="" className="logo-nav" />
             <Link to="/" className="name-logo">
               Progress Slacker
             </Link>
-
-            <Link to="/signup" className="create-meme-button">
-              Create Meme
-            </Link>
-            <button className="demo-user-login" onClick={this.handleDemoSubmit}>
-              Demo
-            </button>
-            <Link to="/login" className="log-in-button">
-              <i className="fas fa-user-astronaut"></i>
-              Log In
-            </Link>
-            <Link to="/signup" className="log-in-button">
-              <i className="fas fa-smile"></i>
-              Sign Up
-            </Link>
-          </div>
+          <div className="navbar-functions">
+              <button className="demo-user-login" onClick={this.handleDemoSubmit}>
+                Demo
+              </button>
+              <Link to="/login" className="log-in-button">
+                {/* <i className="fas fa-user-astronaut"></i> */}
+                Log In
+              </Link>
+              <Link to="/signup" className="log-in-button">
+                {/* <i className="fas fa-smile"></i> */}
+                Sign Up
+              </Link>
+              <Link to="/signup" className="create-meme-button">
+                Create Meme
+              </Link>
+              <Link to="/aboutus" className="aboutus-button">
+                <i class="fas fa-address-card"></i>
+              </Link>
+            </div>
+            <div className="extra-space-nav">
+              
+            </div>
         </div>
       );
     }

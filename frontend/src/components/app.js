@@ -11,16 +11,17 @@ import Navbar from "./navbar/navbar_container";
 import FileUpload from "./file_upload/file_upload";
 import MemeShow from "./meme/meme_show_container";
 import UserShow from "./user_show/user_show_container";
+import AboutUs from "./aboutus/aboutus_container";
 
 const App = () => (
   // <div>dashboard</div>
   <div className="entire-window">
     <Navbar />
-
     <div>
       <Switch>
         <AuthRoute path="/login" component={LoginFormContainer} />
         <AuthRoute path="/signup" component={SignupFormContainer} />
+        <Route path="/aboutus" component={AboutUs} />
         <Route path="/memes/:id" component={MemeShow} />
         <ProtectedRoute path="/creatememes" component={MemeCanvas} />
         <ProtectedRoute path="/template" component={FileUpload} />
