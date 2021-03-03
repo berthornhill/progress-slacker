@@ -116,10 +116,13 @@ class MemeCanvas extends React.Component {
     let meme = this.canvasRef.toDataURL("image/jpeg", 0.5);
     let title = this.state.title;
     let tags = this.state.category;
+    let creatorId = this.props.currentUser
     // ;
-    this.props.postMeme({ title: title, img: meme, tags: tags }).then(() => {
-      this.setState({ redirect: true });
-    });
+    this.props
+      .postMeme({ title: title, img: meme, tags: tags, creatorId: creatorId })
+      .then(() => {
+        this.setState({ redirect: true })
+      })
   }
 
   componentDidMount() {

@@ -9,6 +9,8 @@ const MemesReducer = (state = {}, action) => {
   Object.freeze(state);
   const { payload } = action;
 
+  debugger
+  
   switch (action.type) {
     case FETCH_MEMES:
       let newerState = {};

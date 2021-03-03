@@ -34,13 +34,17 @@ var upload = multer({ storage: storage });
 router.get("/", (req, res) => {
   Meme.find()
     .sort({ created: -1 })
-    .then((memes) => res.json(memes))
-    .catch((err) => res.status(400).json(err));
+    .then((memes) => {
+      debugger
+      return res.json(memes)
+    })
+    .catch((err) => res.status(400).json(err))
 });
 
 // GETs single meme by ID
 router.get("/:id", (req, res) => {
   Meme.findById(req.params.id).then((meme) => {
+    debugger
     return res.json(meme);
   });
 });
@@ -54,12 +58,13 @@ router.get("/tags/tag", (req, res) => {
 
 // POSTS template to meme
 router.post("/", upload.single("image"), (req, res, next) => {
-  // ;
+  debugger
   var obj = {
     img: req.body.img,
     title: req.body.title,
     tags: req.body.tags,
-  };
+    creatorId: req.body.creatorId,
+  }
   const { errors, isValid } = validateMeme(req.body);
 
   if (!isValid) {

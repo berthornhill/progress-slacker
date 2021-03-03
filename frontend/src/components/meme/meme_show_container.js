@@ -4,8 +4,9 @@ import MemeShow from "./meme_show";
 
 const mSTP = (state, ownProps) => {
   return {
+    currentUser: state.session.user.id,
     meme: state.entities.memes[ownProps.match.params.id],
-  };
+  }
 };
 
 const mDTP = (dispatch) => {

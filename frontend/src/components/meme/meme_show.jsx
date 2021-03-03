@@ -31,6 +31,20 @@ class MemeShow extends React.Component {
 
   render() {
     if (!this.props.meme) return null;
+    const creatorId = this.props.meme.creatorId || null
+    
+    const deleteButton = (
+      <div>
+        <i className="fas fa-trash-alt"></i>
+        <button
+          onClick={() => this.handleDelete()}
+          className="delete-button-show "
+        >
+          DELETE
+        </button>
+      </div>
+    )
+    debugger
 
     return (
       <div className="meme-show-outer">
@@ -55,18 +69,15 @@ class MemeShow extends React.Component {
               <li>Click arrow to take out main</li>
               <li>Click on plus to create your own Meme!</li>
             </ul>
-            <i className="fas fa-trash-alt"></i>
-            <button
-              onClick={() => this.handleDelete()}
-              className="delete-button-show"
-            >
-              DELETE
-            </button>
+            
+            {this.props.currentUser === creatorId 
+              ? deleteButton
+              : ""}
           </div>
           <Link to="/creatememes" className="far fa-plus-square"></Link>
         </div>
       </div>
-    );
+    )
   }
 }
 

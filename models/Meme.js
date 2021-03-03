@@ -18,7 +18,11 @@ const MemeSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-});
+  creatorId: {
+    type: String,
+    required: true,
+  },
+})
 
 const Meme = mongoose.model("Memes", MemeSchema);
 module.exports = Meme;
