@@ -44,6 +44,10 @@ class UserShow extends React.Component {
     if (Object.keys(allMemes).length === 0) return null;
 
     const likedMemes = likes.map((id, i) => {
+      debugger
+      if (!allMemes[id]) {
+        return null
+      } 
       let src = allMemes[id].img;
       let classTags = "fas fa-heart liked";
 
